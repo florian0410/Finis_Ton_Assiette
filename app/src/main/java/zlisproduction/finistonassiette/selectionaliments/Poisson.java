@@ -35,7 +35,7 @@ public class Poisson extends AppCompatActivity{
             "thon en boite",
             "truite"};
 
-    // image associée aux aliments : j'utilise une icône psk j'ai rien d'autre pour l'instant et c'est la même pour tous les produits
+    // image associï¿½e aux aliments : j'utilise une icï¿½ne psk j'ai rien d'autre pour l'instant et c'est la mï¿½me pour tous les produits
     private int imageAliment= R.mipmap.ic_launcher;
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
@@ -48,7 +48,6 @@ public class Poisson extends AppCompatActivity{
         arrayListAliments = Aliment.alimentsArraylist(nomAliments);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
-
 
 
 }

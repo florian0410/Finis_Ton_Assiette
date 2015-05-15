@@ -3,17 +3,27 @@ package zlisproduction.finistonassiette.selectionaliments;
 import java.util.ArrayList;
 
 /**
- * Created by Florian on 15/05/2015.
+ * Created by Thibaut on 15/05/2015.
+ * retourne un ArrayList contenant les objets Aliments
  */
 public class ListeAliment {
 
+    private static ArrayList<Aliment> aliments;
 
-    public ArrayList <Aliment> static alimentsArraylist (ArrayList<Aliment> parraylist)
+    /**
+     *  retourne un ArrayList contenant les objets Aliments
+     * @param pListeAliments
+     * @param pImage
+     * @return ArrayList <Aliment>
+     */
+public static ArrayList <Aliment>  alimentsArraylist (String[] pListeAliments, int[] pImage)
     {
-        int size=parraylist.size();
+        int size=pListeAliments.length;
         for (int i=0; i<size; i++){
-
+            Aliment alim = new Aliment(pImage[i],pListeAliments[i]);
+            aliments.add(alim);
         }
+        return aliments;
     }
 
 
