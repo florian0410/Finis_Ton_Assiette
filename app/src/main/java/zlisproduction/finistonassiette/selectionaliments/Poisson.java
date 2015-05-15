@@ -44,8 +44,9 @@ public class Poisson extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
-
-
+        lv = (GridView) findViewById(R.id.ListViewAliment);
+        arrayListAliments = Aliment.alimentsArraylist(nomAliments);
+        lv.setAdapter(new Adapter(arrayListAliments,context));
     }
 
 
