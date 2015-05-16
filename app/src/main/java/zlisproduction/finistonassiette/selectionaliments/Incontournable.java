@@ -28,30 +28,30 @@ public class Incontournable extends AppCompatActivity{
         Création de la Hashmap hashMapIncontournable
          */
 
-        hashMapIncontournable.put("ail", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("beurre, margarine", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("chocolat", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("crème fraîche", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("eau", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("farine de blé", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("gruyère, emmental", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("huile d'olive", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("huile de tournesol", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("lait", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("miel", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("oeuf(s)", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("oignons", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("pâte brisée", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("pâte feuilletée", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("pâtes", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("poivre", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("pomme(s) de terre", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("riz blanc", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("sel", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("sucre", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("tomate(s)", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("vinaigre balsamique", R.mipmap.ic_launcher);
-        hashMapIncontournable.put("yaourt nature", R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Ail), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Beurre_margarine), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Chocolat), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Crème_fraiche), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Eau), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Farine_de_blé), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Gruyére_emmental), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Huile_d_olive), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Huile_de_tournesol), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Lait), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Miel), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Oeuf), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Oignon), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Pâte_brisée), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Pâte_feuilletée), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Pâtes), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Poivre), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Pomme_de_terre), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Riz_blanc), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Sel), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Sucre), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Tomate), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.mipmap.ic_launcher);
+        hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.mipmap.ic_launcher);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
         lv.setAdapter(new Adapter(arrayListAliments,context));

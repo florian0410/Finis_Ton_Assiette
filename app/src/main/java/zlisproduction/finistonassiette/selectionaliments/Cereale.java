@@ -30,15 +30,15 @@ public class Cereale extends Activity {
         /*
         Création de la HashMap poisson
          */
-        hashMapCereales.put("blé", R.mipmap.ic_launcher);
-        hashMapCereales.put("boulghour", R.mipmap.ic_launcher);
-        hashMapCereales.put( "farine de froment",R.mipmap.ic_launcher);
-        hashMapCereales.put("lasagnes",R.mipmap.ic_launcher);
-        hashMapCereales.put("müesli",R.mipmap.ic_launcher);
-        hashMapCereales.put("pâtes de riz",R.mipmap.ic_launcher);
-        hashMapCereales.put("quinoa",R.mipmap.ic_launcher);
-        hashMapCereales.put("riz complet",R.mipmap.ic_launcher);
-        hashMapCereales.put("sarrazin",R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Blé), R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Boulghour), R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Farine_de_froment),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Lasagnes),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Müesli),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Pâtes_de_riz),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Quinoa),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Riz_complet),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Sarrasin),R.mipmap.ic_launcher);
 
         //layout de l'activité
         lv = (GridView) findViewById(R.id.ListViewAliment);

@@ -23,28 +23,28 @@ public class Poisson extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState){
         // Remplissage de la HashMap associant le nom de l'aliment (clé) et son image (objet renvoyé par clé)
-        HashPoisson.put("Cabillaud",R.mipmap.ic_launcher);
-        HashPoisson.put("Calamars",R.mipmap.ic_launcher);
-        HashPoisson.put("Colin",R.mipmap.ic_launcher);
-        HashPoisson.put("Crevettes",R.mipmap.ic_launcher);
-        HashPoisson.put("Daurade",R.mipmap.ic_launcher);
-        HashPoisson.put("Flétan",R.mipmap.ic_launcher);
-        HashPoisson.put("Gambas",R.mipmap.ic_launcher);
-        HashPoisson.put("Haddock",R.mipmap.ic_launcher);
-        HashPoisson.put("Hareng",R.mipmap.ic_launcher);
-        HashPoisson.put("Lieu",R.mipmap.ic_launcher);
-        HashPoisson.put("Maquerau",R.mipmap.ic_launcher);
-        HashPoisson.put("Merlu",R.mipmap.ic_launcher);
-        HashPoisson.put("Moules",R.mipmap.ic_launcher);
-        HashPoisson.put("Oeufs de lump",R.mipmap.ic_launcher);
-        HashPoisson.put("Saint Jacques",R.mipmap.ic_launcher);
-        HashPoisson.put("Sardines",R.mipmap.ic_launcher);
-        HashPoisson.put("Saumon",R.mipmap.ic_launcher);
-        HashPoisson.put("Saumon fumé",R.mipmap.ic_launcher);
-        HashPoisson.put("Sole",R.mipmap.ic_launcher);
-        HashPoisson.put("Surimi",R.mipmap.ic_launcher);
-        HashPoisson.put("Thon en boite",R.mipmap.ic_launcher);
-        HashPoisson.put("Truite",R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Cabillaud),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Calamars),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Colin),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Crevettes),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Daurade),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Flétan),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Gambas),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Haddock),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Hareng),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Lieu),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Maquerau),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Merlu),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Moules),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Oeufs_de_lump),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Saint_Jacques),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Sardines),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Saumon),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Saumon_fumé),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Sole),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Surimi),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Thon_en_boite),R.mipmap.ic_launcher);
+        HashPoisson.put(getString(R.string.Truite),R.mipmap.ic_launcher);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);

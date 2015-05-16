@@ -26,7 +26,7 @@ public class Farine extends AppCompatActivity{
         /*
         Construction de la HashMap hashMapFarine
          */
-        hashMapFarine.put("farine de blé", R.mipmap.ic_launcher);
+        hashMapFarine.put(getString(R.string.Farine_de_blé), R.mipmap.ic_launcher);
         lv = (GridView) findViewById(R.id.ListViewAliment);
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
         lv.setAdapter(new Adapter(arrayListAliments,context));
