@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import zlisproduction.finistonassiette.R;
 
@@ -13,13 +14,8 @@ import zlisproduction.finistonassiette.R;
  * Created by Florian on 15/05/2015.
  */
 public class Farine extends AppCompatActivity{
-    private  final String[] nomAliments = {"farine de blé"};
 
-    // image associï¿½e aux aliments : j'utilise une icï¿½ne psk j'ai rien d'autre pour l'instant et c'est la mï¿½me pour tous les produits
-    private final int[] imageAliment= {R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-
-    };
+    private HashMap<String,Integer> hashMapFarine = new HashMap<String,Integer>();
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Farine.this;
@@ -27,8 +23,12 @@ public class Farine extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
+        /*
+        Construction de la HashMap hashMapFarine
+         */
+        hashMapFarine.put("farine de blé", R.mipmap.ic_launcher);
         lv = (GridView) findViewById(R.id.ListViewAliment);
-        arrayListAliments = ListeAliment.alimentsArraylist(nomAliments,imageAliment);
+        arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
 }
