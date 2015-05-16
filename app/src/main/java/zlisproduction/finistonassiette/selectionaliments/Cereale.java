@@ -1,5 +1,6 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Cereale extends AppCompatActivity {
+public class Cereale extends Activity {
 
     private  HashMap <String, Integer> hashMapCereales= new HashMap <String, Integer>();
     private ArrayList<Aliment> arrayListAliments;
