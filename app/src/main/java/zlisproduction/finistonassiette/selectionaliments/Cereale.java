@@ -23,6 +23,8 @@ public class Cereale extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Cereale.this;
+    private ArrayList<Aliment> alimentsSelectionnes= new ArrayList<Aliment>();
+
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -42,17 +44,36 @@ public class Cereale extends Activity {
 
         //layout de l'activité
         lv = (GridView) findViewById(R.id.ListViewAliment);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                view.setAlpha(75);
-                view.setBackgroundColor(Color.GRAY);
-            }
-        });
         //fabrication de l'objet aliment
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapCereales);
         //mis en page
         lv.setAdapter(new Adapter(arrayListAliments,context));
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+          @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Aliment alim = arrayListAliments.get(position);
+                if(alim.isClicked()==false){
+                    view.setBackgroundColor(Color.GRAY);
+                    alimentsSelectionnes.add(alim);
+                    alim.setIsClicked(true);
+                }
+                else{
+
+                    arrayListAliments.remove(position);
+                    view.setBackgroundColor(Color.RED);
+                    alim.setIsClicked(false);
+
+                }
+            }
+        });
+
+
+
+
     }
+
+
 
 }
