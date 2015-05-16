@@ -10,10 +10,15 @@ import java.util.Iterator;
  */
 public class ListeAliment {
 
+
+    private static HashMap<String,Integer> objetsAliments;
     private static ArrayList<Aliment> aliments;
 
+    public static HashMap<String,Integer> tableToHashMap(){
+        objetsAliments.put("avion",5)
+    }
     /**
-     *  retourne un ArrayList contenant les objets Aliments
+     *  Création des objets aliments et stockage dans un ArrayList
      * @param pListeAliments
      * @return ArrayList <Aliment>
      */

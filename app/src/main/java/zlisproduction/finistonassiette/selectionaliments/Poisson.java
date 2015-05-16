@@ -14,8 +14,8 @@ import zlisproduction.finistonassiette.R;
  * Created by Florian on 15/05/2015.
  */
 public class Poisson extends AppCompatActivity{
-    // HashMap stockant
-    HashMap<String, Integer> HashPoisson = new HashMap<String, Integer>();
+
+    private final  HashMap<String, Integer> HashPoisson = new HashMap<String, Integer>();
 
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
