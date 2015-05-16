@@ -36,6 +36,7 @@ public class Cereale extends Activity {
         hashMapCereales.put("quinoa",R.mipmap.ic_launcher);
         hashMapCereales.put("riz complet",R.mipmap.ic_launcher);
         hashMapCereales.put("sarrazin",R.mipmap.ic_launcher);
+
         //layout de l'activité
         lv = (GridView) findViewById(R.id.ListViewAliment);
         //fabrication de l'objet aliment

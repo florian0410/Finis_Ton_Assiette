@@ -12,7 +12,7 @@ public class ListeAliment {
 
 
     private static HashMap<String,Integer> objetsAliments;
-    private static ArrayList<Aliment> aliments;
+    private static ArrayList<Aliment>  aliments = new ArrayList<Aliment>();
 
     /**
      *  Création des objets aliments et stockage dans un ArrayList
