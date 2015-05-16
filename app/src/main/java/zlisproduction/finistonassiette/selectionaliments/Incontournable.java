@@ -53,11 +53,6 @@ public class Incontournable extends AppCompatActivity{
         hashMapIncontournable.put("vinaigre balsamique", R.mipmap.ic_launcher);
         hashMapIncontournable.put("yaourt nature", R.mipmap.ic_launcher);
 
-
-
-
-
-
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
