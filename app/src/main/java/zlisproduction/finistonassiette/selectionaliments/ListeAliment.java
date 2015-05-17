@@ -28,6 +28,7 @@ public static ArrayList <Aliment>  alimentsArraylist (HashMap<String, Integer> p
         }
         return aliments;
             */
+        aliments.clear();
         Iterator<String> keySetIterator = pListeAliments.keySet().iterator();
 
         while(keySetIterator.hasNext()){

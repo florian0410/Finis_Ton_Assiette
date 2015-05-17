@@ -1,8 +1,11 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -13,7 +16,7 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Fruit extends AppCompatActivity {
+public class Fruit extends Activity {
 
     private HashMap<String, Integer> hashMapFruit= new  HashMap<String, Integer>();
     // image associï¿½e aux aliments : j'utilise une icï¿½ne psk j'ai rien d'autre pour l'instant et c'est la mï¿½me pour tous les produits
@@ -21,10 +24,18 @@ public class Fruit extends AppCompatActivity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Fruit.this;
+    private Button boutonfin;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
+        boutonfin=(Button)findViewById(R.id.finselection);
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         lv = (GridView) findViewById(R.id.ListViewAliment);
         /*
         Création de la Hashmap hashMapFruit

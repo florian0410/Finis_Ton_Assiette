@@ -13,7 +13,7 @@
         android:id="@+id/incontournable"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp"/>
+        android:elevation="45dp"/>
     <Button
         android:text="Pates, farine et céréales"
         android:id="@+id/PatesFarinesCereales"

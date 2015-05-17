@@ -33,15 +33,18 @@ import zlisproduction.finistonassiette.R;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal_layout);
         /*
-        Désérialisation des boutons
+        Désérialisation des boutons et définition de l'écouteur
          */
         incontournables=(Button)findViewById(R.id.incontournable);
         incontournables.setOnClickListener(this);
         patesFarinesCereales=(Button)findViewById(R.id.PatesFarinesCereales);
         patesFarinesCereales.setOnClickListener(this);
         viandePoissons=(Button)findViewById(R.id.viandePoissons);
+        viandePoissons.setOnClickListener(this);
         produitsLaitiers=(Button)findViewById(R.id.produitsLaitiers);
+        produitsLaitiers.setOnClickListener(this);
         fruitlegumes=(Button)findViewById((R.id.fruitlegumes));
+        fruitlegumes.setOnClickListener(this);
 
 
     }
@@ -50,6 +53,9 @@ import zlisproduction.finistonassiette.R;
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.incontournable:
+                Intent activiteIncontournable= new Intent (MenuPrincipal.this,Incontournable.class);
+                startActivity(activiteIncontournable);
+
 
                 break;
             case R.id.PatesFarinesCereales:
@@ -60,11 +66,19 @@ import zlisproduction.finistonassiette.R;
                 break;
             case R.id.viandePoissons:
 
+                Intent activiteviandepoisson= new Intent(MenuPrincipal.this,ViandePoisson.class);
+                startActivity(activiteviandepoisson);
+
                 break;
             case R.id.produitsLaitiers:
 
+                Intent activiteProduitsLaitiers = new Intent(MenuPrincipal.this,ProduitLaitier.class);
+                startActivity(activiteProduitsLaitiers);
+
                 break;
             case R.id.fruitlegumes:
+                Intent activiteFruitsLegumes= new Intent (MenuPrincipal.this,ProduitLaitier.class);
+                startActivity(activiteFruitsLegumes);
 
                 break;
         }
