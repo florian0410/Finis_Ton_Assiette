@@ -3,7 +3,6 @@ package zlisproduction.finistonassiette.selectionaliments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -30,7 +29,7 @@ public class Farine extends Activity {
         /*
         Construction de la HashMap hashMapFarine
          */
-        hashMapFarine.put(getString(R.string.Farine_de_blé), R.mipmap.ic_launcher);
+        hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_beurretransparent);
         boutonfin=(Button)findViewById(R.id.finselection);
         boutonfin.setOnClickListener(new View.OnClickListener() {
             @Override

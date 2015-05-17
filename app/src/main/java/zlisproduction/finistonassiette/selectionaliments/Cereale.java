@@ -2,11 +2,8 @@ package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
@@ -34,15 +31,15 @@ public class Cereale extends Activity {
         /*
         Création de la HashMap poisson
          */
-        hashMapCereales.put(getString(R.string.Blé), R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Boulghour), R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Farine_de_froment),R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Lasagnes),R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Müesli),R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Pâtes_de_riz),R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Quinoa),R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Riz_complet),R.mipmap.ic_launcher);
-        hashMapCereales.put(getString(R.string.Sarrasin),R.mipmap.ic_launcher);
+        hashMapCereales.put(getString(R.string.Blé), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Boulghour), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Farine_de_froment), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Müesli), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Pâtes_de_riz), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Quinoa), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Riz_complet), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Sarrasin), R.drawable.ic_beurretransparent);
 
         //Récupération du bouton
         boutonfin=(Button)findViewById(R.id.finselection);
