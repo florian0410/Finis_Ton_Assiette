@@ -49,6 +49,10 @@ public class Cereale extends Activity {
         boutonfin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
+                transfert des résultats
+                 */
+
                 finish();
             }
         });
