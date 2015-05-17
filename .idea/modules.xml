@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FinisTonAssiette.iml" filepath="$PROJECT_DIR$/FinisTonAssiette.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Finis_Ton_Assiette.iml" filepath="$PROJECT_DIR$/Finis_Ton_Assiette.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
