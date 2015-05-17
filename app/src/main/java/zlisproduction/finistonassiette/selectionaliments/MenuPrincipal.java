@@ -1,5 +1,8 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,7 +13,7 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-    public class MenuPrincipal extends AppCompatActivity implements View.OnClickListener {
+    public class MenuPrincipal extends Activity implements View.OnClickListener {
     /*
     déclaration des boutons
      */
@@ -20,11 +23,10 @@ import zlisproduction.finistonassiette.R;
     private Button produitsLaitiers;
     private Button fruitlegumes;
 
-    /*
-    déclaration des clé des intents
-     */
 
-    public final static String cleIncontournable = "sdz.chapitreTrois.intent.examples.NOMS";
+    public static final String PATES_FARINE_CEREALE="zlisproduction.finistonassiette.selectionaliments.PATES_FARINE_CEREALE";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,9 @@ import zlisproduction.finistonassiette.R;
         Désérialisation des boutons
          */
         incontournables=(Button)findViewById(R.id.incontournable);
+        incontournables.setOnClickListener(this);
         patesFarinesCereales=(Button)findViewById(R.id.PatesFarinesCereales);
+        patesFarinesCereales.setOnClickListener(this);
         viandePoissons=(Button)findViewById(R.id.viandePoissons);
         produitsLaitiers=(Button)findViewById(R.id.produitsLaitiers);
         fruitlegumes=(Button)findViewById((R.id.fruitlegumes));
@@ -50,6 +54,9 @@ import zlisproduction.finistonassiette.R;
                 break;
             case R.id.PatesFarinesCereales:
 
+                Intent activitePatesFarineCereales= new Intent(MenuPrincipal.this,PatesFarinesCereales.class);
+                startActivity(activitePatesFarineCereales);
+
                 break;
             case R.id.viandePoissons:
 
@@ -62,4 +69,5 @@ import zlisproduction.finistonassiette.R;
                 break;
         }
     }
+
 }

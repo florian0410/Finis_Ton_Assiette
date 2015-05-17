@@ -20,15 +20,14 @@
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.Cereale"
 
             android:label="@string/app_name">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
 
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.Farine"
+            android:label="@string/app_name"/>
+
+        <activity android:name="zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales"
             android:label="@string/app_name"/>
 
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.Fruit"
@@ -44,7 +43,14 @@
             android:label="@string/app_name"/>
 
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.MenuPrincipal"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
 
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.Poisson"
             android:label="@string/app_name"/>
