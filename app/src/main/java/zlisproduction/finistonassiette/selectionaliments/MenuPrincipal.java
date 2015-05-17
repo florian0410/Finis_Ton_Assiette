@@ -20,6 +20,12 @@ import zlisproduction.finistonassiette.R;
     private Button produitsLaitiers;
     private Button fruitlegumes;
 
+    /*
+    déclaration des clé des intents
+     */
+
+    public final static String cleIncontournable = "sdz.chapitreTrois.intent.examples.NOMS";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +38,7 @@ import zlisproduction.finistonassiette.R;
         viandePoissons=(Button)findViewById(R.id.viandePoissons);
         produitsLaitiers=(Button)findViewById(R.id.produitsLaitiers);
         fruitlegumes=(Button)findViewById((R.id.fruitlegumes));
+
 
     }
 

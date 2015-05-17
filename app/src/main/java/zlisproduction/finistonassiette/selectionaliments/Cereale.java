@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class Cereale extends Activity {
     private GridView lv;
     private Context context=Cereale.this;
     private ArrayList<Aliment> alimentsSelectionnes= new ArrayList<Aliment>();
+    private Button boutonfin;
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -42,6 +44,14 @@ public class Cereale extends Activity {
         hashMapCereales.put(getString(R.string.Riz_complet),R.mipmap.ic_launcher);
         hashMapCereales.put(getString(R.string.Sarrasin),R.mipmap.ic_launcher);
 
+        //Récupération du bouton
+        boutonfin=(Button)findViewById(R.id.finselection);
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         //layout de l'activité
         lv = (GridView) findViewById(R.id.ListViewAliment);
         //fabrication de l'objet aliment
@@ -49,7 +59,7 @@ public class Cereale extends Activity {
         //mis en page
         lv.setAdapter(new Adapter(arrayListAliments,context));
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -69,7 +79,7 @@ public class Cereale extends Activity {
             }
         });
 
-
+        */
 
 
     }
