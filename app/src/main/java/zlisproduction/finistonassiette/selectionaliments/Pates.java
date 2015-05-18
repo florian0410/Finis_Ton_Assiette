@@ -2,10 +2,20 @@ package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 import zlisproduction.finistonassiette.R;
 
 /**
@@ -17,6 +27,7 @@ public class Pates extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Pates.this;
+    private List <String> result;
 
 
 
@@ -38,11 +49,32 @@ public class Pates extends Activity {
         hashMapPates.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
 
 
+        result= new ArrayList<String>();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
         lv = (GridView) findViewById(R.id.ListViewAliment);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Aliment alim = arrayListAliments.get(position);
+                if (alim.isClicked() == false) {
+                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    alim.setIsClicked(true);
+                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+
+                    result.add(alim.getName());
+                } else {
+                    alim.setIsClicked(true);
+                    result.remove(alim.getName());
+                }
+
+            }
+        });
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapPates);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
+
+
 
 }

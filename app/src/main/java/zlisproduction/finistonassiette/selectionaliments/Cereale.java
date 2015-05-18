@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import zlisproduction.finistonassiette.R;
 
@@ -22,7 +25,7 @@ public class Cereale extends Activity {
     private GridView lv;
     private Context context=Cereale.this;
     private ArrayList<Aliment> alimentsSelectionnes= new ArrayList<Aliment>();
-    private Button boutonfin;
+    private List<String> result;
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -41,20 +44,26 @@ public class Cereale extends Activity {
         hashMapCereales.put(getString(R.string.Riz_complet), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Sarrasin), R.drawable.ic_beurretransparent);
 
-        //Récupération du bouton
-        boutonfin=(Button)findViewById(R.id.finselection);
-        boutonfin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*
-                transfert des résultats
-                 */
-
-                finish();
-            }
-        });
+        result= new ArrayList<String>();
         //layout de l'activité
         lv = (GridView) findViewById(R.id.ListViewAliment);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Aliment alim = arrayListAliments.get(position);
+                if (alim.isClicked() == false) {
+                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    alim.setIsClicked(true);
+                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+
+                    result.add(alim.getName());
+                } else {
+                    alim.setIsClicked(true);
+                    result.remove(alim.getName());
+                }
+
+            }
+        });
         //fabrication de l'objet aliment
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapCereales);
         //mis en page

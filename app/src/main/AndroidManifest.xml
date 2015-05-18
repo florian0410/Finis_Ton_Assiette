@@ -27,6 +27,9 @@
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.Farine"
             android:label="@string/app_name"/>
 
+        <activity android:name="zlisproduction.finistonassiette.selectionaliments.Pates"
+            android:label="@string/app_name"/>
+
         <activity android:name="zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales"
             android:label="@string/app_name"/>
 
