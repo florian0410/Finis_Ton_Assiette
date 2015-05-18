@@ -18,11 +18,10 @@ import zlisproduction.finistonassiette.R;
 public class Poisson extends Activity {
 
     private final  HashMap<String, Integer> HashPoisson = new HashMap<String, Integer>();
-
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Poisson.this;
-    private Button boutonfin;
+
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -52,14 +51,6 @@ public class Poisson extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
-        boutonfin=(Button)findViewById(R.id.finselection);
-        boutonfin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         lv = (GridView) findViewById(R.id.ListViewAliment);
         arrayListAliments = ListeAliment.alimentsArraylist(HashPoisson);
         lv.setAdapter(new Adapter(arrayListAliments,context));

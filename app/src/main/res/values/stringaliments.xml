@@ -3,7 +3,6 @@
     <string name="Blé">Blé</string>
     <string name="Boulghour">Boulghour</string>
     <string name="Farine_de_froment">Farine de froment</string>
-    <string name="Lasagnes">Lasagnes</string>
     <string name="Müesli">Müesli</string>
     <string name="Pâtes_de_riz">Pâtes de riz</string>
     <string name="Quinoa">Quinoa</string>
@@ -166,5 +165,20 @@
     <string name="Quenelles">Quenelles</string>
     <string name="Saucisse">Saucisse(s)</string>
     <string name="Saucisson">Saucisson</string>
+    <string name="Coquillettes">Coquillettes</string>
+    <string name="Spaghetti">Spaghetti</string>
+    <string name="Farfalle">Farfalle</string>
+    <string name="Penne_Rigate">Penne Rigate</string>
+    <string name="Linguine">Linguine</string>
+    <string name="Tagliatelle">Tagliatelle</string>
+    <string name="Macaroni">Macaroni</string>
+    <string name="Nouilles">Nouilles</string>
+    <string name="Fusilli">Fusilli</string>
+    <string name="Capellini">Capellini</string>
+    <string name="Vermicelli">Vermicelli</string>
+    <string name="Lasagnes">Lasagnes</string>
+    <string name="Torti">Torti</string>
     <string name="Veau">Veau</string>
+
+
 </resources>
