@@ -2,20 +2,14 @@ package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+
 
 import zlisproduction.finistonassiette.R;
 
@@ -28,7 +22,7 @@ public class Pates extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Pates.this;
-    private List <String> result;
+
 
 
 
@@ -48,10 +42,6 @@ public class Pates extends Activity {
         hashMapPates.put(getString(R.string.Torti), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Vermicelli), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
-        result= new ArrayList<String>();
-
-
-        result= new ArrayList<String>();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
@@ -62,33 +52,22 @@ public class Pates extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                   Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
                 }
                 else {
                     alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
             }
         });
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapPates);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent= new Intent();//tableau de string
-        String[] stockArr = new String[result.size()];
-        stockArr = result.toArray(stockArr);
 
-        intent.putExtra(PatesFarinesCereales.RESULT_PATES,stockArr);
-        setResult(RESULT_OK,intent);
-        finish();
-    }
+
 
 
 

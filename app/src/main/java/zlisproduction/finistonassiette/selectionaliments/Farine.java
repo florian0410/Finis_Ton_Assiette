@@ -2,6 +2,7 @@ package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,5 +57,15 @@ public class Farine extends Activity {
         });
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
         lv.setAdapter(new Adapter(arrayListAliments, context));
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent= new Intent();//tableau de string
+        String[] stockArr = new String[result.size()];
+        stockArr = result.toArray(stockArr);
+
+        intent.putExtra(PatesFarinesCereales.RESULT_FARINES, stockArr);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 }

@@ -5,8 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 import zlisproduction.finistonassiette.R;
 
@@ -24,7 +27,9 @@ import zlisproduction.finistonassiette.R;
     private Button fruitlegumes;
 
 
-    public static final String PATES_FARINE_CEREALE="zlisproduction.finistonassiette.selectionaliments.PATES_FARINE_CEREALE";
+
+
+
 
 
 
@@ -32,6 +37,8 @@ import zlisproduction.finistonassiette.R;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal_layout);
+
+
         /*
         Désérialisation des boutons et définition de l'écouteur
          */
@@ -83,5 +90,6 @@ import zlisproduction.finistonassiette.R;
                 break;
         }
     }
+
 
 }
