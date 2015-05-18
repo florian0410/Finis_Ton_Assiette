@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import zlisproduction.finistonassiette.R;
 
@@ -21,19 +23,30 @@ public class Legume extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Legume.this;
-    private Button boutonfin;
+    private List<String> result;
+
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
-        boutonfin=(Button)findViewById(R.id.finselection);
-        boutonfin.setOnClickListener(new View.OnClickListener() {
+        lv = (GridView) findViewById(R.id.ListViewAliment);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Aliment alim = arrayListAliments.get(position);
+                if (alim.isClicked() == false) {
+                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    alim.setIsClicked(true);
+                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+
+                    result.add(alim.getName());
+                } else {
+                    alim.setIsClicked(true);
+                    result.remove(alim.getName());
+                }
+
             }
         });
-        lv = (GridView) findViewById(R.id.ListViewAliment);
         /*
         Création de la Hashmap hashMapLegumes
          */
@@ -72,6 +85,7 @@ public class Legume extends Activity {
         hashMapLegumes.put(getString(R.string.Radis), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Salade_verte), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Tomate_verte), R.drawable.ic_beurretransparent);
+        result= new ArrayList<String>();
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapLegumes);
         lv.setAdapter(new Adapter(arrayListAliments,context));

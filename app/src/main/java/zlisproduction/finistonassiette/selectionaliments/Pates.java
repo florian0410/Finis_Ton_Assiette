@@ -3,6 +3,7 @@ package zlisproduction.finistonassiette.selectionaliments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -47,6 +48,7 @@ public class Pates extends Activity {
         hashMapPates.put(getString(R.string.Torti), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Vermicelli), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
+        result= new ArrayList<String>();
 
 
         result= new ArrayList<String>();
@@ -64,7 +66,8 @@ public class Pates extends Activity {
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
                     result.add(alim.getName());
-                } else {
+                }
+                else {
                     alim.setIsClicked(true);
                     result.remove(alim.getName());
                 }
@@ -74,6 +77,20 @@ public class Pates extends Activity {
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapPates);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent= new Intent();//tableau de string
+        String[] stockArr = new String[result.size()];
+        stockArr = result.toArray(stockArr);
+
+        intent.putExtra(PatesFarinesCereales.RESULT_PATES,stockArr);
+        setResult(RESULT_OK,intent);
+        finish();
+    }
+
+
 
 
 

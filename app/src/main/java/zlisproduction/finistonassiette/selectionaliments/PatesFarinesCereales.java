@@ -17,6 +17,18 @@ public class PatesFarinesCereales extends Activity implements View.OnClickListen
     private Button pate;
     private Button farine;
     private Button cereales;
+    /*
+    identifiant des requêtes
+     */
+    public final static  int REQUEST_CODE_PATES=1;
+    public final  static  int REQUEST_CODE_FARINE=2;
+    public final  static  int REQUEST_CODE_CEREALES=3;
+
+    // L'identifiant de la chaîne de caractères qui contient le résultat de l'intent
+
+    public final static String RESULT_PATES = "resultatPates";
+    public final static String RESULT_FARINES="resultatFarine";
+    public final static String RESULT_CEREALES="resultatCereales";
 
 
     @Override
@@ -41,18 +53,31 @@ public class PatesFarinesCereales extends Activity implements View.OnClickListen
         switch(v.getId()){
             case R.id.pate:
                 Intent activitePate= new Intent(PatesFarinesCereales.this,Pates.class);
-                startActivity(activitePate);
+                startActivityForResult(activitePate, REQUEST_CODE_PATES);
                 break;
             case R.id.farine:
                 Intent activitefarine= new Intent(PatesFarinesCereales.this,Farine.class);
-                startActivity(activitefarine);
+                startActivityForResult(activitefarine, REQUEST_CODE_FARINE);
 
                 break;
             case R.id.cereales:
                 Intent activiteCereales= new Intent(PatesFarinesCereales.this,Cereale.class);
-                startActivity(activiteCereales);
+                startActivityForResult(activiteCereales, REQUEST_CODE_CEREALES);
 
                 break;
         }
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode){
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    }
+
 }

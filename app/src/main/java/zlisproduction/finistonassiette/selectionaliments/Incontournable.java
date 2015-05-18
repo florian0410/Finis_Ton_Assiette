@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import zlisproduction.finistonassiette.R;
 
@@ -19,21 +21,16 @@ public class Incontournable extends Activity {
     private HashMap<String, Integer> hashMapIncontournable= new HashMap<String, Integer>();
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private Button boutonfin;
+    private List<String> result;
+
 
     private Context context=Incontournable.this;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
-        boutonfin=(Button)findViewById(R.id.finselection);
-        boutonfin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         lv = (GridView) findViewById(R.id.ListViewAliment);
+
         /*
         Création de la Hashmap hashMapIncontournable
          */
@@ -62,8 +59,26 @@ public class Incontournable extends Activity {
         hashMapIncontournable.put(getString(R.string.Tomate), R.drawable.ic_beurretransparent);
         hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.drawable.ic_beurretransparent);
         hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_beurretransparent);
+        result= new ArrayList<String>();
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Aliment alim = arrayListAliments.get(position);
+                if (alim.isClicked() == false) {
+                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    alim.setIsClicked(true);
+                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+
+                    result.add(alim.getName());
+                } else {
+                    alim.setIsClicked(true);
+                    result.remove(alim.getName());
+                }
+
+            }
+        });
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }
 }
