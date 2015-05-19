@@ -10,8 +10,9 @@
         android:layout_height="wrap_content" />
 
     <Button
+
         android:id="@+id/Legumes"
-        android:text="Légumes"
+        android:text="Légumess"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
