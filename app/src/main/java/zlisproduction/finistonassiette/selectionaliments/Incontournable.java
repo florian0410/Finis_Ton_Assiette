@@ -21,7 +21,7 @@ public class Incontournable extends Activity {
     private HashMap<String, Integer> hashMapIncontournable= new HashMap<String, Integer>();
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private List<String> result;
+
 
 
     private Context context=Incontournable.this;
@@ -59,7 +59,7 @@ public class Incontournable extends Activity {
         hashMapIncontournable.put(getString(R.string.Tomate), R.drawable.ic_beurretransparent);
         hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.drawable.ic_beurretransparent);
         hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_beurretransparent);
-        result= new ArrayList<String>();
+
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,15 +68,15 @@ public class Incontournable extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
-                } else {
-                    alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
+                else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
             }
         });
         lv.setAdapter(new Adapter(arrayListAliments,context));

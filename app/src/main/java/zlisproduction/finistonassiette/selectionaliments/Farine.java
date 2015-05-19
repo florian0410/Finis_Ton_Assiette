@@ -23,7 +23,6 @@ public class Farine extends Activity {
     private HashMap<String,Integer> hashMapFarine = new HashMap<String,Integer>();
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private List<String> result;
     private Context context=Farine.this;
 
 
@@ -35,7 +34,7 @@ public class Farine extends Activity {
         Construction de la HashMap hashMapFarine
          */
         hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_beurretransparent);
-        result=new ArrayList<String>();
+
 
         lv = (GridView) findViewById(R.id.ListViewAliment);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -44,28 +43,19 @@ public class Farine extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
-                } else {
-                    alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
+                else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
             }
         });
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
         lv.setAdapter(new Adapter(arrayListAliments, context));
     }
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent= new Intent();//tableau de string
-        String[] stockArr = new String[result.size()];
-        stockArr = result.toArray(stockArr);
 
-        intent.putExtra(PatesFarinesCereales.RESULT_FARINES, stockArr);
-        setResult(RESULT_OK,intent);
-        finish();
-    }
 }

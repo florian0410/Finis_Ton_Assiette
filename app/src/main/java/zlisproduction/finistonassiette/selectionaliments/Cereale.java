@@ -25,8 +25,7 @@ public class Cereale extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Cereale.this;
-    private ArrayList<Aliment> alimentsSelectionnes= new ArrayList<Aliment>();
-    private List<String> result;
+
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -45,7 +44,7 @@ public class Cereale extends Activity {
         hashMapCereales.put(getString(R.string.Riz_complet), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Sarrasin), R.drawable.ic_beurretransparent);
 
-        result= new ArrayList<String>();
+
         //layout de l'activité
         lv = (GridView) findViewById(R.id.ListViewAliment);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -54,15 +53,15 @@ public class Cereale extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
-                } else {
-                    alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
+                else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
             }
         });
         //fabrication de l'objet aliment
@@ -94,17 +93,7 @@ public class Cereale extends Activity {
 
 
     }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent= new Intent();//tableau de string
-        String[] stockArr = new String[result.size()];
-        stockArr = result.toArray(stockArr);
 
-        intent.putExtra(PatesFarinesCereales.RESULT_CEREALES,stockArr);
-        setResult(RESULT_OK,intent);
-        finish();
-    }
 
 
 

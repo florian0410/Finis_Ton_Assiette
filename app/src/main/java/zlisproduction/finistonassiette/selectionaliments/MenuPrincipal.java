@@ -44,13 +44,17 @@ import zlisproduction.finistonassiette.R;
          */
         incontournables=(Button)findViewById(R.id.incontournable);
         incontournables.setOnClickListener(this);
+
         patesFarinesCereales=(Button)findViewById(R.id.PatesFarinesCereales);
         patesFarinesCereales.setOnClickListener(this);
+
         viandePoissons=(Button)findViewById(R.id.viandePoissons);
         viandePoissons.setOnClickListener(this);
+
         produitsLaitiers=(Button)findViewById(R.id.produitsLaitiers);
         produitsLaitiers.setOnClickListener(this);
-        fruitlegumes=(Button)findViewById((R.id.fruitlegumes));
+
+        fruitlegumes=(Button)findViewById(R.id.fruitlegumes);
         fruitlegumes.setOnClickListener(this);
 
 
@@ -84,7 +88,7 @@ import zlisproduction.finistonassiette.R;
 
                 break;
             case R.id.fruitlegumes:
-                Intent activiteFruitsLegumes= new Intent (MenuPrincipal.this,ProduitLaitier.class);
+                Intent activiteFruitsLegumes= new Intent (MenuPrincipal.this,FruitLegume.class);
                 startActivity(activiteFruitsLegumes);
 
                 break;

@@ -25,13 +25,12 @@ public class Fruit extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Fruit.this;
-    private List<String> result;
+
 
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
-        result=new ArrayList<String>();
         lv = (GridView) findViewById(R.id.ListViewAliment);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -39,15 +38,15 @@ public class Fruit extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
-                } else {
-                    alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
+                else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
             }
         });
         /*
@@ -92,8 +91,6 @@ public class Fruit extends Activity {
         hashMapFruit.put(getString(R.string.Raisin_blanc), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Raisin_noir), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Rhubarde), R.drawable.ic_beurretransparent);
-        result= new ArrayList<String>();
-
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFruit);
         lv.setAdapter(new Adapter(arrayListAliments,context));
     }

@@ -22,7 +22,7 @@ public class Viande extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Viande.this;
-    private List<String> result;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +34,15 @@ public class Viande extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
-                } else {
-                    alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
+                else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
             }
         });
         /*
@@ -72,7 +72,7 @@ public class Viande extends Activity {
         hashMapViande.put(getString(R.string.Saucisse), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Saucisson), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Veau), R.drawable.ic_beurretransparent);
-        result= new ArrayList<String>();
+
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapViande);
         lv.setAdapter(new Adapter(arrayListAliments, context));

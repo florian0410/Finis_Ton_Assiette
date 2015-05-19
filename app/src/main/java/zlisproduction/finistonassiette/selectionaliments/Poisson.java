@@ -23,7 +23,7 @@ public class Poisson extends Activity {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context=Poisson.this;
-    private List<String> result;
+
 
 
 
@@ -51,7 +51,8 @@ public class Poisson extends Activity {
         HashPoisson.put(getString(R.string.Surimi), R.drawable.ic_beurretransparent);
         HashPoisson.put(getString(R.string.Thon_en_boite), R.drawable.ic_beurretransparent);
         HashPoisson.put(getString(R.string.Truite), R.drawable.ic_beurretransparent);
-        result= new ArrayList<String>();
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
@@ -62,15 +63,15 @@ public class Poisson extends Activity {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                    result.add(alim.getName());
-                } else {
-                    alim.setIsClicked(true);
-                    result.remove(alim.getName());
                 }
-
+                else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
             }
         });
         arrayListAliments = ListeAliment.alimentsArraylist(HashPoisson);

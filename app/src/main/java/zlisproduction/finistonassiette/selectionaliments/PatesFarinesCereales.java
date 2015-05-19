@@ -22,19 +22,11 @@ public class PatesFarinesCereales extends Activity implements View.OnClickListen
     private Button cereales;
 
 
-    // L'identifiant de la chaîne de caractères qui contient le résultat de l'intent
-
-    public final static String RESULT_PATES = "resultatPates";
-    public final static String RESULT_FARINES="resultatFarine";
-    public final static String RESULT_CEREALES="resultatCereales";
-    private List<String> result;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pates_farine_cereales_layout);
-        result=new ArrayList<String>();
+
         /*
         déserialisation objets
          */
@@ -53,7 +45,6 @@ public class PatesFarinesCereales extends Activity implements View.OnClickListen
         switch(v.getId()){
             case R.id.pate:
                 Intent activitePate= new Intent(PatesFarinesCereales.this,Pates.class);
-                activitePate.putExtra("anus",4);
                 startActivity(activitePate);
                 break;
             case R.id.farine:
@@ -64,7 +55,6 @@ public class PatesFarinesCereales extends Activity implements View.OnClickListen
             case R.id.cereales:
                 Intent activiteCereales= new Intent(PatesFarinesCereales.this,Cereale.class);
                 startActivity(activiteCereales);
-
                 break;
         }
     }

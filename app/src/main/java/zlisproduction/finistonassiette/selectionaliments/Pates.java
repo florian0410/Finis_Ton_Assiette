@@ -58,6 +58,7 @@ public class Pates extends Activity {
 
                 }
                 else {
+                    Result.deleteAliment(alim.getName());
                     alim.setIsClicked(true);
                 }
             }
