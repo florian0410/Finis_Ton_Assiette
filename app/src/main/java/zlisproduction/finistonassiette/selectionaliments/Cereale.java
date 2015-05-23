@@ -1,10 +1,16 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.animation.Animator;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -19,21 +25,29 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Cereale extends Activity {
+public class Cereale extends Fragment {
 
     private  HashMap <String, Integer> hashMapCereales= new HashMap <String, Integer>();
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private Context context=Cereale.this;
+    private Context context=null;
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        context= activity.getApplicationContext();
+    }
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Changer le titre de la barre d'action
+        ActionBar actionbar = getActivity().getActionBar();
+        actionbar.setTitle(getResources().getString(R.string.Incontournable));
 
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview);
-        /*
-        Création de la HashMap poisson
-         */
+        View lLayout = inflater.inflate(R.layout.listview, container, false);
+        lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
+
         hashMapCereales.put(getString(R.string.Blé), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Boulghour), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Farine_de_froment), R.drawable.ic_beurretransparent);
@@ -45,32 +59,29 @@ public class Cereale extends Activity {
         hashMapCereales.put(getString(R.string.Sarrasin), R.drawable.ic_beurretransparent);
 
 
-        //layout de l'activité
-        lv = (GridView) findViewById(R.id.ListViewAliment);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
-                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
-                    Result.setAlimentsSelectionnes(alim.getName());
+                    view.setBackgroundColor(Color.GRAY);
+                    alimentsSelectionnes.add(alim);
                     alim.setIsClicked(true);
-                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+                } else {
+
+                    arrayListAliments.remove(position);
+                    view.setBackgroundColor(Color.RED);
+                    alim.setIsClicked(false);
 
                 }
-                else {
-                    Result.deleteAliment(alim.getName());
-                    alim.setIsClicked(true);
-                }
             }
-        });
+        });*/
+
         //fabrication de l'objet aliment
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapCereales);
         //mis en page
-        lv.setAdapter(new Adapter(arrayListAliments,context));
+        lv.setAdapter(new Adapter(arrayListAliments, context));
+        return lLayout;
     }
-
-
-
-
 }

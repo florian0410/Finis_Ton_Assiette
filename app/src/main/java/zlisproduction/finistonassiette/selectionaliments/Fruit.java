@@ -1,9 +1,13 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -17,42 +21,35 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Fruit extends Activity {
+public class Fruit extends Fragment {
 
     private HashMap<String, Integer> hashMapFruit= new  HashMap<String, Integer>();
-    // image associï¿½e aux aliments : j'utilise une icï¿½ne psk j'ai rien d'autre pour l'instant et c'est la mï¿½me pour tous les produits
-
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private Context context=Fruit.this;
+    private Context context=null;
 
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        context = activity.getApplicationContext();
+    }
 
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview);
-        lv = (GridView) findViewById(R.id.ListViewAliment);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
-                if (alim.isClicked() == false) {
-                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
-                    Result.setAlimentsSelectionnes(alim.getName());
-                    alim.setIsClicked(true);
-                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Changer le titre de la barre d'action
+        ActionBar actionbar = getActivity().getActionBar();
+        actionbar.setTitle(getResources().getString(R.string.Incontournable));
+        // FragmentActivity faActivity  = (FragmentActivity)    super.getActivity();
+        // Replace LinearLayout by the type of the root element of the layout you're trying to load
+        View lLayout = inflater.inflate(R.layout.listview, container, false);
+        // Of course you will want to faActivity and llLayout in the class and not this method to access them in the rest of
+        // the class, just initialize them here
 
-                }
-                else {
-                    Result.deleteAliment(alim.getName());
-                    alim.setIsClicked(true);
-                }
-            }
-        });
+        lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
+
         /*
-        Création de la Hashmap hashMapFruit
+        Création de la Hashmap hashMapIncontournable
          */
-
         hashMapFruit.put(getString(R.string.Abricots), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Amandes), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Ananas), R.drawable.ic_beurretransparent);
@@ -91,7 +88,25 @@ public class Fruit extends Activity {
         hashMapFruit.put(getString(R.string.Raisin_blanc), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Raisin_noir), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Rhubarde), R.drawable.ic_beurretransparent);
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Aliment alim = arrayListAliments.get(position);
+                if (alim.isClicked() == false) {
+                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
+                    Result.setAlimentsSelectionnes(alim.getName());
+                    alim.setIsClicked(true);
+                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+                } else {
+                    Result.deleteAliment(alim.getName());
+                    alim.setIsClicked(true);
+                }
+            }
+        });
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFruit);
-        lv.setAdapter(new Adapter(arrayListAliments,context));
+        lv.setAdapter(new Adapter(arrayListAliments, context));
+        return lLayout;
     }
 }

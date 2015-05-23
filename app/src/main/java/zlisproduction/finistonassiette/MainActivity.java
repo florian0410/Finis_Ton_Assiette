@@ -1,5 +1,6 @@
 package zlisproduction.finistonassiette;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import zlisproduction.finistonassiette.adapter.NavDrawerListAdapter;
 import zlisproduction.finistonassiette.model.NavDrawerItem;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
+import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
@@ -41,7 +43,6 @@ public class MainActivity extends FragmentActivity {
 	private NavDrawerListAdapter adapter;
     private Fragment fragment = null;
 
-
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,43 +60,38 @@ public class MainActivity extends FragmentActivity {
                 return;
             }
         }
-
 		mTitle = mDrawerTitle = getTitle();
-
 		// load slide menu items
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-
-		// nav drawer icons from resources
+		// Récupérer les ressources image du menu slide
 		navMenuIcons = getResources()
 				.obtainTypedArray(R.array.nav_drawer_icons);
-
+        // Contient l'interface entière
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        // Contient le menu slide
 		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
-		navDrawerItems = new ArrayList<NavDrawerItem>();
 
-		// adding nav drawer items to array
-		// Home
+		navDrawerItems = new ArrayList<NavDrawerItem>();
+		// Menu Principal
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-		// Find People
+		// Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-		// Photos
+        // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-		// Communities, Will add a counter here
+        // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
-		// Pages
+        // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-		// What's hot, We  will add a counter here
+        // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
 
-		// Recycle the typed array
+        // Recycle the typed array
 		navMenuIcons.recycle();
-
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
 		// setting the nav drawer list adapter
-		adapter = new NavDrawerListAdapter(getApplicationContext(),
-				navDrawerItems);
+		adapter = new NavDrawerListAdapter(getApplicationContext(),navDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
 		// enabling action bar app icon and behaving it as toggle button
@@ -120,7 +116,6 @@ public class MainActivity extends FragmentActivity {
 			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
         // On affiche la première page d&finie à la position 0
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
@@ -141,12 +136,14 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 
+    // Gérer la partie menu options ( en haut à droite de la navigationBar)
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
 
+    // Les action réalisées par ce menu options
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// toggle nav drawer on selecting action bar app icon/title
@@ -163,6 +160,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	/* *
+	 *Permet de cacher le menu quand on accède aux options
 	 * Called when invalidateOptionsMenu() is triggered
 	 */
 	@Override
@@ -174,7 +172,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	/**
-	 * Diplaying fragment view for selected nav drawer list item
+	 * Liste des items redirigeant vers le fragment choisi dans le menuSlider
 	 * */
 	private void displayView(int position) {
 		// update the main content by replacing fragments
@@ -223,7 +221,8 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	/**
-	 * When using the ActionBarDrawerToggle, you must call it during
+	 * Gestion des actions avant le glissement de la barre
+     * When using the ActionBarDrawerToggle, you must call it during
 	 * onPostCreate() and onConfigurationChanged()...
 	 */
 
@@ -234,11 +233,26 @@ public class MainActivity extends FragmentActivity {
 		mDrawerToggle.syncState();
 	}
 
+    /**
+     *Probablement les actions qui se font quand le menu a slidé
+     */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
+
+    /*
+     *Méthode permettant de revenir au fragment précédent au lieu de revenir à l'activité précédent ou quitter
+     */
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 
 }

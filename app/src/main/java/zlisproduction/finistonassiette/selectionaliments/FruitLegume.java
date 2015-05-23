@@ -1,11 +1,18 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import zlisproduction.finistonassiette.R;
@@ -13,40 +20,48 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class FruitLegume extends Activity implements View.OnClickListener{
+public class FruitLegume extends Fragment implements View.OnClickListener{
     private Button fruit;
     private Button legumes;
+    private Fragment fragment;
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Changer le titre de la barre d'action
+        ActionBar actionbar = getActivity().getActionBar();
+        actionbar.setTitle(getResources().getString(R.string.Fruits_et_Legumes));
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fruit_legumes_layout);
-
-        /*
+        View lLayout = inflater.inflate(R.layout.fruit_legumes_layout, container, false);
+          /*
         déserialisation objets
          */
-       fruit=(Button)findViewById(R.id.fruit);
+        fruit=(Button) lLayout.findViewById(R.id.fruit);
         fruit.setOnClickListener(this);
-        legumes=(Button)findViewById((R.id.Legumes));
+        legumes=(Button) lLayout.findViewById((R.id.Legumes));
         legumes.setOnClickListener(this);
+
+        return lLayout;
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.fruit:
-                Intent activiteFruit= new Intent(FruitLegume.this,Fruit.class);
-                startActivity(activiteFruit);
+                fragment = new Fruit();
                 break;
             case R.id.Legumes:
-                Intent activiteLegume= new Intent(FruitLegume.this,Legume.class);
-                startActivity(activiteLegume);
-
+                fragment = new Legume();
                 break;
-
+        }
+        if (fragment != null) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+        else {
+            // error in creating fragment
+            Log.e("FruitLegume", "Error in creating fragment");
         }
     }
-
-
 }

@@ -1,10 +1,15 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -18,25 +23,32 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Farine extends Activity {
+public class Farine extends Fragment {
 
     private HashMap<String,Integer> hashMapFarine = new HashMap<String,Integer>();
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private Context context=Farine.this;
+    private Context context= null;
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        context = activity.getApplicationContext();
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Changer le titre de la barre d'action
+        ActionBar actionbar = getActivity().getActionBar();
+        actionbar.setTitle(getResources().getString(R.string.Incontournable));
+        View lLayout = inflater.inflate(R.layout.listview, container, false);
+        lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
 
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview);
         /*
         Construction de la HashMap hashMapFarine
          */
         hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_beurretransparent);
 
-
-        lv = (GridView) findViewById(R.id.ListViewAliment);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -47,8 +59,7 @@ public class Farine extends Activity {
                     alim.setIsClicked(true);
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
 
-                }
-                else {
+                } else {
                     Result.deleteAliment(alim.getName());
                     alim.setIsClicked(true);
                 }
@@ -56,6 +67,6 @@ public class Farine extends Activity {
         });
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
         lv.setAdapter(new Adapter(arrayListAliments, context));
+        return lLayout;
     }
-
 }

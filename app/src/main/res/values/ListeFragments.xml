@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Incontournable">Incontournable</string>
+    <string name="Legume">Légumes</string>
+    <string name="Fruits_et_Legumes">Fruits et Légumes</string>
+    <string name="Menu_Principal">Menu Principal</string>
+    <string name="Pates">Pâtes</string>
+    <string name="Pate_et_Farine">Pâte et Farine</string>
+    <string name="Viande">Viande</string>
+    <string name="Viande_et_Poisson">Viande et Poisson</string>
+    <string name="Produits_Laitier">Produits Laitier</string>
+
+</resources>
