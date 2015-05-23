@@ -68,30 +68,6 @@ public class Cereale extends Activity {
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapCereales);
         //mis en page
         lv.setAdapter(new Adapter(arrayListAliments,context));
-
-        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-          @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Aliment alim = arrayListAliments.get(position);
-                if(alim.isClicked()==false){
-                    view.setBackgroundColor(Color.GRAY);
-                    alimentsSelectionnes.add(alim);
-                    alim.setIsClicked(true);
-                }
-                else{
-
-                    arrayListAliments.remove(position);
-                    view.setBackgroundColor(Color.RED);
-                    alim.setIsClicked(false);
-
-                }
-            }
-        });
-
-        */
-
-
     }
 
 
