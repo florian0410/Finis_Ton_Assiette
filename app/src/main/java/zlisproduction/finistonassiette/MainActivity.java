@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        // Layout pour définir l'affichage des fragments et du menu
+        // Layout pour dÃ©finir l'affichage des fragments et du menu
 		setContentView(R.layout.activity_main);
 
         // Check that the activity is using the layout version with
@@ -63,10 +63,10 @@ public class MainActivity extends FragmentActivity {
 		mTitle = mDrawerTitle = getTitle();
 		// load slide menu items
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-		// Récupérer les ressources image du menu slide
+		// RÃ©cupÃ©rer les ressources image du menu slide
 		navMenuIcons = getResources()
 				.obtainTypedArray(R.array.nav_drawer_icons);
-        // Contient l'interface entière
+        // Contient l'interface entiÃ¨re
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         // Contient le menu slide
 		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
@@ -75,15 +75,15 @@ public class MainActivity extends FragmentActivity {
 		navDrawerItems = new ArrayList<NavDrawerItem>();
 		// Menu Principal
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-		// Pas encore assigné
+		// Pas encore assignÃ©
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Pas encore assigné
+        // Pas encore assignÃ©
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Pas encore assigné
+        // Pas encore assignÃ©
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
-        // Pas encore assigné
+        // Pas encore assignÃ©
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-        // Pas encore assigné
+        // Pas encore assignÃ©
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
 
         // Recycle the typed array
@@ -116,7 +116,7 @@ public class MainActivity extends FragmentActivity {
 			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-        // On affiche la première page d&finie à la position 0
+        // On affiche la premiÃ¨re page d&finie Ã  la position 0
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
 			displayView(0);
@@ -136,14 +136,14 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 
-    // Gérer la partie menu options ( en haut à droite de la navigationBar)
+    // GÃ©rer la partie menu options ( en haut Ã  droite de la navigationBar)
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
 
-    // Les action réalisées par ce menu options
+    // Les action rÃ©alisÃ©es par ce menu options
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// toggle nav drawer on selecting action bar app icon/title
@@ -160,7 +160,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	/* *
-	 *Permet de cacher le menu quand on accède aux options
+	 *Permet de cacher le menu quand on accÃ¨de aux options
 	 * Called when invalidateOptionsMenu() is triggered
 	 */
 	@Override
@@ -199,7 +199,7 @@ public class MainActivity extends FragmentActivity {
 			FragmentManager fragmentManager = getFragmentManager();
 			FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.frame_container, fragment);
-            // Il est important de rajouter le fragment précédent à la pile pour pouvoir le recharger si nécessaire
+            // Il est important de rajouter le fragment prÃ©cÃ©dent Ã  la pile pour pouvoir le recharger si nÃ©cessaire
             ft.addToBackStack(null);
             ft.commit();
 
@@ -234,7 +234,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
     /**
-     *Probablement les actions qui se font quand le menu a slidé
+     *Probablement les actions qui se font quand le menu a slidÃ©
      */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -244,7 +244,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
     /*
-     *Méthode permettant de revenir au fragment précédent au lieu de revenir à l'activité précédent ou quitter
+     *MÃ©thode permettant de revenir au fragment prÃ©cÃ©dent au lieu de revenir Ã  l'activitÃ© prÃ©cÃ©dent ou quitter
      */
     @Override
     public void onBackPressed() {
