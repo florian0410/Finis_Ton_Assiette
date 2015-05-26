@@ -68,7 +68,7 @@ public class Adapter extends BaseAdapter {
             holder=(MonViewHolder)convertView.getTag();
         }
         // On défini la couleur de fond à l'initialisation de la liste
-        convertView.setBackgroundColor(Color.BLUE);
+        convertView.setBackgroundColor(Color.BLUE); //TODO : Simplifier cette ligne qui s'éxécute à chaque initialisation ou actualisation => Temps de chargement plus long
         // Selon l'état actuel de sélection de l'aliment, on change le fond de la case de l'aliment
         if (object.isClicked() == true) {
             convertView.setBackgroundColor(Color.GREEN);
