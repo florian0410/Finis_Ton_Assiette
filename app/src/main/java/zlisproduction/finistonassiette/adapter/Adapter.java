@@ -68,12 +68,12 @@ public class Adapter extends BaseAdapter {
             holder=(MonViewHolder)convertView.getTag();
         }
         // On défini la couleur de fond à l'initialisation de la liste
-        holder.icon.setBackgroundColor(Color.BLUE);
-        // Selon l'état actuel de sélection de l'aliment, on change le fond de l'icone associée à celui-ci.
+        convertView.setBackgroundColor(Color.BLUE);
+        // Selon l'état actuel de sélection de l'aliment, on change le fond de la case de l'aliment
         if (object.isClicked() == true) {
-            holder.icon.setBackgroundColor(Color.GREEN);
+            convertView.setBackgroundColor(Color.GREEN);
         } else {
-            holder.icon.setBackgroundColor(Color.BLUE);
+            convertView.setBackgroundColor(Color.BLUE);
         }
 
         // on récupère dans les deux cas l'objet aliment qui a disparu ou qui a été crée et on lui fixe ses paramètres
