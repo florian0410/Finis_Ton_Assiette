@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.adapter.Adapter;
 
 /**
  * Created by Florian on 15/05/2015.

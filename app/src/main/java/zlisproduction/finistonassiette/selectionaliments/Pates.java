@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.adapter.Adapter;
 
 /**
  * Created by Thibaut on 16/05/2015.

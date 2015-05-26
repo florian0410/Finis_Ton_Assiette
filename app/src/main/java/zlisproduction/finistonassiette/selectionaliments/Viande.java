@@ -5,19 +5,17 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.adapter.Adapter;
 
 /**
  * Created by Florian on 15/05/2015.

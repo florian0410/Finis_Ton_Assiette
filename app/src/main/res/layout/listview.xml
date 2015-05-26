@@ -8,6 +8,8 @@
         android:layout_width="fill_parent"
         android:layout_height="447dp"
         android:numColumns="2">
+        <!-- android:listSelector="@drawable/item_selected" -->
+
 
     </GridView>
 

@@ -1,23 +1,26 @@
-package zlisproduction.finistonassiette.selectionaliments;
+package zlisproduction.finistonassiette.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.selectionaliments.Aliment;
 
 /**
  * Created by Florian on 15/05/2015.
  */
 public class Adapter extends BaseAdapter {
 
-    private ArrayList<Aliment> array =new ArrayList<Aliment>();
+    private ArrayList<Aliment> array = new ArrayList<Aliment>();
     //permet de sérialiser désérialiser
     private LayoutInflater inflater;
     //context
@@ -45,7 +48,7 @@ public class Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        Aliment object = array.get(position);
         MonViewHolder holder;
         /*
         premières fois qu'on affiche la liste, il faut inflater depuis le fichier xml car les vue n'ont jamais été créées gh
@@ -64,6 +67,15 @@ public class Adapter extends BaseAdapter {
             // si la vue a déja été créee et qu'elle disparait de l'écran on a juste a la récupérer pas besoin de la désérialisé car ça a été deja fait juste avant
             holder=(MonViewHolder)convertView.getTag();
         }
+        // On défini la couleur de fond à l'initialisation de la liste
+        holder.icon.setBackgroundColor(Color.BLUE);
+        // Selon l'état actuel de sélection de l'aliment, on change le fond de l'icone associée à celui-ci.
+        if (object.isClicked() == true) {
+            holder.icon.setBackgroundColor(Color.GREEN);
+        } else {
+            holder.icon.setBackgroundColor(Color.BLUE);
+        }
+
         // on récupère dans les deux cas l'objet aliment qui a disparu ou qui a été crée et on lui fixe ses paramètres
         Aliment alim=(Aliment)getItem(position);
         if (alim !=null){

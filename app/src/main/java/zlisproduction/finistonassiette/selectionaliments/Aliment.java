@@ -10,6 +10,7 @@ Un objet aliment contient un nom et une image
     private String name;
     private int image;
     private boolean isClicked;
+    private int state;
 
     public Aliment(int image, String name) {
         this.image = image;
@@ -40,4 +41,5 @@ Un objet aliment contient un nom et une image
     public void setIsClicked(boolean isClicked) {
         this.isClicked = isClicked;
     }
+
 }

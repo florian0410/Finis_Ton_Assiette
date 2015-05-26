@@ -4,22 +4,23 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import zlisproduction.finistonassiette.MainActivity;
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.adapter.Adapter;
 
 /**
  * Created by Florian on 15/05/2015.
@@ -29,6 +30,7 @@ public class Incontournable extends Fragment {
     private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
     private Context context= null;
+
 
     /*
      * Fonction permettant d'obtenir le contexte de l'activité principal, si on ne le récupére pas alors le contexte fourni
@@ -83,6 +85,12 @@ public class Incontournable extends Fragment {
         hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_beurretransparent);
 
 
+
+        arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
+        // On déclare ici l'adapteur pour pouvoir faire fonctionner la méthode notifyDataSetChanged
+        final Adapter myAdapter = new Adapter(arrayListAliments, context);
+        lv.setAdapter(myAdapter);
+        // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -91,15 +99,21 @@ public class Incontournable extends Fragment {
                     //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
                     Result.setAlimentsSelectionnes(alim.getName());
                     alim.setIsClicked(true);
+                    // On demande l'actualisation de l'affichage à l'adapter qui va vérifier chaque valeur de IsClicked et donc changer la couleur de fond de l'image (dans Adapter)
+                    myAdapter.notifyDataSetChanged();
                     //ajout de l'aliment à la liste si il n'existe pas déja dedans
+
                 } else {
                     Result.deleteAliment(alim.getName());
-                    alim.setIsClicked(true);
+                    alim.setIsClicked(false);
+                    // On demande l'actualisation de l'affichage à l'adapter qui va vérifier chaque valeur de IsClicked et donc changer la couleur de fond de l'image (dans Adapter)
+                    myAdapter.notifyDataSetChanged();
                 }
             }
         });
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
-        lv.setAdapter(new Adapter(arrayListAliments, context));
+
         return lLayout;
     }
 }
+
+
