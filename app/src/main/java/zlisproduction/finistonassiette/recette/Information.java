@@ -9,10 +9,11 @@ import java.util.ArrayList;
 /**
  * Created by Thibaut on 24/05/2015.
  */
+/*
 public class Information extends Activity {
 
 
-    //attribut par défaut
+    //attribut par dÃ©faut
     Instanciation instancie=null;
     Requete requete =null;
     AnalyseResultat analyse_resultat=null;
@@ -73,3 +74,4 @@ public class Information extends Activity {
         this.analyse_resultat = analyse_resultat;
     }
 }
+*/

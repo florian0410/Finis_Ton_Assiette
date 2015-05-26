@@ -27,6 +27,7 @@ import java.util.List;
 /**
  * Created by Thibaut on 25/05/2015.
  */
+/*
 public  class ConsulterRecette extends Requete {
     private static final String TAG = "ConsulterRecette";
     private InputStream is= null;
@@ -47,9 +48,9 @@ public  class ConsulterRecette extends Requete {
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost("http://finistonassiette.ddns.net/phpMongoDb.php");
 
-        //nombre d'ingrédients séléctionnés
+        //nombre d'ingrÃ©dients sÃ©lÃ©ctionnÃ©s
         int nb_aliments_choisis =params.length;
-        //création de la liste nom/valeur
+        //crÃ©ation de la liste nom/valeur
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(nb_aliments_choisis);
         String name= "ingredient";
 
@@ -70,7 +71,7 @@ public  class ConsulterRecette extends Requete {
             HttpEntity entity = response.getEntity();
             int status = response.getStatusLine().getStatusCode();
             if (status==200){
-                Log.i(TAG,"Données recues");
+                Log.i(TAG,"DonnÃ©es recues");
                 is= entity.getContent();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
                 StringBuilder sb = new StringBuilder();
@@ -83,7 +84,7 @@ public  class ConsulterRecette extends Requete {
                 return result;
             }
             else{
-                Log.i(TAG,"erreur dans la récupération des données");
+                Log.i(TAG,"erreur dans la rï¿½cupï¿½ration des donnï¿½es");
             }
 
         } catch (UnsupportedEncodingException e) {
@@ -103,3 +104,4 @@ public  class ConsulterRecette extends Requete {
         return null;
     }
 }
+*/
