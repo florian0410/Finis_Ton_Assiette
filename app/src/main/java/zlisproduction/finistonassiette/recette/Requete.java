@@ -10,7 +10,7 @@ import zlisproduction.finistonassiette.selectionaliments.Result;
 /**
  * Created by Thibaut on 24/05/2015.
  */
-public interface Requete  {
+public abstract class Requete extends AsyncTask<Void,ProgressBar,Boolean> {
 
-    public void envoyerRequete(ArrayList pData);
+    public abstract  void envoyerRequete(ArrayList pData);
 }

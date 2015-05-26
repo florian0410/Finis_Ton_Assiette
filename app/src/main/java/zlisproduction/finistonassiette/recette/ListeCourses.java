@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Thibaut on 25/05/2015.
  */
-public class ListeCourses implements Requete{
+public abstract class ListeCourses extends Requete{
 
     @Override
     public void envoyerRequete( ArrayList pData) {

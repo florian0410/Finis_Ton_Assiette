@@ -14,7 +14,7 @@ public class Information extends Activity {
 
     //attribut par défaut
     Instanciation instancie=null;
-    ConsulterRecette requete =null;
+    Requete requete =null;
     AnalyseResultat analyse_resultat=null;
 
 

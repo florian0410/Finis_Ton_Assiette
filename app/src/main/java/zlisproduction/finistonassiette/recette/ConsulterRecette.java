@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Thibaut on 25/05/2015.
  */
-public class ConsulterRecette extends AsyncTask<ArrayList<String>, ProgressBar, String> implements Requete {
+public  class ConsulterRecette extends Requete {
     private static final String TAG = "ConsulterRecette";
     private InputStream is= null;
     private String result="";
@@ -95,6 +95,11 @@ public class ConsulterRecette extends AsyncTask<ArrayList<String>, ProgressBar, 
         }
 
 
+        return null;
+    }
+
+    @Override
+    protected Boolean doInBackground(Void... params) {
         return null;
     }
 }
