@@ -31,6 +31,7 @@ public class ViandePoisson extends Fragment implements View.OnClickListener{
         // Changer le titre de la barre d'action
         ActionBar actionbar = getActivity().getActionBar();
         actionbar.setTitle(getResources().getString(R.string.Viande_et_Poisson));
+
         View lLayout = inflater.inflate(R.layout.viande_poisson_layout, container, false);
 
         viande=(Button) lLayout.findViewById(R.id.viande);
