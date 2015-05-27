@@ -1,17 +1,15 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import zlisproduction.finistonassiette.R;
@@ -20,19 +18,12 @@ import zlisproduction.finistonassiette.adapter.Adapter;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Fruit extends Fragment {
+public class Fruit extends AlimentListDisplayer {
 
     private HashMap<String, Integer> hashMapFruit= new  HashMap<String, Integer>();
-    private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private Context context=null;
+    Button boutonfin = null;
 
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        context = activity.getApplicationContext();
-    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Changer le titre de la barre d'action
@@ -45,6 +36,7 @@ public class Fruit extends Fragment {
         // the class, just initialize them here
 
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
+        boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
         /*
         Création de la Hashmap hashMapIncontournable
@@ -89,23 +81,33 @@ public class Fruit extends Fragment {
         hashMapFruit.put(getString(R.string.Rhubarde), R.drawable.ic_beurretransparent);
 
 
+        arrayListAliments = ListeAliment.alimentsArraylist(hashMapFruit);
+        myAdapter = new Adapter(arrayListAliments, super.context);
+        lv.setAdapter(myAdapter);
+        // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
-                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
-                    Result.setAlimentsSelectionnes(alim.getName());
-                    alim.setIsClicked(true);
-                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
+                    CheckItem(alim, myAdapter);
                 } else {
-                    Result.deleteAliment(alim.getName());
-                    alim.setIsClicked(true);
+                    unCheckItem(alim, myAdapter);
                 }
             }
         });
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapFruit);
-        lv.setAdapter(new Adapter(arrayListAliments, context));
+
+        //Listener permettant l'envoi des aliments choisis à l'appui du bouton
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateListAliment.getAlimList(context);
+                // Retour au menu principal
+                // Plus tard ce sera affichage de la liste des résultats
+                Fragment fragment = new MenuPrincipal();
+                ChangeFragment(v, fragment);
+            }
+        });
         return lLayout;
     }
 }

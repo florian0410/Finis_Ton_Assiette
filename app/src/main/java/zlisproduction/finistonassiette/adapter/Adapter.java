@@ -1,7 +1,7 @@
 package zlisproduction.finistonassiette.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,13 +67,13 @@ public class Adapter extends BaseAdapter {
             // si la vue a déja été créee et qu'elle disparait de l'écran on a juste a la récupérer pas besoin de la désérialisé car ça a été deja fait juste avant
             holder=(MonViewHolder)convertView.getTag();
         }
-        // On défini la couleur de fond à l'initialisation de la liste
-        convertView.setBackgroundColor(Color.BLUE); //TODO : Simplifier cette ligne qui s'éxécute à chaque initialisation ou actualisation => Temps de chargement plus long
+
+        // convertView.setBackgroundColor(contexte.getResources().getColor(R.color.transparent));
         // Selon l'état actuel de sélection de l'aliment, on change le fond de la case de l'aliment
         if (object.isClicked() == true) {
-            convertView.setBackgroundColor(Color.GREEN);
+            convertView.setBackgroundColor(contexte.getResources().getColor(R.color.blue));
         } else {
-            convertView.setBackgroundColor(Color.BLUE);
+            convertView.setBackgroundColor(contexte.getResources().getColor(R.color.transparent));
         }
 
         // on récupère dans les deux cas l'objet aliment qui a disparu ou qui a été crée et on lui fixe ses paramètres
