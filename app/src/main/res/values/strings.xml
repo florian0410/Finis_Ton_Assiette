@@ -27,6 +27,9 @@
 
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
+    <string name="aliment_déjà_choisi">Vous aviez déjà choisi cet aliment avant</string>
+    <string name="Liste_des_aliments">"Liste des aliments : "</string>
+    <string name="liste_aliments_remise_à_zéro">Liste aliments remise à zéro</string>
 
 
 </resources>

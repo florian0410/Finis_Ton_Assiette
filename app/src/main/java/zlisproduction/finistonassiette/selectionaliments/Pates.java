@@ -1,7 +1,6 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
-import java.util.ArrayList;
 
 import java.util.HashMap;
 
@@ -22,12 +21,11 @@ import zlisproduction.finistonassiette.adapter.Adapter;
 /**
  * Created by Thibaut on 16/05/2015.
  */
-public class Pates extends ListAlimDisplay {
+public class Pates extends AlimentListDisplayer {
 
     private final HashMap<String, Integer> hashMapPates = new HashMap<String, Integer>();
-    private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
-    private Context context=null;
+    private Button boutonfin=null;
 
     @Nullable
     @Override
@@ -37,6 +35,8 @@ public class Pates extends ListAlimDisplay {
         actionbar.setTitle(getResources().getString(R.string.Pates));
         View lLayout = inflater.inflate(R.layout.listview, container, false);
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
+        boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
+
 
         // Remplissage de la HashMap associant le nom de l'aliment (clé) et son image (objet renvoyé par clé)
         hashMapPates.put(getString(R.string.Coquillettes), R.drawable.ic_beurretransparent);
@@ -68,6 +68,19 @@ public class Pates extends ListAlimDisplay {
                 }
             }
         });
+
+        //Listener permettant l'envoi des aliments choisis à l'appui du bouton
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateListAliment.getAlimList(context);
+                // Retour au menu principal
+                // Plus tard ce sera affichage de la liste des résultats
+                Fragment fragment = new MenuPrincipal();
+                ChangeFragment(v, fragment);
+            }
+        });
+
         return lLayout;
     }
 

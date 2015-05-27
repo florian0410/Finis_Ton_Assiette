@@ -1,18 +1,16 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import zlisproduction.finistonassiette.R;
@@ -21,11 +19,11 @@ import zlisproduction.finistonassiette.adapter.Adapter;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Cereale extends ListAlimDisplay {
+public class Cereale extends AlimentListDisplayer {
 
     private  HashMap <String, Integer> hashMapCereales= new HashMap <String, Integer>();
-    private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
+    private Button boutonfin = null;
 
     @Nullable
     @Override
@@ -36,6 +34,7 @@ public class Cereale extends ListAlimDisplay {
 
         View lLayout = inflater.inflate(R.layout.listview, container, false);
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
+        boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
         hashMapCereales.put(getString(R.string.Blé), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Boulghour), R.drawable.ic_beurretransparent);
@@ -51,8 +50,9 @@ public class Cereale extends ListAlimDisplay {
         //fabrication de l'objet aliment
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapCereales);
         //mise en page
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        myAdapter = new Adapter(arrayListAliments,context);
         lv.setAdapter(myAdapter);
+
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -66,6 +66,17 @@ public class Cereale extends ListAlimDisplay {
             }
         });
 
+        //Listener permettant l'envoi des aliments choisis à l'appui du bouton
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateListAliment.getAlimList(context);
+                // Retour au menu principal
+                // Plus tard ce sera affichage de la liste des résultats
+                Fragment fragment = new MenuPrincipal();
+                ChangeFragment(v,fragment);
+            }
+        });
         return lLayout;
     }
 }

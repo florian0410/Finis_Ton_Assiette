@@ -1,17 +1,15 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import zlisproduction.finistonassiette.R;
@@ -20,11 +18,11 @@ import zlisproduction.finistonassiette.adapter.Adapter;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Fruit extends ListAlimDisplay {
+public class Fruit extends AlimentListDisplayer {
 
     private HashMap<String, Integer> hashMapFruit= new  HashMap<String, Integer>();
-    private ArrayList<Aliment> arrayListAliments;
     private GridView lv;
+    Button boutonfin = null;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +36,7 @@ public class Fruit extends ListAlimDisplay {
         // the class, just initialize them here
 
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
+        boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
         /*
         Création de la Hashmap hashMapIncontournable
@@ -95,6 +94,18 @@ public class Fruit extends ListAlimDisplay {
                 } else {
                     unCheckItem(alim, myAdapter);
                 }
+            }
+        });
+
+        //Listener permettant l'envoi des aliments choisis à l'appui du bouton
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateListAliment.getAlimList(context);
+                // Retour au menu principal
+                // Plus tard ce sera affichage de la liste des résultats
+                Fragment fragment = new MenuPrincipal();
+                ChangeFragment(v, fragment);
             }
         });
         return lLayout;
