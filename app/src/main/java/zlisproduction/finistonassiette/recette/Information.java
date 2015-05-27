@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by Thibaut on 24/05/2015.
  */
-/*
+
 public class Information extends Activity {
 
 
@@ -17,24 +17,18 @@ public class Information extends Activity {
     Instanciation instancie=null;
     Requete requete =null;
     AnalyseResultat analyse_resultat=null;
+    ArrayList<String> result= new ArrayList<String>();
 
 
-    //test attribut
-    ArrayList<String> array;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        instancie= new ConstructeurDefaut();
-        requete = new ConsulterRecette(Information.this);
-        analyse_resultat = new JsonFormat();
-
-        array= new ArrayList<String>();
-        array.add("lol");
-        requete.execute(array);
-
-
+        requete=new ConsulterRecette();
+        result.add("50");
+        requete.execute(result);
     }
 
 
@@ -74,4 +68,4 @@ public class Information extends Activity {
         this.analyse_resultat = analyse_resultat;
     }
 }
-*/
+
