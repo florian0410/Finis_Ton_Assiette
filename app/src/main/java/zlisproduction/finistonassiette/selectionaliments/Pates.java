@@ -22,7 +22,7 @@ import zlisproduction.finistonassiette.adapter.Adapter;
 /**
  * Created by Thibaut on 16/05/2015.
  */
-public class Pates extends Fragment {
+public class Pates extends ListAlimDisplay {
 
     private final HashMap<String, Integer> hashMapPates = new HashMap<String, Integer>();
     private ArrayList<Aliment> arrayListAliments;
@@ -54,32 +54,21 @@ public class Pates extends Fragment {
         hashMapPates.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapPates);
-
+        myAdapter = new Adapter(arrayListAliments, super.context);
+        lv.setAdapter(myAdapter);
+        // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Aliment alim = arrayListAliments.get(position);
                 if (alim.isClicked() == false) {
-                    //Si l'aliment n'est pas coché on le met dans la liste des résultats et on le met coché
-                    Result.setAlimentsSelectionnes(alim.getName());
-                    alim.setIsClicked(true);
-                    //ajout de l'aliment à la liste si il n'existe pas déja dedans
-
-                }
-                else {
-                    Result.deleteAliment(alim.getName());
-                    alim.setIsClicked(true);
+                    CheckItem(alim, myAdapter);
+                } else {
+                    unCheckItem(alim, myAdapter);
                 }
             }
         });
-
-        lv.setAdapter(new Adapter(arrayListAliments, context));
         return lLayout;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        context = activity.getApplicationContext();
-    }
 }
