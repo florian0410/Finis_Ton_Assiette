@@ -5,11 +5,16 @@ import java.util.ArrayList;
 /**
  * Created by Thibaut on 25/05/2015.
  */
-/*
-public abstract class AjouterRecette implements Requete {
+
+public  class AjouterRecette extends Requete {
+
     @Override
-    public void envoyerRequete( ArrayList pData) {
+    protected String doInBackground(Object... params) {
+        return null;
+    }
+
+    @Override
+    public void envoyerRequete(ArrayList pData) {
 
     }
 }
-*/

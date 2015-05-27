@@ -7,8 +7,5 @@ import java.util.ArrayList;
  */
 public abstract class ListeCourses extends Requete{
 
-    @Override
-    public void envoyerRequete( ArrayList pData) {
 
-    }
 }

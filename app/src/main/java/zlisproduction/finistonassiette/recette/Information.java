@@ -35,10 +35,10 @@ public class Information extends Activity {
     public void envoyerRequete(ArrayList pArray){
         this.requete.envoyerRequete(pArray);
     }
-
+/*
     public void analyserResultat(){
         this.analyse_resultat.parseData();
-    }
+    }*/
 
     public void instanciationRecette(){
         this.instancie.instancie();

@@ -54,6 +54,7 @@ public  class ConsulterRecette extends Requete {
     protected String doInBackground(Object... params) {
         int nombre_aliments= params.length;
         StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/test.php?");
+
         for (int i=0; i<nombre_aliments; i++){
             stringBuilder.append("aliment"+i+"="+params[i].toString().replace("[","").replace("]",""));
         }
