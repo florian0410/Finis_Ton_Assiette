@@ -27,7 +27,7 @@ public class Information extends Activity {
         super.onCreate(savedInstanceState);
 
         requete=new ConsulterRecette();
-        result.add("50");
+        result.add("Salade_de_Riz");
         requete.execute(result);
     }
 
