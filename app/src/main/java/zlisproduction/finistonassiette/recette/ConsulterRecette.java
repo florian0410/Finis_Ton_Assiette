@@ -43,6 +43,8 @@ public  class ConsulterRecette extends Requete {
     }
 
 
+
+
     @Override
     public void envoyerRequete(ArrayList pData) {
     }
@@ -51,16 +53,24 @@ public  class ConsulterRecette extends Requete {
     }
 
     @Override
-    protected String doInBackground(Object... params) {
-        int nombre_aliments= params.length;
-        StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/test.php?");
+    protected String doInBackground(ArrayList<String>... params) {
 
-        for (int i=0; i<nombre_aliments; i++){
-            stringBuilder.append("aliment"+i+"="+params[i].toString().replace("[","").replace("]",""));
-        }
+        ArrayList <String> arr= params[0];
+
+
+
+        int nombre_aliments= params.length;
+
+
+        StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/test.php?");
+        int i=0;
+
+      for (i=0; i<nombre_aliments; i++){
+            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]", ""));
+      }
 
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://finistonassiette.ddns.net/test.php?aliment0=50");
+        HttpPost httppost = new HttpPost(stringBuilder.toString());
         try {
             //httppost.setEntity(httppost);
             HttpResponse response = httpclient.execute(httppost);
@@ -77,13 +87,6 @@ public  class ConsulterRecette extends Requete {
                 }
                 is.close();
                 result=sb.toString();
-                try {
-                    JSONObject obj= new JSONObject(result);
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 return result;
             }
             else{

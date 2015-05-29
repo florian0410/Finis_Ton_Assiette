@@ -8,13 +8,14 @@ import java.util.ArrayList;
 
 public  class AjouterRecette extends Requete {
 
-    @Override
-    protected String doInBackground(Object... params) {
-        return null;
-    }
 
     @Override
     public void envoyerRequete(ArrayList pData) {
 
+    }
+
+    @Override
+    protected String doInBackground(ArrayList<String>... params) {
+        return null;
     }
 }
