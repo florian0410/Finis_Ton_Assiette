@@ -70,7 +70,7 @@ public class Adapter extends BaseAdapter {
 
         // convertView.setBackgroundColor(contexte.getResources().getColor(R.color.transparent));
         // Selon l'état actuel de sélection de l'aliment, on change le fond de la case de l'aliment
-        if (object.isClicked() == true) {
+        if (object.isClicked()) {
             convertView.setBackgroundColor(contexte.getResources().getColor(R.color.blue));
         } else {
             convertView.setBackgroundColor(contexte.getResources().getColor(R.color.transparent));
