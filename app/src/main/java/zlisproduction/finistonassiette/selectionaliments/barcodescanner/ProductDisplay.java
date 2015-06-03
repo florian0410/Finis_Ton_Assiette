@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -129,37 +130,42 @@ public class ProductDisplay  extends Fragment {
             try {
                 // Getting JSON Array
                 // name = json.getJSONArray("contacts");   // Quand démarre par [
-                int status = json.getInt("status");
+                if(json != null) {
+                    int status = json.getInt("status");
 
-                // Check detection produit
-                if(status == 0){
-                    mTitle.setText("Produit non reconnu");
-                    mCategories.setText("Code barre: " + mScanContent);
-                }
-                else {
-                    JSONObject c = json.getJSONObject("product");   // quand démarre par { ou quand une seule case
+                    // Check detection produit
+                    if (status == 0) {
+                        mTitle.setText("Produit non reconnu");
+                        mCategories.setText("Code barre: " + mScanContent);
+                    } else {
+                        JSONObject c = json.getJSONObject("product");   // quand démarre par { ou quand une seule case
 
-                    // Check si le produit est incomplet au niveau infos
-                    String creator = c.getString("creator");
-                    if (creator == "null") {
-                        mTitle.setText("Produit non Reconnu");
-                        mCategories.setText("Code barre :" + mScanContent);
+                        // Check si le produit est incomplet au niveau infos
+                        String creator = c.getString("creator");
+                        if (creator == "null") {
+                            mTitle.setText("Produit non Reconnu");
+                            mCategories.setText("Code barre :" + mScanContent);
+                        } else {
+                            // Storing  JSON item in a Variable
+                            String title = c.getString("product_name");
+                            String image = c.getString("image_url");
+                            String categories = c.getString("categories");
+                            String brands = c.getString("brands");
+                            String quantity = c.getString("quantity");
+
+                            String customTitle = title + " - " + brands + " - " + quantity;
+                            //Set JSON Data in TextView
+                            mTitle.setText(customTitle);
+                            mCategories.setText(categories);
+                            mImage.setText(image);
+                        }
                     }
-                    else {
-                        // Storing  JSON item in a Variable
-                        String title = c.getString("product_name");
-                        String image = c.getString("image_url");
-                        String categories = c.getString("categories");
-                        String brands = c.getString("brands");
-                        String quantity = c.getString("quantity");
-
-                        String customTitle = title + " - " + brands + " - " + quantity;
-                        //Set JSON Data in TextView
-                        mTitle.setText(customTitle);
-                        mCategories.setText(categories);
-                        mImage.setText(image);
-                    }
                 }
+                else{
+                    Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
