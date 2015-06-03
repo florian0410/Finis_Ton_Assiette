@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import zlisproduction.finistonassiette.adapter.NavDrawerListAdapter;
 import zlisproduction.finistonassiette.model.NavDrawerItem;
+import zlisproduction.finistonassiette.recette.Information;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
 import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
@@ -185,6 +186,7 @@ public class MainActivity extends FragmentActivity {
 			fragment = new ScannerMainFragment();
 			break;
 		case 2:
+			fragment=  new Information();
 			break;
 		case 3:
 			break;

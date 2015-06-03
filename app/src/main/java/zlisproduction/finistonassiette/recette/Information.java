@@ -1,16 +1,22 @@
 package zlisproduction.finistonassiette.recette;
-import android.app.Activity;
 
 //test
+import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import zlisproduction.finistonassiette.R;
 
 /**
  * Created by Thibaut on 24/05/2015.
  */
 
-public class Information extends Activity {
+public class Information extends Fragment {
 
 
     //attribut par défaut
@@ -20,16 +26,27 @@ public class Information extends Activity {
     ArrayList<String> result= new ArrayList<String>();
 
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
+        View Layout= inflater.inflate(R.layout.information_layout, container, false);
         requete=new ConsulterRecette();
         result.add("Salade_de_riz");
         requete.execute(result);
+
+        // Inflate the layout for this fragment
+        return Layout;
     }
+
+
+
+
 
 
     public void envoyerRequete(ArrayList pArray){
