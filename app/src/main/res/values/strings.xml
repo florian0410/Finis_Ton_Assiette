@@ -7,7 +7,7 @@
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item >Menu Principal</item>
-        <item >Non défini</item>
+        <item >Barcode Scanner</item>
         <item >Non défini</item>
         <item >Non défini</item>
         <item >Non défini</item>
@@ -31,6 +31,7 @@
     <string name="Liste_des_aliments">"Liste des aliments : "</string>
     <string name="liste_aliments_remise_à_zéro">Liste aliments remise à zéro</string>
     <string name="trouver_une_recette">Trouver une Recette</string>
+    <string name="scanner_un_nouveau_produit">Scanner un nouveau produit</string>
 
 
 </resources>

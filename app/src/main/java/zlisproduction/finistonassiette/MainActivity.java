@@ -23,6 +23,7 @@ import zlisproduction.finistonassiette.adapter.NavDrawerListAdapter;
 import zlisproduction.finistonassiette.model.NavDrawerItem;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
 import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
+import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
 
 public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
@@ -181,6 +182,7 @@ public class MainActivity extends FragmentActivity {
 			fragment = new MenuPrincipal();
 			break;
 		case 1:
+			fragment = new ScannerMainFragment();
 			break;
 		case 2:
 			break;
