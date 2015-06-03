@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class Information extends Fragment {
     Requete requete =null;
     AnalyseResultat analyse_resultat=null;
     ArrayList<String> result= new ArrayList<String>();
+    ProgressBar progressBar= null;
 
 
     @Override
@@ -36,9 +38,12 @@ public class Information extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
         View Layout= inflater.inflate(R.layout.information_layout, container, false);
+        progressBar= (ProgressBar) Layout.findViewById(R.id.progressBar);
+
         requete=new ConsulterRecette();
         result.add("Salade_de_riz");
         requete.execute(result);
+        progressBar.setVisibility(View.GONE);
 
         // Inflate the layout for this fragment
         return Layout;
