@@ -87,6 +87,7 @@ public  class ConsulterRecette extends Requete {
                 }
                 is.close();
                 result=sb.toString();
+                String[] array= result.replaceAll("\\}\\{","\\}\\}\\{\\{").split("\\}\\{");
                 return result;
             }
             else{
