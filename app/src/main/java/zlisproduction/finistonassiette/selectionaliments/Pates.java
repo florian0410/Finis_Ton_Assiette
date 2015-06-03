@@ -41,8 +41,8 @@ public class Pates extends AlimentListDisplayer {
         // Remplissage de la HashMap associant le nom de l'aliment (clé) et son image (objet renvoyé par clé)
         hashMapPates.put(getString(R.string.Coquillettes), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Spaghetti), R.drawable.ic_beurretransparent);
-        hashMapPates.put(getString(R.string.Farfalle), R.drawable.ic_beurretransparent);
-        hashMapPates.put(getString(R.string.Penne_Rigate), R.drawable.ic_beurretransparent);
+        hashMapPates.put(getString(R.string.Farfalle), R.drawable.ic_farfalestransparent);
+        hashMapPates.put(getString(R.string.Penne_Rigate), R.drawable.ic_pennetransparent);
         hashMapPates.put(getString(R.string.Linguine), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Tagliatelle), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Macaroni), R.drawable.ic_beurretransparent);

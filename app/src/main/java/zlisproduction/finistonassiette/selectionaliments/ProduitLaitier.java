@@ -39,10 +39,10 @@ public class ProduitLaitier extends AlimentListDisplayer {
         Création de la Hashmap hashMapIncontournable
          */
         hashMapProduitLaitier.put(getString(R.string.Brie), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Camembert), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Cantal), R.drawable.ic_beurretransparent);
+        hashMapProduitLaitier.put(getString(R.string.Camembert), R.drawable.ic_camembertplanchetransparent);
+        hashMapProduitLaitier.put(getString(R.string.Cantal), R.drawable.ic_emmentaltransparent);
         hashMapProduitLaitier.put(getString(R.string.Chévre_Brebis), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Comté), R.drawable.ic_beurretransparent);
+        hashMapProduitLaitier.put(getString(R.string.Comté), R.drawable.ic_compttransparent);
         hashMapProduitLaitier.put(getString(R.string.Feta), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(getString(R.string.Fromage_blanc), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(getString(R.string.Lait_de_coco), R.drawable.ic_beurretransparent);
@@ -53,7 +53,7 @@ public class ProduitLaitier extends AlimentListDisplayer {
         hashMapProduitLaitier.put(getString(R.string.Parmesan), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(getString(R.string.Petits_suisses), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(getString(R.string.Raclette), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Roquefort), R.drawable.ic_beurretransparent);
+        hashMapProduitLaitier.put(getString(R.string.Roquefort), R.drawable.ic_rocqueforttransparent);
         hashMapProduitLaitier.put(getString(R.string.Saint_Marcelin), R.drawable.ic_beurretransparent);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapProduitLaitier);

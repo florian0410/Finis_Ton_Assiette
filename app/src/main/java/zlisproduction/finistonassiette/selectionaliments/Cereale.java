@@ -37,8 +37,8 @@ public class Cereale extends AlimentListDisplayer {
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
         hashMapCereales.put(getString(R.string.Blé), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Boulghour), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Farine_de_froment), R.drawable.ic_beurretransparent);
+        hashMapCereales.put(getString(R.string.Boulghour), R.drawable.ic_boulgourtransparentlast);
+        hashMapCereales.put(getString(R.string.Farine_de_froment), R.drawable.ic_farine_fromenttransparent);
         hashMapCereales.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Müesli), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Pâtes_de_riz), R.drawable.ic_beurretransparent);

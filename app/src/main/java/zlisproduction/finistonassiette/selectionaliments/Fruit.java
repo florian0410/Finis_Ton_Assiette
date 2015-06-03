@@ -43,8 +43,8 @@ public class Fruit extends AlimentListDisplayer {
          */
         hashMapFruit.put(getString(R.string.Abricots), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Amandes), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Ananas), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Banane), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Ananas), R.drawable.ic_ananastransparent);
+        hashMapFruit.put(getString(R.string.Banane), R.drawable.ic_bananetransparent);
         hashMapFruit.put(getString(R.string.Cassis), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Cerises), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Châtaignes), R.drawable.ic_beurretransparent);
@@ -60,7 +60,7 @@ public class Fruit extends AlimentListDisplayer {
         hashMapFruit.put(getString(R.string.Fruits_confits), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Goyave), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Groseilles), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Kiwi), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Kiwi), R.drawable.ic_kiwitransparent);
         hashMapFruit.put(getString(R.string.Litchies), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Mangue), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Melon), R.drawable.ic_beurretransparent);
@@ -73,11 +73,11 @@ public class Fruit extends AlimentListDisplayer {
         hashMapFruit.put(getString(R.string.Pêche), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Pastèque), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Pistaches), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Poire), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Pomme), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Poire), R.drawable.ic_poirestransparent);
+        hashMapFruit.put(getString(R.string.Pomme), R.drawable.ic_pommetransparent);
         hashMapFruit.put(getString(R.string.Prunes), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Raisin_blanc), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Raisin_noir), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Raisin_noir), R.drawable.ic_raisintransparent);
         hashMapFruit.put(getString(R.string.Rhubarde), R.drawable.ic_beurretransparent);
 
 

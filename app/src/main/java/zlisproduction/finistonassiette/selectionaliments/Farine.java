@@ -37,7 +37,8 @@ public class Farine extends AlimentListDisplayer {
         /*
         Construction de la HashMap hashMapFarine
          */
-        hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_beurretransparent);
+        hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_farine_transparent);
+        hashMapFarine.put(getString(R.string.Farine_de_Froment), R.drawable.ic_farine_fromenttransparent);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
         myAdapter = new Adapter(arrayListAliments, super.context);

@@ -34,14 +34,14 @@ public class Viande extends AlimentListDisplayer {
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
         hashMapViande.put(getString(R.string.Agneau), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Boeuf), R.drawable.ic_beurretransparent);
+        hashMapViande.put(getString(R.string.Boeuf), R.drawable.ic_steaktransparent);
         hashMapViande.put(getString(R.string.Boudin_blanc), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Boudin_noir), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Caille), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Dinde), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Escargots), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Foie_gras), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Jambon_blanc), R.drawable.ic_beurretransparent);
+        hashMapViande.put(getString(R.string.Jambon_blanc), R.drawable.ic_jambontransparent);
         hashMapViande.put(getString(R.string.Jambon_cru), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Jambon_fumé), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Lapin), R.drawable.ic_beurretransparent);

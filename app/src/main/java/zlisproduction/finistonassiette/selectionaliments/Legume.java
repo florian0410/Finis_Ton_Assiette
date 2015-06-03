@@ -40,37 +40,37 @@ public class Legume extends AlimentListDisplayer {
         Création de la Hashmap
          */
         hashMapLegumes.put(getString(R.string.Artichaut), R.drawable.ic_1courgettetransparente);
-        hashMapLegumes.put(getString(R.string.Aubergine),R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Aubergine),R.drawable.ic_auberginetransparent);
         hashMapLegumes.put(getString(R.string.Avocat), R.drawable.ic_1courgettetransparente);
         hashMapLegumes.put(getString(R.string.Betterave),R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Brocoli), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Carotte), R.drawable.ic_1courgettetransparente);
+        hashMapLegumes.put(getString(R.string.Carotte), R.drawable.ic_carottetransparent);
         hashMapLegumes.put(getString(R.string.chou_blanc_ou_vert), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.chou_fleur), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Choux_de_Bruxelles), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Coeur_de_palmier), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Concombre), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Courgette), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Épinards), R.drawable.ic_1courgettetransparente);
-        hashMapLegumes.put(getString(R.string.Fenouil), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Courgette), R.drawable.ic_1courgettetransparent);
+        hashMapLegumes.put(getString(R.string.Épinards), R.drawable.ic_epinardstransparent);
+        hashMapLegumes.put(getString(R.string.Fenouil), R.drawable.ic_fenouiltransparent);
         hashMapLegumes.put(getString(R.string.Flageolets), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Germes_de_soja), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Haricots_verts), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Lentilles), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Lentilles), R.drawable.ic_lentillestransparent);
         hashMapLegumes.put(getString(R.string.Maïs), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Navet), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Olives_noires), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Olives_vertes), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Patate_douce), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Petits_pois), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Poireau), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Poireau), R.drawable.ic_poireauxtransparent);
         hashMapLegumes.put(getString(R.string.Pois_cassés), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Pois_chiches), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Pois_gourmands), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Poivron), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Potimarron), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Potiron), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Radis), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Radis), R.drawable.ic_radistransparent);
         hashMapLegumes.put(getString(R.string.Salade_verte), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Tomate_verte), R.drawable.ic_beurretransparent);
 

@@ -51,30 +51,30 @@ public class Incontournable extends AlimentListDisplayer {
         Création de la Hashmap hashMapIncontournable
          */
 
-        hashMapIncontournable.put(getString(R.string.Ail), R.drawable.ic_beurretransparent);
+        hashMapIncontournable.put(getString(R.string.Ail), R.drawable.ic_ailtransparent);
         hashMapIncontournable.put(getString(R.string.Beurre_margarine), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Chocolat), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Crème_fraiche), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Eau), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Farine_de_blé), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Gruyére_emmental), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Huile_d_olive), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Huile_de_tournesol), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Lait), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Miel), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Oeuf), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Oignon), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Pâte_brisée), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Pâte_feuilletée), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Pâtes), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Poivre), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Pomme_de_terre), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Riz_blanc), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Sel), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Sucre), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Tomate), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_beurretransparent);
+        hashMapIncontournable.put(getString(R.string.Chocolat), R.drawable.ic_chocolattransparent);
+        hashMapIncontournable.put(getString(R.string.Crème_fraiche), R.drawable.ic_cremefraichetransparent);
+        hashMapIncontournable.put(getString(R.string.Eau), R.drawable.ic_eautransparent);
+        hashMapIncontournable.put(getString(R.string.Farine_de_blé), R.drawable.ic_farine_transparent);
+        hashMapIncontournable.put(getString(R.string.Gruyére_emmental), R.drawable.ic_gruyeretransparent);
+        hashMapIncontournable.put(getString(R.string.Huile_d_olive), R.drawable.ic_huileoliveTransparent);
+        hashMapIncontournable.put(getString(R.string.Huile_de_tournesol), R.drawable.ic_huile_tournesol_transparente);
+        hashMapIncontournable.put(getString(R.string.Lait), R.drawable.ic_bouteillelaittransparent);
+        hashMapIncontournable.put(getString(R.string.Miel), R.drawable.ic_pot_mieltransparent);
+        hashMapIncontournable.put(getString(R.string.Oeuf), R.drawable.ic_oeufs_tourgris_transparent);
+        hashMapIncontournable.put(getString(R.string.Oignon), R.drawable.ic_oignontransparent);
+        hashMapIncontournable.put(getString(R.string.Pâte_brisée), R.drawable.ic_pates_briseetransparent);
+        hashMapIncontournable.put(getString(R.string.Pâte_feuilletée), R.drawable.ic_patefeuilletetransparentegrand);
+        hashMapIncontournable.put(getString(R.string.Pâtes), R.drawable.ic_paquetpatestransparent);
+        hashMapIncontournable.put(getString(R.string.Poivre), R.drawable.ic_poivretransparent);
+        hashMapIncontournable.put(getString(R.string.Pomme_de_terre), R.drawable.ic_pommedeterre2transparent);
+        hashMapIncontournable.put(getString(R.string.Riz_blanc), R.drawable.ic_bolriztransparent);
+        hashMapIncontournable.put(getString(R.string.Sel), R.drawable.ic_seltransparent);
+        hashMapIncontournable.put(getString(R.string.Sucre), R.drawable.ic_sucretransparent);
+        hashMapIncontournable.put(getString(R.string.Tomate), R.drawable.ic_tomatetransparent);
+        hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.drawable.ic_vinaigretransparent);
+        hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_yaourttransparent);
 
 
 
