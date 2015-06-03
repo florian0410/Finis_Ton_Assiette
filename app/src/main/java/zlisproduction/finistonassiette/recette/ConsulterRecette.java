@@ -1,6 +1,4 @@
 package zlisproduction.finistonassiette.recette;
-
-import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ProgressBar;
 
@@ -38,13 +36,13 @@ public  class ConsulterRecette extends Requete {
     private String result="";
 
 
+
+
     public ConsulterRecette() {
 
+
+
     }
-
-
-
-
     @Override
     public void envoyerRequete(ArrayList pData) {
     }
@@ -56,9 +54,6 @@ public  class ConsulterRecette extends Requete {
     protected String doInBackground(ArrayList<String>... params) {
 
         ArrayList <String> arr= params[0];
-
-
-
         int nombre_aliments= params.length;
 
 
@@ -69,10 +64,13 @@ public  class ConsulterRecette extends Requete {
             stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]", ""));
       }
 
+
+
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(stringBuilder.toString());
+
         try {
-            //httppost.setEntity(httppost);
+
             HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
             int status = response.getStatusLine().getStatusCode();
@@ -87,6 +85,7 @@ public  class ConsulterRecette extends Requete {
                 }
                 is.close();
                 result=sb.toString();
+                //décomposer en objets JSON
                 String[] array= result.replaceAll("\\}\\{","\\}\\}\\{\\{").split("\\}\\{");
                 return result;
             }
@@ -101,8 +100,6 @@ public  class ConsulterRecette extends Requete {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return null;
     }
 }

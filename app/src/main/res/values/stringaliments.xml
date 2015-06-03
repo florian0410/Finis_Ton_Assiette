@@ -180,6 +180,11 @@
     <string name="Torti">Torti</string>
     <string name="Veau">Veau</string>
     <string name="Farine_de_Froment">Farine de Froment</string>
+    <string name="asperge">Asperges</string>
+    <string name="gouda">Gouda</string>
+    <string name="saucisson">Saucisson</string>
+    <string name="sucre_glace">Sucre Glace</string>
+    <string name="dinde">Dinde</string>
 
 
 </resources>
