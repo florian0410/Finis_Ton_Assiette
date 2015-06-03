@@ -73,6 +73,7 @@ public class Legume extends AlimentListDisplayer {
         hashMapLegumes.put(getString(R.string.Radis), R.drawable.ic_radistransparent);
         hashMapLegumes.put(getString(R.string.Salade_verte), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Tomate_verte), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.asperge), R.drawable.ic_aspergestransparent);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapLegumes);
         myAdapter = new Adapter(arrayListAliments, super.context);

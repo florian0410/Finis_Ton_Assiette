@@ -55,6 +55,7 @@ public class ProduitLaitier extends AlimentListDisplayer {
         hashMapProduitLaitier.put(getString(R.string.Raclette), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(getString(R.string.Roquefort), R.drawable.ic_rocqueforttransparent);
         hashMapProduitLaitier.put(getString(R.string.Saint_Marcelin), R.drawable.ic_beurretransparent);
+        hashMapProduitLaitier.put(getString(R.string.gouda), R.drawable.ic_goudatransparent);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapProduitLaitier);
         myAdapter = new Adapter(arrayListAliments, super.context);
