@@ -58,7 +58,7 @@ public class Incontournable extends AlimentListDisplayer {
         hashMapIncontournable.put(getString(R.string.Eau), R.drawable.ic_eautransparent);
         hashMapIncontournable.put(getString(R.string.Farine_de_blé), R.drawable.ic_farine_transparent);
         hashMapIncontournable.put(getString(R.string.Gruyére_emmental), R.drawable.ic_gruyeretransparent);
-        hashMapIncontournable.put(getString(R.string.Huile_d_olive), R.drawable.ic_huileoliveTransparent);
+        hashMapIncontournable.put(getString(R.string.Huile_d_olive), R.drawable.ic_huileolivetransparent);
         hashMapIncontournable.put(getString(R.string.Huile_de_tournesol), R.drawable.ic_huile_tournesol_transparente);
         hashMapIncontournable.put(getString(R.string.Lait), R.drawable.ic_bouteillelaittransparent);
         hashMapIncontournable.put(getString(R.string.Miel), R.drawable.ic_pot_mieltransparent);
