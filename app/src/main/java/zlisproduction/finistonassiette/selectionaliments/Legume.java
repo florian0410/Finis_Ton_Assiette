@@ -41,11 +41,11 @@ public class Legume extends AlimentListDisplayer {
          */
         hashMapLegumes.put(getString(R.string.Artichaut), R.drawable.ic_1courgettetransparente);
         hashMapLegumes.put(getString(R.string.Aubergine),R.drawable.ic_auberginetransparent);
-        hashMapLegumes.put(getString(R.string.Avocat), R.drawable.ic_1courgettetransparente);
+        hashMapLegumes.put(getString(R.string.Avocat), R.drawable.ic_avocattransparent);
         hashMapLegumes.put(getString(R.string.Betterave),R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(getString(R.string.Brocoli), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Brocoli), R.drawable.ic_brocolistransparent);
         hashMapLegumes.put(getString(R.string.Carotte), R.drawable.ic_carottetransparent);
-        hashMapLegumes.put(getString(R.string.chou_blanc_ou_vert), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.chou_blanc_ou_vert), R.drawable.ic_choutransparent);
         hashMapLegumes.put(getString(R.string.chou_fleur), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Choux_de_Bruxelles), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Coeur_de_palmier), R.drawable.ic_beurretransparent);
@@ -71,9 +71,11 @@ public class Legume extends AlimentListDisplayer {
         hashMapLegumes.put(getString(R.string.Potimarron), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Potiron), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.Radis), R.drawable.ic_radistransparent);
-        hashMapLegumes.put(getString(R.string.Salade_verte), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(getString(R.string.Salade_verte), R.drawable.ic_salade_vertetransparent);
         hashMapLegumes.put(getString(R.string.Tomate_verte), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(getString(R.string.asperge), R.drawable.ic_aspergestransparent);
+        hashMapLegumes.put(getString(R.string.echalotte), R.drawable.ic_echalotetransparent);
+        hashMapLegumes.put(getString(R.string.menthe), R.drawable.ic_menthetransparente);
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapLegumes);
         myAdapter = new Adapter(arrayListAliments, super.context);

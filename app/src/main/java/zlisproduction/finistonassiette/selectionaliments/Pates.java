@@ -40,18 +40,20 @@ public class Pates extends AlimentListDisplayer {
 
         // Remplissage de la HashMap associant le nom de l'aliment (clé) et son image (objet renvoyé par clé)
         hashMapPates.put(getString(R.string.Coquillettes), R.drawable.ic_beurretransparent);
-        hashMapPates.put(getString(R.string.Spaghetti), R.drawable.ic_beurretransparent);
+        hashMapPates.put(getString(R.string.Spaghetti), R.drawable.ic_spaghettitransparent);
         hashMapPates.put(getString(R.string.Farfalle), R.drawable.ic_farfalestransparent);
         hashMapPates.put(getString(R.string.Penne_Rigate), R.drawable.ic_pennetransparent);
         hashMapPates.put(getString(R.string.Linguine), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Tagliatelle), R.drawable.ic_beurretransparent);
-        hashMapPates.put(getString(R.string.Macaroni), R.drawable.ic_beurretransparent);
+        hashMapPates.put(getString(R.string.Macaroni), R.drawable.ic_macaronitransparent);
         hashMapPates.put(getString(R.string.Nouilles), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Fusilli), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Capellini), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Torti), R.drawable.ic_beurretransparent);
         hashMapPates.put(getString(R.string.Vermicelli), R.drawable.ic_beurretransparent);
-        hashMapPates.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
+        hashMapPates.put(getString(R.string.Lasagnes), R.drawable.ic_lasagnestransparent);
+        hashMapPates.put(getString(R.string.pates_deja_cuites), R.drawable.ic_lasagnestransparent);
+
 
         arrayListAliments = ListeAliment.alimentsArraylist(hashMapPates);
         myAdapter = new Adapter(arrayListAliments, super.context);

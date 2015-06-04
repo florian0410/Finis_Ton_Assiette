@@ -53,8 +53,8 @@ public class Viande extends AlimentListDisplayer {
         hashMapViande.put(getString(R.string.Porc), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Poulet), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Quenelles), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Saucisse), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Saucisson), R.drawable.ic_beurretransparent);
+        hashMapViande.put(getString(R.string.Saucisse), R.drawable.ic_saucissetransparente);
+        //hashMapViande.put(getString(R.string.Saucisson), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.Veau), R.drawable.ic_beurretransparent);
         hashMapViande.put(getString(R.string.saucisson), R.drawable.ic_saucissontransparent);
         hashMapViande.put(getString(R.string.dinde), R.drawable.ic_dindetransparente);

@@ -41,14 +41,14 @@ public class Fruit extends AlimentListDisplayer {
         /*
         Création de la Hashmap hashMapIncontournable
          */
-        hashMapFruit.put(getString(R.string.Abricots), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Abricots), R.drawable.ic_amande_en_poudretransparente);
         hashMapFruit.put(getString(R.string.Amandes), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Ananas), R.drawable.ic_ananastransparent);
         hashMapFruit.put(getString(R.string.Banane), R.drawable.ic_bananetransparent);
         hashMapFruit.put(getString(R.string.Cassis), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Cerises), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Châtaignes), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Citron), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Citron), R.drawable.ic_citrontransparent);
         hashMapFruit.put(getString(R.string.Citron_vert), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Clémentine), R.drawable.ic_beurretransparent);
         hashMapFruit.put(getString(R.string.Coing), R.drawable.ic_beurretransparent);
@@ -76,7 +76,7 @@ public class Fruit extends AlimentListDisplayer {
         hashMapFruit.put(getString(R.string.Poire), R.drawable.ic_poirestransparent);
         hashMapFruit.put(getString(R.string.Pomme), R.drawable.ic_pommetransparent);
         hashMapFruit.put(getString(R.string.Prunes), R.drawable.ic_beurretransparent);
-        hashMapFruit.put(getString(R.string.Raisin_blanc), R.drawable.ic_beurretransparent);
+        hashMapFruit.put(getString(R.string.Raisin_blanc), R.drawable.ic_raisin_blanc);
         hashMapFruit.put(getString(R.string.Raisin_noir), R.drawable.ic_raisintransparent);
         hashMapFruit.put(getString(R.string.Rhubarde), R.drawable.ic_beurretransparent);
 

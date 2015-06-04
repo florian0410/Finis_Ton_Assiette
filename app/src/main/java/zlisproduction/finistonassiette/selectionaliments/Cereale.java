@@ -43,7 +43,7 @@ public class Cereale extends AlimentListDisplayer {
         hashMapCereales.put(getString(R.string.Müesli), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Pâtes_de_riz), R.drawable.ic_beurretransparent);
         hashMapCereales.put(getString(R.string.Quinoa), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Riz_complet), R.drawable.ic_bolriztransparent);
+        hashMapCereales.put(getString(R.string.Riz_complet), R.drawable.ic_rizcomplettransparent);
         hashMapCereales.put(getString(R.string.Sarrasin), R.drawable.ic_beurretransparent);
 
 

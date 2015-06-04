@@ -76,6 +76,8 @@ public class Incontournable extends AlimentListDisplayer {
         hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.drawable.ic_vinaigretransparent);
         hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_yaourttransparent);
         hashMapIncontournable.put(getString(R.string.sucre_glace), R.drawable.ic_sucre_glacetransparent);
+        hashMapIncontournable.put(getString(R.string.moutarde), R.drawable.ic_moutardetransparente);
+
 
 
 

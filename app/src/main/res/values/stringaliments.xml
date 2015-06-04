@@ -185,6 +185,15 @@
     <string name="saucisson">Saucisson</string>
     <string name="sucre_glace">Sucre Glace</string>
     <string name="dinde">Dinde</string>
+    <string name="echalotte">Echalotte</string>
+    <string name="moutarde">Moutarde</string>
+    <string name="menthe">Menthe</string>
+    <string name="pates_deja_cuites">Pâtes déjà cuites</string>
+
+
+
+
+
 
 
 </resources>
