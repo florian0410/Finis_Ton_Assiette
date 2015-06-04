@@ -130,12 +130,13 @@ public class ProductDisplay  extends Fragment {
             try {
                 // Getting JSON Array
                 // name = json.getJSONArray("contacts");   // Quand démarre par [
+                // Exception utilse quand page web non JSON ou pas de connectivité malgrés wifi
                 if(json != null) {
                     int status = json.getInt("status");
 
                     // Check detection produit
                     if (status == 0) {
-                        mTitle.setText("Produit non reconnu");
+                        mTitle.setText(context.getString(R.string.produit_non_reconnu));
                         mCategories.setText("Code barre: " + mScanContent);
                     } else {
                         JSONObject c = json.getJSONObject("product");   // quand démarre par { ou quand une seule case
@@ -143,7 +144,7 @@ public class ProductDisplay  extends Fragment {
                         // Check si le produit est incomplet au niveau infos
                         String creator = c.getString("creator");
                         if (creator == "null") {
-                            mTitle.setText("Produit non Reconnu");
+                            mTitle.setText(context.getString(R.string.produit_non_reconnu));
                             mCategories.setText("Code barre :" + mScanContent);
                         } else {
                             // Storing  JSON item in a Variable
@@ -162,7 +163,7 @@ public class ProductDisplay  extends Fragment {
                     }
                 }
                 else{
-                    Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide ( json = null)", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 

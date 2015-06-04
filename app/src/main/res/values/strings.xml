@@ -32,6 +32,7 @@
     <string name="liste_aliments_remise_à_zéro">Liste aliments remise à zéro</string>
     <string name="trouver_une_recette">Trouver une Recette</string>
     <string name="scanner_un_nouveau_produit">Scanner un nouveau produit</string>
+    <string name="produit_non_reconnu">Produit non reconnu</string>
 
 
 </resources>
