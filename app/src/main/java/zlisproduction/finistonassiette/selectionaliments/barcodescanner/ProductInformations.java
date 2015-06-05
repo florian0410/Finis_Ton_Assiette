@@ -25,7 +25,7 @@ import zlisproduction.finistonassiette.R;
 /**
  * Created by Florian.S on 02/06/2015.
  */
-public class ProductDisplay  extends Fragment {
+public class ProductInformations extends Fragment {
     private Context context = null;
     private TextView mTitle = null;
     private TextView mCategories = null;
@@ -57,7 +57,7 @@ public class ProductDisplay  extends Fragment {
         mNewScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentIntegrator integrator = IntentIntegrator.forFragment(ProductDisplay.this);
+                IntentIntegrator integrator = IntentIntegrator.forFragment(ProductInformations.this);
                 integrator.setCaptureActivity(CaptureActivityOrientation.class);
                 integrator.setOrientationLocked(true);  // verrouillage de l'orientation
                 integrator.initiateScan();
@@ -98,7 +98,7 @@ public class ProductDisplay  extends Fragment {
             }
 
             // Changement de fragment
-            Fragment fragment = new ProductDisplay();
+            Fragment fragment = new ProductInformations();
 
             // Ajout des information supplémentaires scannées
             Bundle bundle = new Bundle();

@@ -66,7 +66,7 @@ public class ScannerMainFragment extends Fragment {
             }
 
             // Changement de fragment
-            Fragment fragment = new ProductDisplay();
+            Fragment fragment = new ProductInformations();
 
             // Ajout des information supplémentaires scannées
             Bundle bundle = new Bundle();
