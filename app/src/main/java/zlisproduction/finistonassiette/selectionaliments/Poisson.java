@@ -20,7 +20,6 @@ import zlisproduction.finistonassiette.adapter.Adapter;
  */
 public class Poisson extends AlimentListDisplayer {
 
-    private final  HashMap<String, Integer> HashPoisson = new HashMap<String, Integer>();
     private GridView lv;
     private Button boutonfin=null;
 
@@ -28,7 +27,7 @@ public class Poisson extends AlimentListDisplayer {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Changer le titre de la barre d'action
         ActionBar actionbar = getActivity().getActionBar();
-        actionbar.setTitle(getResources().getString(R.string.Incontournable));
+        actionbar.setTitle(getResources().getString(R.string.Poisson));
         // FragmentActivity faActivity  = (FragmentActivity)    super.getActivity();
         // Replace LinearLayout by the type of the root element of the layout you're trying to load
         View lLayout = inflater.inflate(R.layout.listview, container, false);
@@ -38,33 +37,9 @@ public class Poisson extends AlimentListDisplayer {
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
-        /*
-        Création de la Hashmap
-         */
-        HashPoisson.put(getString(R.string.Cabillaud), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Calamars), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Colin), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Crevettes), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Daurade), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Flétan), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Gambas), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Haddock), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Hareng), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Lieu), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Maquerau), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Merlu), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Moules), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Oeufs_de_lump), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Saint_Jacques), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Sardines), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Saumon), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Saumon_fumé), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Sole), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Surimi), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Thon_en_boite), R.drawable.ic_beurretransparent);
-        HashPoisson.put(getString(R.string.Truite), R.drawable.ic_beurretransparent);
-
-        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(HashPoisson);
+        Aliment alim = new Aliment(context);
+        //fabrication de l'objet aliment
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Poisson)));
         myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments

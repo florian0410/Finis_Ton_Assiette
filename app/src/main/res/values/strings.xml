@@ -34,6 +34,9 @@
     <string name="scanner_un_nouveau_produit">Scanner un nouveau produit</string>
     <string name="produit_non_reconnu">Produit non reconnu</string>
     <string name="Céréales">Céréales</string>
+    <string name="Farine">Farine</string>
+    <string name="Fruit">Fruit</string>
+    <string name="Poisson">Poisson</string>
 
 
 </resources>

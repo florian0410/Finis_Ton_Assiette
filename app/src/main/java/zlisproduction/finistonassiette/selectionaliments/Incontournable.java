@@ -19,7 +19,6 @@ import zlisproduction.finistonassiette.adapter.Adapter;
  * Created by Florian on 15/05/2015.
  */
 public class Incontournable extends AlimentListDisplayer {
-    private HashMap<String, Integer> hashMapIncontournable= new HashMap<String, Integer>();
     private GridView lv;
     private Button boutonfin = null;
 
@@ -47,41 +46,9 @@ public class Incontournable extends AlimentListDisplayer {
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin = (Button) lLayout.findViewById(R.id.boutonfinselection);
 
-        /*
-        Création de la Hashmap hashMapIncontournable
-         */
-
-        hashMapIncontournable.put(getString(R.string.Ail), R.drawable.ic_ailtransparent);
-        hashMapIncontournable.put(getString(R.string.Beurre_margarine), R.drawable.ic_beurretransparent);
-        hashMapIncontournable.put(getString(R.string.Chocolat), R.drawable.ic_chocolattransparent);
-        hashMapIncontournable.put(getString(R.string.Crème_fraiche), R.drawable.ic_cremefraichetransparent);
-        hashMapIncontournable.put(getString(R.string.Eau), R.drawable.ic_eautransparent);
-        hashMapIncontournable.put(getString(R.string.Farine_de_blé), R.drawable.ic_farine_transparent);
-        hashMapIncontournable.put(getString(R.string.Gruyére_emmental), R.drawable.ic_gruyeretransparent);
-        hashMapIncontournable.put(getString(R.string.Huile_d_olive), R.drawable.ic_huileolivetransparent);
-        hashMapIncontournable.put(getString(R.string.Huile_de_tournesol), R.drawable.ic_huile_tournesol_transparente);
-        hashMapIncontournable.put(getString(R.string.Lait), R.drawable.ic_bouteillelaittransparent);
-        hashMapIncontournable.put(getString(R.string.Miel), R.drawable.ic_pot_mieltransparent);
-        hashMapIncontournable.put(getString(R.string.Oeuf), R.drawable.ic_oeufs_tourgris_transparent);
-        hashMapIncontournable.put(getString(R.string.Oignon), R.drawable.ic_oignontransparent);
-        hashMapIncontournable.put(getString(R.string.Pâte_brisée), R.drawable.ic_pates_briseetransparent);
-        hashMapIncontournable.put(getString(R.string.Pâte_feuilletée), R.drawable.ic_patefeuilletetransparentegrand);
-        hashMapIncontournable.put(getString(R.string.Pâtes), R.drawable.ic_paquetpatestransparent);
-        hashMapIncontournable.put(getString(R.string.Poivre), R.drawable.ic_poivretransparent);
-        hashMapIncontournable.put(getString(R.string.Pomme_de_terre), R.drawable.ic_pommedeterre2transparent);
-        hashMapIncontournable.put(getString(R.string.Riz_blanc), R.drawable.ic_bolriztransparent);
-        hashMapIncontournable.put(getString(R.string.Sel), R.drawable.ic_seltransparent);
-        hashMapIncontournable.put(getString(R.string.Sucre), R.drawable.ic_sucretransparent);
-        hashMapIncontournable.put(getString(R.string.Tomate), R.drawable.ic_tomatetransparent);
-        hashMapIncontournable.put(getString(R.string.Vinaigre_balsamique), R.drawable.ic_vinaigretransparent);
-        hashMapIncontournable.put(getString(R.string.Yaourt_nature), R.drawable.ic_yaourttransparent);
-        hashMapIncontournable.put(getString(R.string.sucre_glace), R.drawable.ic_sucre_glacetransparent);
-        hashMapIncontournable.put(getString(R.string.moutarde), R.drawable.ic_moutardetransparente);
-
-
-
-
-        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapIncontournable);
+        Aliment alim = new Aliment(context);
+        //fabrication de l'objet aliment
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Incontournable)));
         // On déclare ici l'adapteur pour pouvoir faire fonctionner la méthode notifyDataSetChanged
         myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);

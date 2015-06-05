@@ -30,7 +30,7 @@ public class Cereale extends AlimentListDisplayer {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Changer le titre de la barre d'action
         ActionBar actionbar = getActivity().getActionBar();
-        actionbar.setTitle(getResources().getString(R.string.Incontournable));
+        actionbar.setTitle(getResources().getString(R.string.Céréales));
 
         View lLayout = inflater.inflate(R.layout.listview, container, false);
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);

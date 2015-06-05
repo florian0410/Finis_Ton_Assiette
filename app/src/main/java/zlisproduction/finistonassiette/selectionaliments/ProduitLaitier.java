@@ -19,7 +19,6 @@ import zlisproduction.finistonassiette.adapter.Adapter;
  * Created by Florian on 15/05/2015.
  */
 public class ProduitLaitier extends AlimentListDisplayer {
-    private HashMap<String, Integer> hashMapProduitLaitier = new HashMap<String, Integer>();
     private GridView lv;
     private Button boutonfin=null;
 
@@ -35,29 +34,9 @@ public class ProduitLaitier extends AlimentListDisplayer {
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
-        /*
-        Création de la Hashmap hashMapIncontournable
-         */
-        hashMapProduitLaitier.put(getString(R.string.Brie), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Camembert), R.drawable.ic_camembertplanchetransparent);
-        hashMapProduitLaitier.put(getString(R.string.Cantal), R.drawable.ic_emmentaltransparent);
-        hashMapProduitLaitier.put(getString(R.string.Chévre_Brebis), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Comté), R.drawable.ic_compttransparent);
-        hashMapProduitLaitier.put(getString(R.string.Feta), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Fromage_blanc), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Lait_de_coco), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Lait_de_soja), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Mascarpone), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Mont_d_Or), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Mozarella), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Parmesan), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Petits_suisses), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Raclette), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.Roquefort), R.drawable.ic_rocqueforttransparent);
-        hashMapProduitLaitier.put(getString(R.string.Saint_Marcelin), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(getString(R.string.gouda), R.drawable.ic_goudatransparent);
-
-        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapProduitLaitier);
+        Aliment alim = new Aliment(context);
+        //fabrication de l'objet aliment
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Produits_Laitier)));
         myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments

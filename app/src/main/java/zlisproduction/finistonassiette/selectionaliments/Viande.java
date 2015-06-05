@@ -20,7 +20,6 @@ import zlisproduction.finistonassiette.adapter.Adapter;
  */
 public class Viande extends AlimentListDisplayer {
 
-    private HashMap<String, Integer> hashMapViande = new HashMap<String, Integer>();
     private GridView lv;
     private Button boutonfin=null;
 
@@ -33,33 +32,10 @@ public class Viande extends AlimentListDisplayer {
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
-        hashMapViande.put(getString(R.string.Agneau), R.drawable.ic_cotes_agneautransparent);
-        hashMapViande.put(getString(R.string.Boeuf), R.drawable.ic_steaktransparent);
-        hashMapViande.put(getString(R.string.Boudin_blanc), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Boudin_noir), R.drawable.ic_boudin_noirtransparent);
-        hashMapViande.put(getString(R.string.Caille), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Dinde), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Escargots), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Foie_gras), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Jambon_blanc), R.drawable.ic_jambontransparent);
-        hashMapViande.put(getString(R.string.Jambon_cru), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Jambon_fumé), R.drawable.ic_jambon_fumtransparent);
-        hashMapViande.put(getString(R.string.Lapin), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Lard_Lardons), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Merguez), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Mouton), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Oeufs_à_la_caille), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Os_à_moëlle), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Porc), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Poulet), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Quenelles), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Saucisse), R.drawable.ic_saucissetransparente);
-        //hashMapViande.put(getString(R.string.Saucisson), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.Veau), R.drawable.ic_beurretransparent);
-        hashMapViande.put(getString(R.string.saucisson), R.drawable.ic_saucissontransparent);
-        hashMapViande.put(getString(R.string.dinde), R.drawable.ic_dindetransparente);
 
-        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapViande);
+        Aliment alim = new Aliment(context);
+        //fabrication de l'objet aliment
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Viande)));
         myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments

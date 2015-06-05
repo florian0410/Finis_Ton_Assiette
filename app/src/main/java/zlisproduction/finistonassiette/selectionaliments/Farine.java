@@ -20,7 +20,6 @@ import zlisproduction.finistonassiette.adapter.Adapter;
  */
 public class Farine extends AlimentListDisplayer {
 
-    private HashMap<String,Integer> hashMapFarine = new HashMap<String,Integer>();
     private GridView lv;
     private Button boutonfin = null;
 
@@ -28,19 +27,15 @@ public class Farine extends AlimentListDisplayer {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Changer le titre de la barre d'action
         ActionBar actionbar = getActivity().getActionBar();
-        actionbar.setTitle(getResources().getString(R.string.Incontournable));
+        actionbar.setTitle(getResources().getString(R.string.Farine));
         View lLayout = inflater.inflate(R.layout.listview, container, false);
 
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
-        /*
-        Construction de la HashMap hashMapFarine
-         */
-        hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_farine_transparent);
-        hashMapFarine.put(getString(R.string.Farine_de_Froment), R.drawable.ic_farine_fromenttransparent);
-
-        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapFarine);
+        Aliment alim = new Aliment(context);
+        //fabrication de l'objet aliment
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Farine)));
         myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments
