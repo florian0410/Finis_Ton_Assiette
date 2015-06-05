@@ -21,7 +21,7 @@ import zlisproduction.finistonassiette.adapter.Adapter;
  */
 public class Cereale extends AlimentListDisplayer {
 
-    private  HashMap <String, Integer> hashMapCereales= new HashMap <String, Integer>();
+    // private  HashMap <String, Integer> hashMapCereales= new HashMap <String, Integer>();
     private GridView lv;
     private Button boutonfin = null;
 
@@ -36,19 +36,10 @@ public class Cereale extends AlimentListDisplayer {
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);
 
-        hashMapCereales.put(getString(R.string.Blé), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Boulghour), R.drawable.ic_boulgourtransparentlast);
-        hashMapCereales.put(getString(R.string.Farine_de_froment), R.drawable.ic_farine_fromenttransparent);
-        hashMapCereales.put(getString(R.string.Lasagnes), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Müesli), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Pâtes_de_riz), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Quinoa), R.drawable.ic_beurretransparent);
-        hashMapCereales.put(getString(R.string.Riz_complet), R.drawable.ic_rizcomplettransparent);
-        hashMapCereales.put(getString(R.string.Sarrasin), R.drawable.ic_beurretransparent);
 
-
+        Aliment alim = new Aliment(context);
         //fabrication de l'objet aliment
-        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapCereales);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Céréales)));
         //mise en page
         myAdapter = new Adapter(arrayListAlimentsDisplayer,context);
         lv.setAdapter(myAdapter);
