@@ -73,11 +73,9 @@ public class ProductInformations extends Fragment {
         Bundle bundle = new Bundle();
         if(bundle != null) {
             bundle = this.getArguments();
-            mScanContent = bundle.getString("Content");
-            mScanFormat = bundle.getString("Format");
+            String ProductDatas = bundle.getString("Product");
+            getJsonDatas(ProductDatas);
         }
-        DynamicURL  = SourceURL +mScanContent;
-        new JSONParse().execute();
     }
 
     /*
@@ -96,21 +94,8 @@ public class ProductInformations extends Fragment {
                 // Récupérer le format du barcode lu
                 scanFormat = scanningResult.getFormatName();
             }
-
-            // Changement de fragment
-            Fragment fragment = new ProductInformations();
-
-            // Ajout des information supplémentaires scannées
-            Bundle bundle = new Bundle();
-            bundle.putString("Content", scanContent);
-            bundle.putString("Format", scanFormat);
-            fragment.setArguments(bundle);
-
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-            transaction.replace(R.id.frame_container, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+            DynamicURL  = SourceURL +scanContent;
+            new JSONParse().execute();  // l'asynctask finis l'action pour passer au fragment suivant normalement
         }
     }
 
@@ -124,52 +109,80 @@ public class ProductInformations extends Fragment {
             JSONObject json = jParser.getJSONFromUrl(DynamicURL);
             return json;
         }
-
         @Override
         protected void onPostExecute(JSONObject json) {
-            try {
-                // Getting JSON Array
-                // name = json.getJSONArray("contacts");   // Quand démarre par [
-                // Exception utilse quand page web non JSON ou pas de connectivité malgrés wifi
-                if(json != null) {
-                    int status = json.getInt("status");
+            SendDatasToNextFragment(json);
+        }
+    }
 
-                    // Check detection produit
-                    if (status == 0) {
-                        mTitle.setText(context.getString(R.string.produit_non_reconnu));
-                        mCategories.setText("Code barre: " + mScanContent);
-                    } else {
-                        JSONObject c = json.getJSONObject("product");   // quand démarre par { ou quand une seule case
 
-                        // Check si le produit est incomplet au niveau infos
-                        String creator = c.getString("creator");
-                        if (creator == "null") {
-                            mTitle.setText(context.getString(R.string.produit_non_reconnu));
-                            mCategories.setText("Code barre :" + mScanContent);
-                        } else {
-                            // Storing  JSON item in a Variable
-                            String title = c.getString("product_name");
-                            String image = c.getString("image_url");
-                            String categories = c.getString("categories");
-                            String brands = c.getString("brands");
-                            String quantity = c.getString("quantity");
+    protected void getJsonDatas(String pDatasProduct) {
+        try {
+            JSONObject json = new JSONObject(pDatasProduct);
+            // Getting JSON Array
+            // name = json.getJSONArray("contacts");   // Quand démarre par [
+            // Exception utilse quand page web non JSON ou pas de connectivité malgrés wifi
+            int status = json.getInt("status");
 
-                            String customTitle = title + " - " + brands + " - " + quantity;
-                            //Set JSON Data in TextView
-                            mTitle.setText(customTitle);
-                            mCategories.setText(categories);
-                            mImage.setText(image);
-                        }
-                    }
-                }
-                else{
-                    Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide ( json = null)", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
+            // Check detection produit
+            if (status == 0) {
+                mTitle.setText(context.getString(R.string.produit_non_reconnu));
+                mCategories.setText("Code barre: " + mScanContent);
             }
+            else {
+                JSONObject c = json.getJSONObject("product");   // quand démarre par { ou quand une seule case
+
+                // Check si le produit est incomplet au niveau infos
+                String creator = c.getString("creator");
+                if (creator == "null") {
+                    mTitle.setText(context.getString(R.string.produit_non_reconnu));
+                    mCategories.setText("Code barre :" + mScanContent);
+                }
+                else {
+                    // Storing  JSON item in a Variable
+                    String title = c.getString("product_name");
+                    String image = c.getString("image_url");
+                    String categories = c.getString("categories");
+                    String brands = c.getString("brands");
+                    String quantity = c.getString("quantity");
+
+                    String customTitle = title + " - " + brands + " - " + quantity;
+                    //Set JSON Data in TextView
+                    mTitle.setText(customTitle);
+                    mCategories.setText(categories);
+                    mImage.setText(image);
+                }
+            }
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param json contient la donnée à envoyer
+     *             Cette fonction permet l'envoi de l'élément json lu
+     */
+    public void SendDatasToNextFragment(JSONObject json){
+        Fragment fragment = new ProductInformations();
+        if(json != null) {
+            String ProductDatas = json.toString();
+
+            // Ajout des information supplémentaires scannées
+            Bundle bundle = new Bundle();
+            bundle.putString("Product", ProductDatas);
+            fragment.setArguments(bundle);
+
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.frame_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+        else{
+            Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide ( json = null)", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 }
