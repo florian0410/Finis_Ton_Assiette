@@ -77,14 +77,14 @@ public class Legume extends AlimentListDisplayer {
         hashMapLegumes.put(getString(R.string.echalotte), R.drawable.ic_echalotetransparent);
         hashMapLegumes.put(getString(R.string.menthe), R.drawable.ic_menthetransparente);
 
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapLegumes);
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapLegumes);
+        myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
                     CheckItem(alim, myAdapter);
                 } else {

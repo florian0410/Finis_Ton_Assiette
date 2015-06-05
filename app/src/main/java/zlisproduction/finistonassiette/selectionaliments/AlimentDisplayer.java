@@ -3,7 +3,7 @@ package zlisproduction.finistonassiette.selectionaliments;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Aliment {
+public class AlimentDisplayer {
     /*
 Un objet aliment contient un nom et une image
  */
@@ -12,7 +12,7 @@ Un objet aliment contient un nom et une image
     private boolean isClicked;
     private int state;
 
-    public Aliment(int image, String name) {
+    public AlimentDisplayer(int image, String name) {
         this.image = image;
         this.name = name;
         this.isClicked=false;

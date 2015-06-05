@@ -81,14 +81,14 @@ public class Fruit extends AlimentListDisplayer {
         hashMapFruit.put(getString(R.string.Rhubarde), R.drawable.ic_beurretransparent);
 
 
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapFruit);
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapFruit);
+        myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
                     CheckItem(alim, myAdapter);
                 } else {

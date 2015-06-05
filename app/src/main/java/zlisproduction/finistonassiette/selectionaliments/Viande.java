@@ -59,14 +59,14 @@ public class Viande extends AlimentListDisplayer {
         hashMapViande.put(getString(R.string.saucisson), R.drawable.ic_saucissontransparent);
         hashMapViande.put(getString(R.string.dinde), R.drawable.ic_dindetransparente);
 
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapViande);
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapViande);
+        myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
                     CheckItem(alim, myAdapter);
                 } else {

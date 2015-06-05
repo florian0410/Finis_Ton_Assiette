@@ -40,14 +40,14 @@ public class Farine extends AlimentListDisplayer {
         hashMapFarine.put(getString(R.string.Farine_de_blé), R.drawable.ic_farine_transparent);
         hashMapFarine.put(getString(R.string.Farine_de_Froment), R.drawable.ic_farine_fromenttransparent);
 
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapFarine);
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapFarine);
+        myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
                     CheckItem(alim, myAdapter);
                 } else {

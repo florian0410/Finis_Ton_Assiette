@@ -64,14 +64,14 @@ public class Poisson extends AlimentListDisplayer {
         HashPoisson.put(getString(R.string.Thon_en_boite), R.drawable.ic_beurretransparent);
         HashPoisson.put(getString(R.string.Truite), R.drawable.ic_beurretransparent);
 
-        arrayListAliments = ListeAliment.alimentsArraylist(HashPoisson);
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(HashPoisson);
+        myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
                     CheckItem(alim, myAdapter);
                 } else {

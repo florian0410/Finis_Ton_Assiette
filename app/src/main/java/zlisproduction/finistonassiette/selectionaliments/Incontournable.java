@@ -81,16 +81,16 @@ public class Incontournable extends AlimentListDisplayer {
 
 
 
-        arrayListAliments = ListeAliment.alimentsArraylist(hashMapIncontournable);
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(hashMapIncontournable);
         // On déclare ici l'adapteur pour pouvoir faire fonctionner la méthode notifyDataSetChanged
-        myAdapter = new Adapter(arrayListAliments, super.context);
+        myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
         lv.setAdapter(myAdapter);
 
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Aliment alim = arrayListAliments.get(position);
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
                     CheckItem(alim,myAdapter);
                 } else {

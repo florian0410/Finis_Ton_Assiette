@@ -12,14 +12,14 @@ public class ListeAliment {
 
 
     private static HashMap<String,Integer> objetsAliments;
-    private static ArrayList<Aliment>  aliments = new ArrayList<Aliment>();
+    private static ArrayList<AlimentDisplayer>  aliments = new ArrayList<AlimentDisplayer>();
 
     /**
      *  Création des objets aliments et stockage dans un ArrayList
      * @param pListeAliments
      * @return ArrayList <Aliment>
      */
-public static ArrayList <Aliment>  alimentsArraylist (HashMap<String, Integer> pListeAliments)
+public static ArrayList <AlimentDisplayer>  alimentsArraylist (HashMap<String, Integer> pListeAliments)
     {
        /* int size=pListeAliments.size();
         for (int i=0; i<size; i++){
@@ -33,7 +33,7 @@ public static ArrayList <Aliment>  alimentsArraylist (HashMap<String, Integer> p
 
         while(keySetIterator.hasNext()){
             String key = keySetIterator.next();
-            Aliment alim = new Aliment(pListeAliments.get(key),key);
+            AlimentDisplayer alim = new AlimentDisplayer(pListeAliments.get(key),key);
             aliments.add(alim);
         }
         return aliments;

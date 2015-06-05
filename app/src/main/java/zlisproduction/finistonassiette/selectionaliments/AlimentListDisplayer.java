@@ -21,7 +21,7 @@ public class AlimentListDisplayer extends Fragment {
 
     protected Context context= null;
     protected Adapter myAdapter = null;
-    protected ArrayList<Aliment> arrayListAliments;
+    protected ArrayList<AlimentDisplayer> arrayListAlimentsDisplayer;
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -29,7 +29,7 @@ public class AlimentListDisplayer extends Fragment {
     }
 
     // Retrouve la position d'un aliment dans la lsite et change son fond en l'ajoutant à la liste des aliments sélectionnés par l'utilisateur
-    public void CheckItem(Aliment pAlim, Adapter pAdapter){
+    public void CheckItem(AlimentDisplayer pAlim, Adapter pAdapter){
         boolean test;
         //On met l'aliment dans la liste des aliments sélectionnés
         test = CreateListAliment.addAlimentSelectionne(pAlim.getName());
@@ -42,7 +42,7 @@ public class AlimentListDisplayer extends Fragment {
         pAdapter.notifyDataSetChanged();
     }
 
-    public void unCheckItem(Aliment pAlim, Adapter pAdapter){
+    public void unCheckItem(AlimentDisplayer pAlim, Adapter pAdapter){
         // On enléve l'aliment déselectionné
         CreateListAliment.deleteAliment(pAlim.getName());
         pAlim.setIsClicked(false);

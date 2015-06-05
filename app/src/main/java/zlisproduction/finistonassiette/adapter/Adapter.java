@@ -13,20 +13,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import zlisproduction.finistonassiette.R;
-import zlisproduction.finistonassiette.selectionaliments.Aliment;
+import zlisproduction.finistonassiette.selectionaliments.AlimentDisplayer;
 
 /**
  * Created by Florian on 15/05/2015.
  */
 public class Adapter extends BaseAdapter {
 
-    private ArrayList<Aliment> array = new ArrayList<Aliment>();
+    private ArrayList<AlimentDisplayer> array = new ArrayList<AlimentDisplayer>();
     //permet de sérialiser désérialiser
     private LayoutInflater inflater;
     //context
     private Context contexte;
 
-    public Adapter(ArrayList<Aliment> array, Context contexte) {
+    public Adapter(ArrayList<AlimentDisplayer> array, Context contexte) {
         this.array = array;
         this.contexte = contexte;
         this.inflater = LayoutInflater.from(this.contexte);
@@ -37,7 +37,7 @@ public class Adapter extends BaseAdapter {
     }
 
     @Override
-    public Aliment getItem(int position) {
+    public AlimentDisplayer getItem(int position) {
         return array.get(position);
     }
 
@@ -48,7 +48,7 @@ public class Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Aliment object = array.get(position);
+        AlimentDisplayer object = array.get(position);
         MonViewHolder holder;
         /*
         premières fois qu'on affiche la liste, il faut inflater depuis le fichier xml car les vue n'ont jamais été créées gh
@@ -77,7 +77,7 @@ public class Adapter extends BaseAdapter {
         }
 
         // on récupère dans les deux cas l'objet aliment qui a disparu ou qui a été crée et on lui fixe ses paramètres
-        Aliment alim=(Aliment)getItem(position);
+        AlimentDisplayer alim=(AlimentDisplayer)getItem(position);
         if (alim !=null){
             holder.text.setText(alim.getName());
             holder.icon.setImageResource(alim.getImage());
