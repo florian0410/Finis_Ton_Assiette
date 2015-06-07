@@ -55,14 +55,12 @@ public  class ConsulterRecette extends Requete {
 
         ArrayList <String> arr= params[0];
         int nombre_aliments= params.length;
-
-
         StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/consulterRecette.php?");
         int i=0;
 
-      for (i=0; i<nombre_aliments; i++){
+        for (i=0; i<nombre_aliments; i++){
             stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]",""));
-      }
+        }
 
         stringBuilder.append("&total="+Integer.toString(nombre_aliments));
 
@@ -105,5 +103,9 @@ public  class ConsulterRecette extends Requete {
             e.printStackTrace();
         }
         return null;
+    }
+    @Override
+    protected void onPostExecute(String[] pArray) {
+
     }
 }

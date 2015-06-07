@@ -9,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import zlisproduction.finistonassiette.R;
 
@@ -42,7 +45,23 @@ public class Information extends Fragment {
 
         requete=new ConsulterRecette();
         result.add("oeuf");
-        requete.execute(result);
+        try {
+            //envoie de la requête et le resultat est stocké dans res
+            String[] res= requete.execute(result).get();
+            //analyse du resultat
+            analyse_resultat= new JsonFormat(res);
+            try {
+                analyse_resultat.demande_consulter_recette();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
 
         progressBar.setVisibility(View.GONE);
 

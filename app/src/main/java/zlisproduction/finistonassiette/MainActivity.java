@@ -186,7 +186,7 @@ public class MainActivity extends FragmentActivity {
 			fragment = new ScannerMainFragment();
 			break;
 		case 2:
-			fragment=  new Information();
+			fragment =  new Information();
 			break;
 		case 3:
 			break;
