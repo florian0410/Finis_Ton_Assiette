@@ -5,5 +5,5 @@ package zlisproduction.finistonassiette.recette;
  */
 public interface Instanciation {
 
-    public void instancie();
+    public void instancie(String[] pArray);
 }

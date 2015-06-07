@@ -51,18 +51,19 @@ public  class ConsulterRecette extends Requete {
     }
 
     @Override
-    protected String doInBackground(ArrayList<String>... params) {
+    protected String[] doInBackground(ArrayList<String>... params) {
 
         ArrayList <String> arr= params[0];
         int nombre_aliments= params.length;
-
-
-        StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/test.php?");
+        StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/consulterRecette.php?");
         int i=0;
 
-      for (i=0; i<nombre_aliments; i++){
-            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]", ""));
-      }
+        for (i=0; i<nombre_aliments; i++){
+            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]",""));
+        }
+
+        stringBuilder.append("&total="+Integer.toString(nombre_aliments));
+
 
 
 
@@ -86,8 +87,9 @@ public  class ConsulterRecette extends Requete {
                 is.close();
                 result=sb.toString();
                 //décomposer en objets JSON
-                String[] array= result.replaceAll("\\}\\{","\\}\\}\\{\\{").split("\\}\\{");
-                return result;
+                String[] array= result.split("thisisaseparatorbetweenpicturesandreceipies");
+                //retourne tableau ds recettes disponibles
+                return array;
             }
             else{
                 Log.i(TAG,"erreur dans la r�cup�ration des donn�es");
@@ -101,5 +103,9 @@ public  class ConsulterRecette extends Requete {
             e.printStackTrace();
         }
         return null;
+    }
+    @Override
+    protected void onPostExecute(String[] pArray) {
+
     }
 }
