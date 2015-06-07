@@ -54,7 +54,7 @@ public class JsonFormat implements AnalyseResultat {
 
         return arrayList;
         //http://www.tutomobile.fr/personnaliser-une-listview-tutoriel-android-n%C2%B07/04/07/2010/
-        //http://stackoverflow.com/questions/19660170/how-to-display-image-in-imageview-from-byte-bitmapfactory-decodebytearray-ret
+        //http://stackoverflow.com/questions/19660170/how-to-display-image-in-imageview-from-byte-bitmapfactory-decodebytearray-ret ddfdfddf
     }
 
     @Override
