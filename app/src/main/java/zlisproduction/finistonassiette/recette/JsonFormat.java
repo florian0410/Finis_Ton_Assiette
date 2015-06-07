@@ -7,24 +7,27 @@ import org.json.JSONObject;
  * Created by Thibaut on 24/05/2015.
  */
 public class JsonFormat implements AnalyseResultat {
+    private String[] data= null;
 
-    private String json;
-    private JSONObject objet_json;
+    public JsonFormat(String[] pData){
+        this.data=pData;
 
-    public JsonFormat(String pString) {
-        this.json=pString;
-        analyse_donnees_reponse_consulter_recette(pString);
+    }
+
+
+    @Override
+    public void demande_consulter_recette() {
+
+
     }
 
     @Override
-    public JSONObject analyse_donnees_reponse_consulter_recette( String pData) {
+    public void resutat_ajouter_recette() {
 
-        try {
-            objet_json= new JSONObject(pData);
-            return  objet_json;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+    }
+
+    @Override
+    public void resultat_suggestion_courses() {
+
     }
 }

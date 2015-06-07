@@ -15,7 +15,7 @@ public  class AjouterRecette extends Requete {
     }
 
     @Override
-    protected String doInBackground(ArrayList<String>... params) {
-        return null;
+    protected String[] doInBackground(ArrayList<String>... params) {
+        return new String[0];
     }
 }

@@ -41,13 +41,16 @@ public class Information extends Fragment {
         progressBar= (ProgressBar) Layout.findViewById(R.id.progressBar);
 
         requete=new ConsulterRecette();
-        result.add("Salade_de_riz");
+        result.add("oeuf");
         requete.execute(result);
+
         progressBar.setVisibility(View.GONE);
 
         // Inflate the layout for this fragment
         return Layout;
     }
+
+
 
 
 
@@ -62,9 +65,7 @@ public class Information extends Fragment {
         this.analyse_resultat.parseData();
     }*/
 
-    public void instanciationRecette(){
-        this.instancie.instancie();
-    }
+
 
     public Instanciation getInstancie() {
         return instancie;
