@@ -24,11 +24,13 @@ public class Information extends Fragment {
 
 
     //attribut par défaut
-    Instanciation instancie=null;
-    Requete requete =null;
-    AnalyseResultat analyse_resultat=null;
-    ArrayList<String> result= new ArrayList<String>();
-    ProgressBar progressBar= null;
+    Instanciation instancie = null;
+    Requete requete = null;
+    AnalyseResultat analyse_resultat = null;
+
+
+    ArrayList<String> result = new ArrayList<String>();
+    ProgressBar progressBar = null;
 
 
     @Override
@@ -41,6 +43,7 @@ public class Information extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
         View Layout= inflater.inflate(R.layout.information_layout, container, false);
+     /*   //comportements par défaut
         progressBar= (ProgressBar) Layout.findViewById(R.id.progressBar);
 
         requete=new ConsulterRecette();
@@ -63,26 +66,14 @@ public class Information extends Fragment {
         }
 
 
+        // http://www.tutos-android.com/parcelable-android
+*/
+
         progressBar.setVisibility(View.GONE);
 
         // Inflate the layout for this fragment
         return Layout;
     }
-
-
-
-
-
-
-
-
-    public void envoyerRequete(ArrayList pArray){
-        this.requete.envoyerRequete(pArray);
-    }
-/*
-    public void analyserResultat(){
-        this.analyse_resultat.parseData();
-    }*/
 
 
 
@@ -98,9 +89,9 @@ public class Information extends Fragment {
         return requete;
     }
 
-    //public void setRequete(Requete requete) {
-    //this.requete = requete;
-    //}
+    public void setRequete(Requete requete) {
+        this.requete = requete;
+    }
 
     public AnalyseResultat getAnalyse_resultat() {
         return analyse_resultat;
@@ -108,6 +99,22 @@ public class Information extends Fragment {
 
     public void setAnalyse_resultat(AnalyseResultat analyse_resultat) {
         this.analyse_resultat = analyse_resultat;
+    }
+
+    public ArrayList<String> getResult() {
+        return result;
+    }
+
+    public void setResult(ArrayList<String> result) {
+        this.result = result;
+    }
+
+    public ProgressBar getProgressBar() {
+        return progressBar;
+    }
+
+    public void setProgressBar(ProgressBar progressBar) {
+        this.progressBar = progressBar;
     }
 }
 

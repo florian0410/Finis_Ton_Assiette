@@ -37,18 +37,12 @@ public  class ConsulterRecette extends Requete {
 
 
 
-
-    public ConsulterRecette() {
-
-
-
-    }
     @Override
     public void envoyerRequete(ArrayList pData) {
+
     }
 
-    public ConsulterRecette(Information pinfo){
-    }
+
 
     @Override
     protected String[] doInBackground(ArrayList<String>... params) {
@@ -108,4 +102,5 @@ public  class ConsulterRecette extends Requete {
     protected void onPostExecute(String[] pArray) {
 
     }
+
 }
