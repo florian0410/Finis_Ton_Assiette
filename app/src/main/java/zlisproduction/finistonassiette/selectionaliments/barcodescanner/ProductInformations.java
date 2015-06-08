@@ -32,7 +32,6 @@ public class ProductInformations extends Fragment {
     private TextView mImage = null;
     private Button mNewScanButton = null;
     private String mScanContent = null;
-    private String mScanFormat = null;
     private String SourceURL = "http://fr.openfoodfacts.org/api/v0/produit/";   // source avec code barre manquant
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
 

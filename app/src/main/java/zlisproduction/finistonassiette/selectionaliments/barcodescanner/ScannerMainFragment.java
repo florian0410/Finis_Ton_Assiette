@@ -81,7 +81,7 @@ public class ScannerMainFragment extends Fragment {
      *             Cette fonction permet l'envoi de l'élément json lu
      */
     public void SendDatasToNextFragment(JSONObject json){
-        Fragment fragment = new ProductInformations();
+        Fragment fragment = new ProductResultDisplayer();
         if(json != null) {
             String ProductDatas = json.toString();
 
