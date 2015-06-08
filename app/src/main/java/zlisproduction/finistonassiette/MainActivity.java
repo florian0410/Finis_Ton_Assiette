@@ -200,34 +200,34 @@ public class MainActivity extends FragmentActivity {
             result.add("oeuf");
 
             // définition des comportements pour la requête consulter recette
-			Information frag =  new Information();
-            frag.setRequete(new ConsulterRecette());
+			Information fragment =  new Information();
+			fragment.setRequete(new ConsulterRecette());
             //exécution de la requete à consulter
             String[] tmpResRequete = null;
             try {
-                tmpResRequete =frag.getRequete().execute(result).get();
+                tmpResRequete =fragment.getRequete().execute(result).get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
             //définition du comportement pour l'analyse du resultat
-            frag.setAnalyse_resultat(new JsonFormat(tmpResRequete));
+			fragment.setAnalyse_resultat(new JsonFormat(tmpResRequete));
             //exécution de l'analyse
             ArrayList<HashMap<String, String>> tpsResAnalyse = null;
 
             try {
-                tpsResAnalyse = frag.getAnalyse_resultat().demande_consulter_recette();
+                tpsResAnalyse = fragment.getAnalyse_resultat().demande_consulter_recette();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-            frag.setInstancie(new ConstructeurDefaut());
+			fragment.setInstancie(new ConstructeurDefaut());
 
             //on passe les arguments au nouveau fragment
 			Bundle args = new Bundle();
             args.putSerializable("ingredients", tpsResAnalyse);
-            frag.getInstancie();
+			fragment.getInstancie().setArguments(args);
 
 
 
@@ -239,10 +239,11 @@ public class MainActivity extends FragmentActivity {
 		case 5:
 			break;
 		default:
-            fragment = new MenuPrincipal();
+            //fragment = new MenuPrincipal();
             break;
 		}
 
+		// remplaçement du gragment
 		if (fragment != null) {
 			FragmentManager fragmentManager = getFragmentManager();
 			FragmentTransaction ft = fragmentManager.beginTransaction();
