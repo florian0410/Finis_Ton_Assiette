@@ -8,12 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.selectionaliments.Aliment;
 
 /**
  * Created by Florian.S on 05/06/2015.
@@ -49,11 +50,13 @@ public class ProductResultDisplayer extends Fragment {
         Bundle bundle = new Bundle();
         bundle = this.getArguments();
         String ProductDatas = bundle.getString("Product");
-        getCategorieFromJSON(ProductDatas);
+        String[] keywords = getKeyWordsFromJSON(ProductDatas);
+        Aliment alim = new Aliment(context);
+        alim.TrouverAliment(keywords);
     }
 
-    protected String[] getCategorieFromJSON(String pDatasProduct) {
-        String[] Categories = null;
+    protected String[] getKeyWordsFromJSON(String pDatasProduct) {
+        String KeyWords[] =null;
         try {
             JSONObject json = new JSONObject(pDatasProduct);
             // Getting JSON Array
@@ -76,23 +79,20 @@ public class ProductResultDisplayer extends Fragment {
                     mCategories.setText("Code barre :" + mScanContent);
                 } else {
                     // String categories = c.getString("categories");
-                    Categories = StringToArray(c.getString("categories"));
+                    JSONArray KeyWordsJson = c.getJSONArray("_keywords");
+                    KeyWords = new String[KeyWordsJson.length()];
+                    for(int i=0;i<KeyWords.length;i++) {
+                        KeyWords[i] = KeyWordsJson.getString(i);
+                    }
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-       /* int j = 0;
-        String result = null;
-        int size = Categories.length;
-        while( j != size ){
-            result = result +" "+ Categories[j];
-            j++;
-        }*/
-        return Categories;
+        return KeyWords;
     }
 
-    public String[] StringToArray(String pToSeparate){
+    /*public String[] StringToArray(String pToSeparate){
         String[] categories = pToSeparate.split(",");
         int i = 0;
         for(String s: categories){
@@ -100,6 +100,6 @@ public class ProductResultDisplayer extends Fragment {
             i++;
         }
         return categories;
-    }
+    }*/
 
 }

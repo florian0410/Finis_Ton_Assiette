@@ -17,7 +17,7 @@ import zlisproduction.finistonassiette.R;
 public class Aliment {
 
     // HashMap pour trouver la HashMap aliment selon la catégorie
-    private HashMap<String,HashMap<String,Integer>> hashMapCatégories = new HashMap<>();
+    private HashMap<String,HashMap<String,Integer>> hashMapCategories = new HashMap<>();
 
     // Toutes les hashmap pour chaque catégorie
     private HashMap<String, Integer> hashMapCereales= new HashMap <>();
@@ -31,25 +31,20 @@ public class Aliment {
     private HashMap<String, Integer> hashMapViande = new HashMap<String, Integer>();
 
 
-
-
-
-
-
     public Aliment(Context pContext){
         CreateListeAliments(pContext);
     }
 
     public void CreateListeAliments(Context pContext){
-        hashMapCatégories.put(pContext.getString(R.string.Céréales),hashMapCereales);
-        hashMapCatégories.put(pContext.getString(R.string.Farine),hashMapFarine);
-        hashMapCatégories.put(pContext.getString(R.string.Fruit),hashMapFruit);
-        hashMapCatégories.put(pContext.getString(R.string.Incontournable),hashMapIncontournable);
-        hashMapCatégories.put(pContext.getString(R.string.Legume),hashMapIncontournable);
-        hashMapCatégories.put(pContext.getString(R.string.Pates),hashMapPates);
-        hashMapCatégories.put(pContext.getString(R.string.Poisson),HashPoisson);
-        hashMapCatégories.put(pContext.getString(R.string.Produits_Laitier),hashMapProduitLaitier);
-        hashMapCatégories.put(pContext.getString(R.string.Viande),hashMapViande);
+        hashMapCategories.put(pContext.getString(R.string.Céréales), hashMapCereales);
+        hashMapCategories.put(pContext.getString(R.string.Farine), hashMapFarine);
+        hashMapCategories.put(pContext.getString(R.string.Fruit), hashMapFruit);
+        hashMapCategories.put(pContext.getString(R.string.Incontournable), hashMapIncontournable);
+        hashMapCategories.put(pContext.getString(R.string.Legume), hashMapIncontournable);
+        hashMapCategories.put(pContext.getString(R.string.Pates), hashMapPates);
+        hashMapCategories.put(pContext.getString(R.string.Poisson), HashPoisson);
+        hashMapCategories.put(pContext.getString(R.string.Produits_Laitier), hashMapProduitLaitier);
+        hashMapCategories.put(pContext.getString(R.string.Viande), hashMapViande);
 
 
 
@@ -252,12 +247,105 @@ public class Aliment {
         hashMapViande.put(pContext.getString(R.string.Veau), R.drawable.ic_beurretransparent);
         hashMapViande.put(pContext.getString(R.string.saucisson), R.drawable.ic_saucissontransparent);
         hashMapViande.put(pContext.getString(R.string.dinde), R.drawable.ic_dindetransparente);
-
     }
 
     public HashMap<String, Integer> getHashMapAlimentFromCategorie(String pCategorie) {
-        return hashMapCatégories.get(pCategorie);
+        return hashMapCategories.get(pCategorie);
     }
 
+    public AlimentDisplayer[] TrouverAliment(String[] pKeyWords){
+        AlimentDisplayer[] results = null;
+        String IdHashMap = SearchCategory(pKeyWords);
+
+        return null;
+    }
+
+    private String SearchCategory(String[] pKeyWords){
+        String key = null;
+        int j = 0;
+        for(String mapkey : hashMapCategories.keySet()){
+            for(int i = 0; i < pKeyWords.length; i++) {
+                // Si on a une différence sur 2 lettres max, on considère que le mot est le même avec une différence au pluriel ou accent
+                if (CompareWords(mapkey,pKeyWords[i])) {
+                    key = mapkey;
+                    return key;
+                }
+            }
+        }
+        return null;
+    }
+    private boolean CompareWords(String pWord1, String pWord2){
+        String Word1= ConvertToLowerCaseWithoutAccent(pWord1);
+        String Word2 = ConvertToLowerCaseWithoutAccent(pWord2);
+        char[] Char1 = pWord1.toCharArray();
+        char[] Char2 = pWord2.toCharArray();
+        if(CountDifferentsChar(Char1, Char2) <= 2){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Compare chaque caractère et renvoi le nombre de caractère différents
+     * @param pWord1
+     * @param pWord2
+     * @return counter le nombre de caractère différents entre les 2 mots
+     */
+    private int CountDifferentsChar(char[] pWord1, char[] pWord2) {
+        int counter = 0;
+        // Comptage du nombre de caractère
+        int minLength = Math.min(pWord1.length, pWord2.length);
+        for (int i = 0; i < minLength; i++) {
+            if (pWord1[i] != pWord2[i]) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    // Conversion des caractères d'une chaine en minuscules sans accents
+    static public String ConvertToLowerCaseWithoutAccent (String string)
+    {
+        char [] charsData = new char [string.length ()];
+        string.getChars (0, charsData.length, charsData, 0);
+
+        char c;
+        for (int i = 0; i < charsData.length; i++)
+            if (   (c = charsData [i]) >= 'A'
+                    && c <= 'Z')
+                charsData [i] = (char)(c - 'A' + 'a');
+            else {
+                switch (c) {
+                    case '\u00e0':
+                    case '\u00e2':
+                    case '\u00e4':
+                        charsData[i] = 'a';
+                        break;
+                    case '\u00e7':
+                        charsData[i] = 'c';
+                        break;
+                    case '\u00e8':
+                    case '\u00e9':
+                    case '\u00ea':
+                    case '\u00eb':
+                        charsData[i] = 'e';
+                        break;
+                    case '\u00ee':
+                    case '\u00ef':
+                        charsData[i] = 'i';
+                        break;
+                    case '\u00f4':
+                    case '\u00f6':
+                        charsData[i] = 'o';
+                        break;
+                    case '\u00f9':
+                    case '\u00fb':
+                    case '\u00fc':
+                        charsData[i] = 'u';
+                        break;
+                }
+            }
+        return new String (charsData);
+    }
 }
 

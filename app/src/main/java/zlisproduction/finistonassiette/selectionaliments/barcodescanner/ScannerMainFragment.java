@@ -108,6 +108,7 @@ public class ScannerMainFragment extends Fragment {
             JSONParser jParser = new JSONParser();
 
             // Getting JSON from URL
+            DynamicURL = "http://fr.openfoodfacts.org/api/v0/produit/3240930213508";
             JSONObject json = jParser.getJSONFromUrl(DynamicURL);
             return json;
         }
