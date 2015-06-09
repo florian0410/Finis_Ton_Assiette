@@ -255,31 +255,31 @@ public class Aliment {
 
     public AlimentDisplayer[] TrouverAliment(String[] pKeyWords){
         AlimentDisplayer[] results = null;
-        String IdHashMap = SearchCategory(pKeyWords);
-
+        String[] IdHashMap = SearchCategory(pKeyWords);
         return null;
     }
 
-    private String SearchCategory(String[] pKeyWords){
-        String key = null;
+    private String[] SearchCategory(String[] pKeyWords){
+        String[] keys = new String[hashMapCategories.size()];
         int j = 0;
         for(String mapkey : hashMapCategories.keySet()){
             for(int i = 0; i < pKeyWords.length; i++) {
                 // Si on a une différence sur 2 lettres max, on considère que le mot est le même avec une différence au pluriel ou accent
                 if (CompareWords(mapkey,pKeyWords[i])) {
-                    key = mapkey;
-                    return key;
+                    keys[j] = mapkey;
+                    j++;
+                    break;
                 }
             }
         }
-        return null;
+        return keys;
     }
     private boolean CompareWords(String pWord1, String pWord2){
         String Word1= ConvertToLowerCaseWithoutAccent(pWord1);
         String Word2 = ConvertToLowerCaseWithoutAccent(pWord2);
-        char[] Char1 = pWord1.toCharArray();
-        char[] Char2 = pWord2.toCharArray();
-        if(CountDifferentsChar(Char1, Char2) <= 2){
+        char[] Char1 = Word1.toCharArray();
+        char[] Char2 = Word2.toCharArray();
+        if(CountDifferentsChar(Char1, Char2) == 0){
             return true;
         }
         return false;
