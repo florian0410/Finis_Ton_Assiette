@@ -3,6 +3,8 @@ package zlisproduction.finistonassiette.recette;
 //test
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,15 @@ public class Information extends Fragment {
     Requete requete = null;
     AnalyseResultat analyse_resultat = null;
 
+    /**
+     * Définition des paramètres par défaut
+     */
+    public Information(){
+        this.instancie= new ConstructeurDefaut();
+        this.requete=new ConsulterRecette();
+        //this.analyse_resultat= new JsonFormat({"s","t"});
+
+    }
 
     ArrayList<String> result = new ArrayList<String>();
     ProgressBar progressBar = null;
@@ -70,6 +81,7 @@ public class Information extends Fragment {
 */
 
         progressBar.setVisibility(View.GONE);
+
 
         // Inflate the layout for this fragment
         return Layout;

@@ -29,6 +29,7 @@ import zlisproduction.finistonassiette.recette.ConstructeurDefaut;
 import zlisproduction.finistonassiette.recette.ConsulterRecette;
 import zlisproduction.finistonassiette.recette.Information;
 import zlisproduction.finistonassiette.recette.JsonFormat;
+import zlisproduction.finistonassiette.recette.Requete;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
 import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
@@ -197,37 +198,40 @@ public class MainActivity extends FragmentActivity {
 			//on efectue la requête pour consulter une recette
 			//1) on récupère les aliments que l'utilisateur a choisi (simulation ici)
 			ArrayList<String> result= new ArrayList<String>();
-            result.add("oeuf");
+            result.add("Mais");
 
             // définition des comportements pour la requête consulter recette
-			Information fragment =  new Information();
-			fragment.setRequete(new ConsulterRecette());
-            //exécution de la requete à consulter
+			Information frag =  new Information();
+			frag.setRequete(new ConsulterRecette());
+			//exécution de la requete à consulter
             String[] tmpResRequete = null;
-            try {
-                tmpResRequete =fragment.getRequete().execute(result).get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
+
+			try {
+				tmpResRequete =frag.getRequete().execute(result).get();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			}
+
             //définition du comportement pour l'analyse du resultat
-			fragment.setAnalyse_resultat(new JsonFormat(tmpResRequete));
-            //exécution de l'analyse
+			frag.setAnalyse_resultat(new JsonFormat(tmpResRequete));
+			//exécution de l'analyse
             ArrayList<HashMap<String, String>> tpsResAnalyse = null;
 
             try {
-                tpsResAnalyse = fragment.getAnalyse_resultat().demande_consulter_recette();
+                tpsResAnalyse = frag.getAnalyse_resultat().demande_consulter_recette();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-			fragment.setInstancie(new ConstructeurDefaut());
+			frag.setInstancie(new ConstructeurDefaut());
 
-            //on passe les arguments au nouveau fragment
+			//on passe les arguments au nouveau fragment
 			Bundle args = new Bundle();
             args.putSerializable("ingredients", tpsResAnalyse);
-			fragment.getInstancie().setArguments(args);
+			frag.getInstancie().setArguments(args);
+			fragment= frag.getInstancie();
 
 
 
