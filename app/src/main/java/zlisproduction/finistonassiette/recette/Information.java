@@ -34,9 +34,7 @@ public class Information extends Fragment {
      * Définition des paramètres par défaut
      */
     public Information(){
-        this.instancie= new ConstructeurDefaut();
-        this.requete=new ConsulterRecette();
-        //this.analyse_resultat= new JsonFormat({"s","t"});
+
 
     }
 
