@@ -17,11 +17,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 import zlisproduction.finistonassiette.adapter.NavDrawerListAdapter;
 import zlisproduction.finistonassiette.model.NavDrawerItem;
+import zlisproduction.finistonassiette.recette.ConstructeurDefaut;
+import zlisproduction.finistonassiette.recette.ConsulterRecette;
 import zlisproduction.finistonassiette.recette.Information;
+import zlisproduction.finistonassiette.recette.JsonFormat;
+import zlisproduction.finistonassiette.recette.Requete;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
 import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
@@ -186,7 +194,47 @@ public class MainActivity extends FragmentActivity {
 			fragment = new ScannerMainFragment();
 			break;
 		case 2:
-			fragment =  new Information();
+
+			//on efectue la requête pour consulter une recette
+			//1) on récupère les aliments que l'utilisateur a choisi (simulation ici)
+			ArrayList<String> result= new ArrayList<String>();
+            result.add("Mais");
+
+            // définition des comportements pour la requête consulter recette
+			Information frag =  new Information();
+			frag.setRequete(new ConsulterRecette());
+			//exécution de la requete à consulter
+            String[] tmpResRequete = null;
+
+			try {
+				tmpResRequete =frag.getRequete().execute(result).get();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			}
+
+            //définition du comportement pour l'analyse du resultat
+			frag.setAnalyse_resultat(new JsonFormat(tmpResRequete));
+			//exécution de l'analyse
+            ArrayList<HashMap<String, String>> tpsResAnalyse = null;
+
+            try {
+                tpsResAnalyse = frag.getAnalyse_resultat().demande_consulter_recette();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+			frag.setInstancie(new ConstructeurDefaut());
+
+			//on passe les arguments au nouveau fragment
+			Bundle args = new Bundle();
+            args.putSerializable("ingredients", tpsResAnalyse);
+			frag.getInstancie().setArguments(args);
+			fragment= frag.getInstancie();
+
+
+
 			break;
 		case 3:
 			break;
@@ -195,10 +243,11 @@ public class MainActivity extends FragmentActivity {
 		case 5:
 			break;
 		default:
-            fragment = new MenuPrincipal();
+            //fragment = new MenuPrincipal();
             break;
 		}
 
+		// remplaçement du gragment
 		if (fragment != null) {
 			FragmentManager fragmentManager = getFragmentManager();
 			FragmentTransaction ft = fragmentManager.beginTransaction();

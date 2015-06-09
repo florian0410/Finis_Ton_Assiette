@@ -35,20 +35,16 @@ public  class ConsulterRecette extends Requete {
     private InputStream is= null;
     private String result="";
 
-
-
-
-    public ConsulterRecette() {
-
-
+    public ConsulterRecette(){
 
     }
+
     @Override
     public void envoyerRequete(ArrayList pData) {
+
     }
 
-    public ConsulterRecette(Information pinfo){
-    }
+
 
     @Override
     protected String[] doInBackground(ArrayList<String>... params) {
@@ -107,5 +103,7 @@ public  class ConsulterRecette extends Requete {
     @Override
     protected void onPostExecute(String[] pArray) {
 
+
     }
+
 }
