@@ -256,7 +256,8 @@ public class Aliment {
     public AlimentDisplayer[] TrouverAliment(String[] pKeyWords){
         AlimentDisplayer[] results = null;
         String[] IdHashMap = SearchCategory(pKeyWords);
-        return null;
+        results = SearchAliments(IdHashMap,pKeyWords);
+        return results;
     }
 
     private String[] SearchCategory(String[] pKeyWords){
@@ -264,8 +265,8 @@ public class Aliment {
         int j = 0;
         for(String mapkey : hashMapCategories.keySet()){
             for(int i = 0; i < pKeyWords.length; i++) {
-                // Si on a une différence sur 2 lettres max, on considère que le mot est le même avec une différence au pluriel ou accent
-                if (CompareWords(mapkey,pKeyWords[i])) {
+                // On compare avec une marge d'erreur de 0 caractère possible
+                if (CompareWords(mapkey,pKeyWords[i],0)) {
                     keys[j] = mapkey;
                     j++;
                     break;
@@ -274,12 +275,32 @@ public class Aliment {
         }
         return keys;
     }
-    private boolean CompareWords(String pWord1, String pWord2){
+
+    private AlimentDisplayer[] SearchAliments(String[] pIdHashMap,String[] pKeyWords){
+        int a=0;
+        AlimentDisplayer[] results = new AlimentDisplayer[pIdHashMap.length];
+        for(int i = 0; i< pIdHashMap.length; i++){
+            HashMap<String, Integer> CurrentHashMap = hashMapCategories.get(pIdHashMap[i]);
+            for(String mapkey : CurrentHashMap.keySet()){
+                for(int b = 0; i < pKeyWords.length; b++) {
+                    // On compare avec une marge d'erreur de 1 caractère possible pour plus de résultats éventuels
+                    if (CompareWords(mapkey,pKeyWords[i],1)) {
+                        results[a] = new AlimentDisplayer(CurrentHashMap.get(mapkey),mapkey);
+                        a++;
+                        break;
+                    }
+                }
+            }
+        }
+        return results;
+    }
+
+    private boolean CompareWords(String pWord1, String pWord2,int pDifferenceMargin){
         String Word1= ConvertToLowerCaseWithoutAccent(pWord1);
         String Word2 = ConvertToLowerCaseWithoutAccent(pWord2);
         char[] Char1 = Word1.toCharArray();
         char[] Char2 = Word2.toCharArray();
-        if(CountDifferentsChar(Char1, Char2) == 0){
+        if(CountDifferentsChar(Char1, Char2) <= pDifferenceMargin){
             return true;
         }
         return false;

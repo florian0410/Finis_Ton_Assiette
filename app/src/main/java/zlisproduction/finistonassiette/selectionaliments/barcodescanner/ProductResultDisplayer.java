@@ -56,7 +56,7 @@ public class ProductResultDisplayer extends Fragment {
     }
 
     protected String[] getKeyWordsFromJSON(String pDatasProduct) {
-        String KeyWords[] =null;
+        String KeyWords[] = null;
         try {
             JSONObject json = new JSONObject(pDatasProduct);
             // Getting JSON Array
@@ -68,8 +68,7 @@ public class ProductResultDisplayer extends Fragment {
             if (status == 0) {
                 mTitle.setText(context.getString(R.string.produit_non_reconnu));
                 mCategories.setText("Code barre: " + mScanContent);
-            }
-            else {
+            } else {
                 JSONObject c = json.getJSONObject("product");   // quand démarre par { ou quand une seule case
 
                 // Check si le produit est incomplet au niveau infos
@@ -81,7 +80,7 @@ public class ProductResultDisplayer extends Fragment {
                     // String categories = c.getString("categories");
                     JSONArray KeyWordsJson = c.getJSONArray("_keywords");
                     KeyWords = new String[KeyWordsJson.length()];
-                    for(int i=0;i<KeyWords.length;i++) {
+                    for (int i = 0; i < KeyWords.length; i++) {
                         KeyWords[i] = KeyWordsJson.getString(i);
                     }
                 }
@@ -91,15 +90,4 @@ public class ProductResultDisplayer extends Fragment {
         }
         return KeyWords;
     }
-
-    /*public String[] StringToArray(String pToSeparate){
-        String[] categories = pToSeparate.split(",");
-        int i = 0;
-        for(String s: categories){
-            categories[i] = s;
-            i++;
-        }
-        return categories;
-    }*/
-
 }
