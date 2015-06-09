@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import zlisproduction.finistonassiette.R;
 import zlisproduction.finistonassiette.selectionaliments.Aliment;
+import zlisproduction.finistonassiette.selectionaliments.AlimentDisplayer;
 
 /**
  * Created by Florian.S on 05/06/2015.
@@ -52,8 +53,13 @@ public class ProductResultDisplayer extends Fragment {
         String ProductDatas = bundle.getString("Product");
         String[] keywords = getKeyWordsFromJSON(ProductDatas);
         Aliment alim = new Aliment(context);
-        alim.TrouverAliment(keywords);
+        AlimentDisplayer[] results = alim.TrouverAliment(keywords);
+        // AfficherResultats(results);
     }
+
+   /* private void AfficherResultats(AlimentDisplayer[] pToDisplay){
+
+    }*/
 
     protected String[] getKeyWordsFromJSON(String pDatasProduct) {
         String KeyWords[] = null;

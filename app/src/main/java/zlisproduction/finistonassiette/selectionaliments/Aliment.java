@@ -29,7 +29,7 @@ public class Aliment {
     private HashMap<String, Integer> HashPoisson = new HashMap<String, Integer>();
     private HashMap<String, Integer> hashMapProduitLaitier = new HashMap<String, Integer>();
     private HashMap<String, Integer> hashMapViande = new HashMap<String, Integer>();
-
+    private static final int MAX_ALIMENT_DISPLAY_NUMBER = 70;
 
     public Aliment(Context pContext){
         CreateListeAliments(pContext);
@@ -256,7 +256,7 @@ public class Aliment {
     public AlimentDisplayer[] TrouverAliment(String[] pKeyWords){
         AlimentDisplayer[] results = null;
         String[] IdHashMap = SearchCategory(pKeyWords);
-        results = SearchAliments(IdHashMap,pKeyWords);
+        results = SearchAliments(IdHashMap, pKeyWords);
         return results;
     }
 
@@ -273,18 +273,19 @@ public class Aliment {
                 }
             }
         }
+        keys = ResizeArray(keys,j);
         return keys;
     }
 
     private AlimentDisplayer[] SearchAliments(String[] pIdHashMap,String[] pKeyWords){
         int a=0;
-        AlimentDisplayer[] results = new AlimentDisplayer[pIdHashMap.length];
+        AlimentDisplayer[] results = new AlimentDisplayer[MAX_ALIMENT_DISPLAY_NUMBER];
         for(int i = 0; i< pIdHashMap.length; i++){
             HashMap<String, Integer> CurrentHashMap = hashMapCategories.get(pIdHashMap[i]);
             for(String mapkey : CurrentHashMap.keySet()){
-                for(int b = 0; i < pKeyWords.length; b++) {
+                for(int b = 0; b < pKeyWords.length; b++) {
                     // On compare avec une marge d'erreur de 1 caractère possible pour plus de résultats éventuels
-                    if (CompareWords(mapkey,pKeyWords[i],1)) {
+                    if (CompareWords(mapkey,pKeyWords[b],0)) {
                         results[a] = new AlimentDisplayer(CurrentHashMap.get(mapkey),mapkey);
                         a++;
                         break;
@@ -295,19 +296,33 @@ public class Aliment {
         return results;
     }
 
+    private String[] ResizeArray(String[] pArray, int pSize){
+        String[] ReplaceArray = new String[pSize];
+        for(int i = 0; i< ReplaceArray.length;i++ ){
+            ReplaceArray[i] = pArray[i];
+        }
+        return ReplaceArray;
+    }
+
     private boolean CompareWords(String pWord1, String pWord2,int pDifferenceMargin){
         String Word1= ConvertToLowerCaseWithoutAccent(pWord1);
         String Word2 = ConvertToLowerCaseWithoutAccent(pWord2);
         char[] Char1 = Word1.toCharArray();
         char[] Char2 = Word2.toCharArray();
-        if(CountDifferentsChar(Char1, Char2) <= pDifferenceMargin){
-            return true;
+        if(Char1.length <=2 || Char2.length <= 2) {
+            return false;
+        }
+        else{
+            if (CountDifferentsChar(Char1, Char2) <= pDifferenceMargin) {
+                return true;
+            }
         }
         return false;
     }
 
     /**
      * Compare chaque caractère et renvoi le nombre de caractère différents
+     * Il faudra 2 lettres minimum pour chaque mot sinon il sera ignoré
      * @param pWord1
      * @param pWord2
      * @return counter le nombre de caractère différents entre les 2 mots
@@ -316,11 +331,11 @@ public class Aliment {
         int counter = 0;
         // Comptage du nombre de caractère
         int minLength = Math.min(pWord1.length, pWord2.length);
-        for (int i = 0; i < minLength; i++) {
-            if (pWord1[i] != pWord2[i]) {
-                counter++;
+            for (int i = 0; i < minLength; i++) {
+                if (pWord1[i] != pWord2[i]) {
+                    counter++;
+                }
             }
-        }
         return counter;
     }
 
