@@ -253,8 +253,8 @@ public class Aliment {
         return hashMapCategories.get(pCategorie);
     }
 
-    public AlimentDisplayer[] TrouverAliment(String[] pKeyWords){
-        AlimentDisplayer[] results = null;
+    public HashMap<String, Integer> TrouverAliment(String[] pKeyWords){
+        HashMap<String, Integer> results = null;
         String[] IdHashMap = SearchCategory(pKeyWords);
         results = SearchAliments(IdHashMap, pKeyWords);
         return results;
@@ -273,21 +273,19 @@ public class Aliment {
                 }
             }
         }
-        keys = ResizeArray(keys,j);
+        keys = ResizeArray(keys, j);
         return keys;
     }
 
-    private AlimentDisplayer[] SearchAliments(String[] pIdHashMap,String[] pKeyWords){
-        int a=0;
-        AlimentDisplayer[] results = new AlimentDisplayer[MAX_ALIMENT_DISPLAY_NUMBER];
+    private HashMap<String, Integer> SearchAliments(String[] pIdHashMap,String[] pKeyWords){
+        HashMap<String, Integer> results = new HashMap<String, Integer>();
         for(int i = 0; i< pIdHashMap.length; i++){
             HashMap<String, Integer> CurrentHashMap = hashMapCategories.get(pIdHashMap[i]);
             for(String mapkey : CurrentHashMap.keySet()){
                 for(int b = 0; b < pKeyWords.length; b++) {
                     // On compare avec une marge d'erreur de 1 caractère possible pour plus de résultats éventuels
                     if (CompareWords(mapkey,pKeyWords[b],0)) {
-                        results[a] = new AlimentDisplayer(CurrentHashMap.get(mapkey),mapkey);
-                        a++;
+                        results.put(mapkey,CurrentHashMap.get(mapkey));
                         break;
                     }
                 }

@@ -7,27 +7,41 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.adapter.Adapter;
 import zlisproduction.finistonassiette.selectionaliments.Aliment;
 import zlisproduction.finistonassiette.selectionaliments.AlimentDisplayer;
+import zlisproduction.finistonassiette.selectionaliments.AlimentListDisplayer;
+import zlisproduction.finistonassiette.selectionaliments.CreateListAliment;
+import zlisproduction.finistonassiette.selectionaliments.ListeAliment;
+import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
 
 /**
  * Created by Florian.S on 05/06/2015.
  * Cette classe sera affichée sur une même page que le produit scanné par l'utilisateur lors de l'utilisation du scanner
  */
-public class ProductResultDisplayer extends Fragment {
+public class ProductResultDisplayer extends AlimentListDisplayer {
 
     private TextView mTitle = null;
     private TextView mCategories = null;
     private Context context = null;
     private String mScanContent = null;
-
+    private GridView lv;
+    private Button boutonfin = null;
 
     @Override
     public void onAttach(Activity activity) {
@@ -38,28 +52,56 @@ public class ProductResultDisplayer extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        View Layout = inflater.inflate(R.layout.product_info, container, false);
+        View Layout = inflater.inflate(R.layout.listview, container, false);
 
+        lv = (GridView) Layout.findViewById(R.id.ListViewAliment);
+        boutonfin=(Button) Layout.findViewById(R.id.boutonfinselection);
         mTitle = (TextView) Layout.findViewById(R.id.title);
         mCategories = (TextView) Layout.findViewById(R.id.categories);
-        getAndDisplayResult();
+
+        HashMap<String, Integer> results = getResults();
+        arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(results);
+
+
+        myAdapter = new Adapter(arrayListAlimentsDisplayer,context);
+        lv.setAdapter(myAdapter);
+
+        // Listener pour sélection des aliments
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
+                if (alim.isClicked() == false) {
+                    CheckItem(alim, myAdapter);
+                } else {
+                    unCheckItem(alim, myAdapter);
+                }
+            }
+        });
+        //Listener permettant l'envoi des aliments choisis à l'appui du bouton
+        boutonfin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateListAliment.getAlimList(context);
+                // Retour au menu principal
+                // Plus tard ce sera affichage de la liste des résultats
+                Fragment fragment = new MenuPrincipal();
+                ChangeFragment(v, fragment);
+            }
+        });
 
         return Layout;
     }
 
-    public void getAndDisplayResult(){
+    public HashMap<String, Integer> getResults(){
         Bundle bundle = new Bundle();
         bundle = this.getArguments();
         String ProductDatas = bundle.getString("Product");
         String[] keywords = getKeyWordsFromJSON(ProductDatas);
         Aliment alim = new Aliment(context);
-        AlimentDisplayer[] results = alim.TrouverAliment(keywords);
-        // AfficherResultats(results);
+        HashMap<String, Integer> results = alim.TrouverAliment(keywords);
+        return results;
     }
-
-   /* private void AfficherResultats(AlimentDisplayer[] pToDisplay){
-
-    }*/
 
     protected String[] getKeyWordsFromJSON(String pDatasProduct) {
         String KeyWords[] = null;
