@@ -5,4 +5,9 @@
         <item name="android:textColor">@color/brown</item>
     </style>
 
+    <style name="Titles" parent="android:Theme.Holo.Light">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
