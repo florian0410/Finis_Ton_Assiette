@@ -5,28 +5,32 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Created by Thibaut on 24/05/2015.
  */
 public class JsonFormat implements AnalyseResultat {
     private String[] data= null;
-    ArrayList<HashMap<String, String>> arrayList= null;
+    ArrayList<HashMap<String, Object>> arrayList= null;
 
     public JsonFormat(String[] pData){
 
         this.data=pData;
-        arrayList= new ArrayList<HashMap<String, String>>();
+        arrayList= new ArrayList<HashMap<String, Object>>();
 
     }
 
 
     @Override
-    public ArrayList<HashMap<String, String>> demande_consulter_recette() throws JSONException {
+    public ArrayList<HashMap<String, Object>> demande_consulter_recette() throws JSONException {
 
         int nombre_recettes_trouvees =data.length;
-        HashMap<String,String> map = new HashMap<String, String>();
+
+        HashMap<String,Object> map = new HashMap<>();
+
         JSONObject jsonObject=null;
+
         int i ;
         for(i=0; i<nombre_recettes_trouvees;i++){
             //si c'est la fin de la recupération
@@ -34,17 +38,33 @@ public class JsonFormat implements AnalyseResultat {
 
                 try {
                     jsonObject = new JSONObject(data[i]);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 //récupération des caractéristiques de la recette
-                map.put("nom_recette_creee", jsonObject.getString("nom_recette_creee"));
+                map.put("nom_recette_creee", jsonObject.getString("nom_recette_creee").replaceAll("_", " "));
+
                 map.put("type_plat", jsonObject.getString("type_plat"));
+
                 map.put("niveau_difficulte", jsonObject.getString("niveau_difficulte"));
-                map.put("ingredient", jsonObject.getString("ingredient"));
+
+                //constitution d'un tableau de string (tableau d'ingrédient)
+                String[] tmp = jsonObject.getString("ingredient").replaceAll("\\[\\{\"","").replaceAll("\"\\}\\]","").replaceAll("nom_ingredient\":","").replaceAll("\"","").replaceAll("\\{","").replaceAll("\\}","").split("\\,");
+                map.put("ingredient", tmp);
+
                 map.put("temps_cuisson", jsonObject.getString("temps_cuisson"));
+
                 map.put("temps_preparation", jsonObject.getString("temps_preparation"));
-                map.put("preparation_recette", jsonObject.getString("preparation_recette"));
+
+                tmp= jsonObject.getString("preparation_recette").split("\"\\},\\{\"");
+
+                for (int v =0; v<tmp.length; v++)
+                {
+                    tmp[v]= tmp[v].replaceAll("\"","").replaceAll("\\[\\{","").replaceAll("\\}\\]","");
+                }
+                map.put("preparation_recette", tmp);
+
                 map.put("auteur_recette", jsonObject.getString("auteur_recette"));
                 //récupération des data de l'image
                 //mettre une exception ici
@@ -53,6 +73,7 @@ public class JsonFormat implements AnalyseResultat {
                     i++;
                 }
                 i++;
+
                 arrayList.add(map);
             }
             else{
