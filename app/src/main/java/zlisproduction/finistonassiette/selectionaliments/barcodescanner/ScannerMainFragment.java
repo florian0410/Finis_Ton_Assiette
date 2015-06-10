@@ -82,6 +82,7 @@ public class ScannerMainFragment extends Fragment {
      */
     public void SendDatasToNextFragment(JSONObject json){
         Fragment fragment = new ProductResultDisplayer();
+        Fragment fragment2 =  new ProductInformations();
         if(json != null) {
             String ProductDatas = json.toString();
 
@@ -89,10 +90,12 @@ public class ScannerMainFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putString("Product", ProductDatas);
             fragment.setArguments(bundle);
+            fragment2.setArguments(bundle);
 
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.frame_container, fragment);
+            transaction.replace(R.id.frame_container2, fragment);
+            transaction.replace(R.id.frame_container, fragment2);
             transaction.addToBackStack(null);
             transaction.commit();
         }
