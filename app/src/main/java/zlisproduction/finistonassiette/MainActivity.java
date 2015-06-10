@@ -217,7 +217,7 @@ public class MainActivity extends FragmentActivity {
             //définition du comportement pour l'analyse du resultat
 			frag.setAnalyse_resultat(new JsonFormat(tmpResRequete));
 			//exécution de l'analyse
-            ArrayList<HashMap<String, String>> tpsResAnalyse = null;
+            ArrayList<HashMap<String, Object>> tpsResAnalyse = null;
 
             try {
                 tpsResAnalyse = frag.getAnalyse_resultat().demande_consulter_recette();

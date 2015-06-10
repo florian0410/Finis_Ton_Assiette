@@ -21,10 +21,12 @@ import zlisproduction.finistonassiette.R;
  */
 public class ConstructeurDefaut extends Instanciation  {
 
-   private String[] recettes= null;
+
     private ArrayList<HashMap<String, String>> data_a_afficher;
     Context context=null;
     ListView lv =null;
+
+
 
     @Override
     public void onAttach(Activity activity) {
@@ -36,18 +38,17 @@ public class ConstructeurDefaut extends Instanciation  {
 
         //Layout du fragment
         View Layout= inflater.inflate(R.layout.constructeurdefautlayout, container, false);
-        lv =   (ListView) Layout.findViewById(R.id.listeViewConstructeurDefaut);
+
+        lv =(ListView) Layout.findViewById(R.id.listeViewConstructeurDefaut);
+
         // on récupère les paramètres envoyés
         Bundle bundle = this.getArguments();
+
         data_a_afficher = (ArrayList<HashMap<String, String>>) bundle.getSerializable("ingredients");
 
+        ConstructeurDefautAdapter adapter= new ConstructeurDefautAdapter(data_a_afficher, context);
 
-
-      SimpleAdapter mSchedule = new SimpleAdapter(this.context, data_a_afficher, R.layout.constructeurdefautitemlayout,
-              new String[] {"nom_recette_creee",  "niveau_difficulte","temps_cuisson","preparation_recette","ingredient","temps_preparation","type_plat","auteur_recette"}, new int[] {R.id.nomrecette, R.id.typeplat, R.id.niveaudifficulte,R.id.ingredient,R.id.tempspreparation,R.id.tempspreparation,R.id.preparation,R.id.donneessupplementaire});
-
-
-        lv.setAdapter(mSchedule);
+        lv.setAdapter(adapter);
 
         // Inflate the layout for this fragment
         return Layout;
@@ -55,4 +56,6 @@ public class ConstructeurDefaut extends Instanciation  {
 
 
 
+
 }
+

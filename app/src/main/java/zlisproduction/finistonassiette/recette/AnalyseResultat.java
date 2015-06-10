@@ -15,7 +15,7 @@ public interface AnalyseResultat {
     Retourne la liste de toutes les recettes possédant les aliments critiques
 
      */
-    public ArrayList<HashMap<String, String>> demande_consulter_recette() throws JSONException;
+    public ArrayList<HashMap<String, Object>> demande_consulter_recette() throws JSONException;
 
     public void resutat_ajouter_recette();
     public void resultat_suggestion_courses();
