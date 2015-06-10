@@ -22,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import zlisproduction.finistonassiette.R;
-import zlisproduction.finistonassiette.selectionaliments.imagefromurl.ImageLoader;
+import zlisproduction.finistonassiette.imagefromurl.ImageLoader;
 
 /**
  * Created by Florian.S on 02/06/2015.

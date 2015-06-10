@@ -1,4 +1,4 @@
-package zlisproduction.finistonassiette.selectionaliments.imagefromurl;
+package zlisproduction.finistonassiette.imagefromurl;
 
 import java.lang.ref.SoftReference;
 import java.util.Collections;
