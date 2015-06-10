@@ -37,6 +37,7 @@ public class ProductInformations extends Fragment {
     private String SourceURL = "http://fr.openfoodfacts.org/api/v0/produit/";   // source avec code barre manquant
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
     private int loader = R.drawable.ic_loader;
+    private boolean isScan = false;
 
 
     @Override
@@ -48,7 +49,7 @@ public class ProductInformations extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        isScan = false;
         View Layout = inflater.inflate(R.layout.product_info, container, false);
 
 
@@ -59,6 +60,7 @@ public class ProductInformations extends Fragment {
         mNewScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isScan = true;
                 IntentIntegrator integrator = IntentIntegrator.forFragment(ProductInformations.this);
                 integrator.setCaptureActivity(CaptureActivityOrientation.class);
                 integrator.setOrientationLocked(true);  // verrouillage de l'orientation
@@ -71,12 +73,20 @@ public class ProductInformations extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
         Bundle bundle = new Bundle();
-        if(bundle != null) {
-            bundle = this.getArguments();
-            String ProductDatas = bundle.getString("Product");
-            getJsonDatas(ProductDatas);
+        bundle = this.getArguments();
+        // Recherche sur openfoodfact aliment
+        String ProductDatas = bundle.getString("Product");
+        getJsonDatas(ProductDatas);
+
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        // Quand on quitte ce fragment autre que pour un scan, on retire le second pour éviter les bugs
+        if(!isScan){
+            RemoveSecondFragment();
         }
     }
 
@@ -96,6 +106,7 @@ public class ProductInformations extends Fragment {
                 // Récupérer le format du barcode lu
                 scanFormat = scanningResult.getFormatName();
             }
+            //DynamicURL = "http://fr.openfoodfacts.org/api/v0/produit/3240930213508";
             DynamicURL  = SourceURL +scanContent;
             new JSONParse().execute();  // l'asynctask finis l'action pour passer au fragment suivant normalement
         }
@@ -169,6 +180,8 @@ public class ProductInformations extends Fragment {
      */
     public void SendDatasToNextFragment(JSONObject json){
         Fragment fragment = new ProductInformations();
+        Fragment fragment2 = new ProductResultDisplayer();
+
         if(json != null) {
             String ProductDatas = json.toString();
 
@@ -176,10 +189,12 @@ public class ProductInformations extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putString("Product", ProductDatas);
             fragment.setArguments(bundle);
+            fragment2.setArguments(bundle);
 
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
             transaction.replace(R.id.frame_container, fragment);
+            transaction.replace(R.id.frame_container2, fragment2);
             transaction.addToBackStack(null);
             transaction.commit();
         }
@@ -187,5 +202,11 @@ public class ProductInformations extends Fragment {
             Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide ( json = null)", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    private void RemoveSecondFragment(){
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.remove(getFragmentManager().findFragmentById(R.id.frame_container2));
+        transaction.commit();
     }
 }

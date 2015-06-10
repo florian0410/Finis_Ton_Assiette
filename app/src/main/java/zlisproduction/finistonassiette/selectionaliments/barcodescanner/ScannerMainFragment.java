@@ -70,7 +70,7 @@ public class ScannerMainFragment extends Fragment {
                 // Récupérer le format du barcode lu
                 scanFormat = scanningResult.getFormatName();
             }
-            DynamicURL  = SourceURL +scanContent;
+            DynamicURL = SourceURL + scanContent;
             new JSONParse().execute();  // l'asynctask finis l'action pour passer au fragment suivant normalement
         }
     }
@@ -81,8 +81,8 @@ public class ScannerMainFragment extends Fragment {
      *             Cette fonction permet l'envoi de l'élément json lu
      */
     public void SendDatasToNextFragment(JSONObject json){
-        Fragment fragment = new ProductResultDisplayer();
-        Fragment fragment2 =  new ProductInformations();
+        Fragment fragment =  new ProductInformations();
+        Fragment fragment2 = new ProductResultDisplayer();
         if(json != null) {
             String ProductDatas = json.toString();
 
@@ -91,11 +91,10 @@ public class ScannerMainFragment extends Fragment {
             bundle.putString("Product", ProductDatas);
             fragment.setArguments(bundle);
             fragment2.setArguments(bundle);
-
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.frame_container2, fragment);
-            transaction.replace(R.id.frame_container, fragment2);
+            transaction.replace(R.id.frame_container, fragment);
+            transaction.replace(R.id.frame_container2, fragment2);
             transaction.addToBackStack(null);
             transaction.commit();
         }
@@ -111,7 +110,7 @@ public class ScannerMainFragment extends Fragment {
             JSONParser jParser = new JSONParser();
 
             // Getting JSON from URL
-            DynamicURL = "http://fr.openfoodfacts.org/api/v0/produit/3240930213508";
+            //DynamicURL = "http://fr.openfoodfacts.org/api/v0/produit/3240930213508";
             JSONObject json = jParser.getJSONFromUrl(DynamicURL);
             return json;
         }
