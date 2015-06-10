@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.selectionaliments.imagefromurl.ImageLoader;
 
 /**
  * Created by Florian.S on 02/06/2015.
@@ -29,11 +31,12 @@ public class ProductInformations extends Fragment {
     private Context context = null;
     private TextView mTitle = null;
     private TextView mCategories = null;
-    private TextView mImage = null;
+    private ImageView mImage = null;
     private Button mNewScanButton = null;
     private String mScanContent = null;
     private String SourceURL = "http://fr.openfoodfacts.org/api/v0/produit/";   // source avec code barre manquant
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
+    private int loader = R.drawable.ic_loader;
 
 
     @Override
@@ -51,7 +54,7 @@ public class ProductInformations extends Fragment {
 
         mTitle = (TextView) Layout.findViewById(R.id.title);
         mCategories = (TextView) Layout.findViewById(R.id.categories);
-        mImage = (TextView) Layout.findViewById(R.id.product_picture);
+        mImage = (ImageView) Layout.findViewById(R.id.product_picture);
         mNewScanButton = (Button) Layout.findViewById(R.id.start_scan_button);
         mNewScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +143,7 @@ public class ProductInformations extends Fragment {
                 else {
                     // Storing  JSON item in a Variable
                     String title = c.getString("product_name");
-                    String image = c.getString("image_url");
+                    String image_url = c.getString("image_url");
                     String categories = c.getString("categories");
                     String brands = c.getString("brands");
                     String quantity = c.getString("quantity");
@@ -149,7 +152,8 @@ public class ProductInformations extends Fragment {
                     //Set JSON Data in TextView
                     mTitle.setText(customTitle);
                     mCategories.setText(categories);
-                    mImage.setText(image);
+                    ImageLoader imgLoader = new ImageLoader(context);
+                    imgLoader.DisplayImage(image_url, loader, mImage);
                 }
             }
         }
