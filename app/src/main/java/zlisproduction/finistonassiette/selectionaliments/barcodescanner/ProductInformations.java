@@ -85,9 +85,9 @@ public class ProductInformations extends Fragment {
     public void onStop(){
         super.onStop();
         // Quand on quitte ce fragment autre que pour un scan, on retire le second pour éviter les bugs
-        if(!isScan){
+        /*if(!isScan){
             RemoveSecondFragment();
-        }
+        }*/
     }
 
     /*

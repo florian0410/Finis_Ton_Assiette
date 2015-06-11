@@ -2,6 +2,7 @@ package zlisproduction.finistonassiette.selectionaliments.barcodescanner;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
@@ -91,12 +92,9 @@ public class ScannerMainFragment extends Fragment {
             bundle.putString("Product", ProductDatas);
             fragment.setArguments(bundle);
             fragment2.setArguments(bundle);
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-            transaction.replace(R.id.frame_container, fragment);
-            transaction.replace(R.id.frame_container2, fragment2);
-            transaction.addToBackStack(null);
-            transaction.commit();
+            FragmentManager fm = getFragmentManager();
+            fm.beginTransaction().addToBackStack(null).replace(R.id.frame_container,fragment).commit();
+            fm.beginTransaction().addToBackStack(null).replace(R.id.frame_container2,fragment2).commit();
         }
         else{
             Toast toast = Toast.makeText(context.getApplicationContext(),"Impossible de se connecter : Page web vide ( json = null)", Toast.LENGTH_SHORT);

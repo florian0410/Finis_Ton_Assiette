@@ -191,7 +191,7 @@ public class Aliment {
         HashPoisson.put(pContext.getString(R.string.Haddock), R.drawable.ic_beurretransparent);
         HashPoisson.put(pContext.getString(R.string.Hareng), R.drawable.ic_beurretransparent);
         HashPoisson.put(pContext.getString(R.string.Lieu), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Maquerau), R.drawable.ic_beurretransparent);
+        HashPoisson.put(pContext.getString(R.string.Maquereau), R.drawable.ic_beurretransparent);
         HashPoisson.put(pContext.getString(R.string.Merlu), R.drawable.ic_beurretransparent);
         HashPoisson.put(pContext.getString(R.string.Moules), R.drawable.ic_beurretransparent);
         HashPoisson.put(pContext.getString(R.string.Oeufs_de_lump), R.drawable.ic_beurretransparent);

@@ -28,6 +28,7 @@ public class AlimentListDisplayer extends Fragment {
         context = activity.getApplicationContext();
     }
 
+
     // Retrouve la position d'un aliment dans la lsite et change son fond en l'ajoutant à la liste des aliments sélectionnés par l'utilisateur
     public void CheckItem(AlimentDisplayer pAlim, Adapter pAdapter){
         boolean test;
