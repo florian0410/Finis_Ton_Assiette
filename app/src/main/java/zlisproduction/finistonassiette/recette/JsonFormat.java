@@ -1,8 +1,11 @@
 package zlisproduction.finistonassiette.recette;
 
+import android.util.Base64;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -31,7 +34,7 @@ public class JsonFormat implements AnalyseResultat {
 
         JSONObject jsonObject=null;
 
-        int i ;
+        int i;
         for(i=0; i<nombre_recettes_trouvees;i++){
             //si c'est la fin de la recupération
             if(data[i] != "\n") {
@@ -69,7 +72,8 @@ public class JsonFormat implements AnalyseResultat {
                 //récupération des data de l'image
                 //mettre une exception ici
                 if ((i + 1) < nombre_recettes_trouvees) {
-                    //map.put("image", data[i + 1]);
+                    String tmpData= data[i+1];
+                    map.put("image", tmpData);
                     i++;
                 }
                 i++;

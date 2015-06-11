@@ -198,7 +198,7 @@ public class MainActivity extends FragmentActivity {
 			//on efectue la requête pour consulter une recette
 			//1) on récupère les aliments que l'utilisateur a choisi (simulation ici)
 			ArrayList<String> result= new ArrayList<String>();
-            result.add("Mais");
+            result.add("oeuf");
 
             // définition des comportements pour la requête consulter recette
 			Information frag =  new Information();

@@ -52,7 +52,8 @@
     <string name="Chocolat">Chocolat</string>
     <string name="Crème_fraiche">Crème fraîche</string>
     <string name="Eau">Eau</string>
-    <string name="Gruyére_emmental">Gruyère, emmental</string>
+    <string name="Gruyére">Gruyère</string>
+    <string name="Emmental"> emmental</string>
     <string name="Huile_d_olive">Huile d\'olive</string>
     <string name="Huile_de_tournesol">Huile de tournesol</string>
     <string name="Lait">Lait</string>
@@ -114,7 +115,7 @@
     <string name="Haddock">Haddock</string>
     <string name="Hareng">Hareng</string>
     <string name="Lieu">Lieu</string>
-    <string name="Maquereau">Maquereau</string>
+    <string name="Maquerau">Maquerau</string>
     <string name="Merlu">Merlu</string>
     <string name="Moules">Moules</string>
     <string name="Oeufs_de_lump">Oeufs de lump</string>
@@ -189,6 +190,11 @@
     <string name="moutarde">Moutarde</string>
     <string name="menthe">Menthe</string>
     <string name="pates_deja_cuites">Pâtes déjà cuites</string>
+    <string name="mandarines">Mandarines</string>
+    <string name="tiramisu">Tiramisu</string>
+    <string name="Mimolette">Mimolette</string>
+    <string name="Champignion">Champignion</string>
+
 
 
 
