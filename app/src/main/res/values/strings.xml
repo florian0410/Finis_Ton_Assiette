@@ -38,6 +38,8 @@
     <string name="Fruit">Fruit</string>
     <string name="Poisson">Poisson</string>
     <string name="Categories">Catégories</string>
+    <string name="concordances">Concordances</string>
+    <string name="touchez_un_aliment_pour_l_ajouter_a_la_liste">Touchez un aliment pour l\'ajouter ou le supprimer de la liste</string>
 
 
 </resources>
