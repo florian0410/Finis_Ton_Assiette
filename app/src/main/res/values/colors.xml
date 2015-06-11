@@ -2,5 +2,11 @@
 <resources>
     <color name="blue">#B0C4DE</color>
     <color name="transparent">#00000000</color>
-    <color name="brown">#D2691E</color>
+    <color name="brown_text">#D2691E</color>
+    <color name="brown_title">#7F4012</color>
+    <color name="brown_subtitles">#402009</color>
+    <color name="brown4">#FF7F24</color>
+    <color name="brown5">#E57321</color>
+
+
 </resources>
