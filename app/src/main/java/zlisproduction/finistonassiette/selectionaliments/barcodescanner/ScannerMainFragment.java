@@ -65,12 +65,12 @@ public class ScannerMainFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(dbsCommunication.checkScanAnswer(scanningResult, context)) {
-            if (scanningResult != null) {
+            // if (scanningResult != null) {
                 // Récupérer le contenu
                 scanContent = scanningResult.getContents();
                 // Récupérer le format du barcode lu
                 scanFormat = scanningResult.getFormatName();
-            }
+            // }
             DynamicURL = SourceURL + scanContent;
             new JSONParse().execute();  // l'asynctask finis l'action pour passer au fragment suivant normalement
         }
