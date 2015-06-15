@@ -52,31 +52,6 @@ public class Information extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
         View Layout= inflater.inflate(R.layout.information_layout, container, false);
-     /*   //comportements par défaut
-        progressBar= (ProgressBar) Layout.findViewById(R.id.progressBar);
-
-        requete=new ConsulterRecette();
-        result.add("oeuf");
-        try {
-            //envoie de la requête et le resultat est stocké dans res
-            String[] res= requete.execute(result).get();
-            //analyse du resultat
-            analyse_resultat= new JsonFormat(res);
-            try {
-                analyse_resultat.demande_consulter_recette();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-
-
-        // http://www.tutos-android.com/parcelable-android
-*/
 
         progressBar.setVisibility(View.GONE);
 

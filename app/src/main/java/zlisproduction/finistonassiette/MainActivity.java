@@ -25,6 +25,7 @@ import java.util.concurrent.ExecutionException;
 
 import zlisproduction.finistonassiette.adapter.NavDrawerListAdapter;
 import zlisproduction.finistonassiette.model.NavDrawerItem;
+import zlisproduction.finistonassiette.recette.Compte;
 import zlisproduction.finistonassiette.recette.ConstructeurDefaut;
 import zlisproduction.finistonassiette.recette.ConsulterRecette;
 import zlisproduction.finistonassiette.recette.Information;
@@ -49,10 +50,14 @@ public class MainActivity extends FragmentActivity {
 	private String[] navMenuTitles;
 	private TypedArray navMenuIcons;
 
+
+
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
     private Fragment fragment = null;
-
+	//---------------------------------------------------------- expérience
+	public static   ArrayList<String> result= null;
+//--------------------------------------------------------------
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -197,7 +202,7 @@ public class MainActivity extends FragmentActivity {
 
 			//on efectue la requête pour consulter une recette
 			//1) on récupère les aliments que l'utilisateur a choisi (simulation ici)
-			ArrayList<String> result= new ArrayList<String>();
+			result= new ArrayList<String>();
             result.add("oeuf");
 
             // définition des comportements pour la requête consulter recette
@@ -237,6 +242,8 @@ public class MainActivity extends FragmentActivity {
 
 			break;
 		case 3:
+
+			fragment = new Compte();
 			break;
 		case 4:
 			break;
@@ -307,5 +314,11 @@ public class MainActivity extends FragmentActivity {
             super.onBackPressed();
         }
     }
+	public ArrayList<String> getResult() {
+		return result;
+	}
 
+	public void setResult(ArrayList<String> result) {
+		this.result = result;
+	}
 }

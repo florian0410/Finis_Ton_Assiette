@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
 
-</LinearLayout>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <TextView
+            style="@style/Titles"
+            android:id="@+id/connectez_vous"
+            android:text="Connectez vous !"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            style="@style/button"
+            android:id="@+id/avec_votre_compte"
+            android:text="Avec votre compte"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+
+            android:text="Vous n'avez pas encore de compte?"
+            android:id="@+id/teste_explicatif"
+            style ="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style ="@style/Text"
+            android:text="La création d'un compte permet de consulter l'historique des recettes consultées ansi que des recettes que vous avez créees !! "
+            android:id="@+id/teste_explicatifdescription"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            style="@style/button"
+            android:id="@+id/creeruncompte"
+            android:text="Créer un compte utilisateur"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:indeterminate="true"
+            android:visibility="invisible"
+            android:layout_marginTop="20sp"
+            style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+            android:layout_gravity="center"
+            android:id="@+id/barreprogression"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -71,10 +71,13 @@ public class JsonFormat implements AnalyseResultat {
                 map.put("auteur_recette", jsonObject.getString("auteur_recette"));
                 //récupération des data de l'image
                 //mettre une exception ici
+
                 if ((i + 1) < nombre_recettes_trouvees) {
+
                     String tmpData= data[i+1];
-                    map.put("image", tmpData);
                     i++;
+                    map.put("image", tmpData);
+
                 }
                 i++;
 
@@ -86,8 +89,7 @@ public class JsonFormat implements AnalyseResultat {
         }
 
         return arrayList;
-        //http://www.tutomobile.fr/personnaliser-une-listview-tutoriel-android-n%C2%B07/04/07/2010/
-        //http://stackoverflow.com/questions/19660170/how-to-display-image-in-imageview-from-byte-bitmapfactory-decodebytearray-ret ddfdfddf
+
     }
 
     @Override
@@ -98,5 +100,10 @@ public class JsonFormat implements AnalyseResultat {
     @Override
     public void resultat_suggestion_courses() {
 
+    }
+
+    @Override
+    public HashMap<String, String> getCompteAttributes() {
+        return null;
     }
 }

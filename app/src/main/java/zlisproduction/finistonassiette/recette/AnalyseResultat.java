@@ -19,11 +19,7 @@ public interface AnalyseResultat {
 
     public void resutat_ajouter_recette();
     public void resultat_suggestion_courses();
+    public HashMap<String,String> getCompteAttributes();
 
-    /*String newFileName = "my-image";
-    File imageFile = new File("/users/victor/images/image.png");
-    GridFS gfsPhoto = new GridFS(db, "photo");
-    GridFSInputFile gfsFile = gfsPhoto.createFile(imageFile);
-    gfsFile.setFilename(newFileName);
-    gfsFile.save();*/
+
 }

@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import zlisproduction.finistonassiette.MainActivity;
 import zlisproduction.finistonassiette.R;
 
 /**
@@ -48,6 +51,12 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
         TextView type_plat ;
         TextView auteur_recette;
         ImageView image_recette;
+        ImageView image_chronomètre;
+        ImageView image_four;
+        ImageView image_assiette;
+        ImageView image_icone;
+        EditText edit;
+        Button bouton;
     }
 
     @Override
@@ -81,9 +90,42 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
 
             holder= new ViewHolder();
 
+
+            holder.bouton= (Button) convertView.findViewById(R.id.buttonmaillistealimentsmanquants);
             holder.nom_recette_creee=(TextView) convertView.findViewById(R.id.nomrecette);
+
             Typeface font = Typeface.createFromAsset(context.getAssets(), "Chantelli_Antiqua.ttf");
             holder.nom_recette_creee.setTypeface(font);
+
+            final ViewHolder finalHolder = holder;
+            holder.bouton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // requête pour s'envoyer les courses
+                    //on récupère l'adresse mail:
+                    String email = finalHolder.edit.getText().toString();
+                    //consitution de la liste des ingrédients que l'utilisateur à déja
+
+                    Object[] ingredients= MainActivity.result.toArray();
+                    int tmpsize= ingredients.length;
+                    ArrayList<String> ingr= new ArrayList<String>();
+                    for (int h=0;h<tmpsize;h++){
+                       ingr.add(ingredients[h].toString());
+                    }
+                    ingr.add(finalHolder.nom_recette_creee.getText().toString());
+                    ingr.add(email);
+                    Requete requete= new RequeteAlimentsManquants();
+                    requete.execute(ingr);
+
+
+
+                }
+            });
+            holder.edit= (EditText) convertView.findViewById(R.id.rentreradressemail);
+
+
+
+
 
             holder.niveau_difficulte =(TextView) convertView.findViewById(R.id.niveaudifficulte);
 
@@ -95,9 +137,26 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
 
             holder.temps_preparation = (TextView) convertView.findViewById(R.id.tempspreparation);
 
+            holder.image_chronomètre =(ImageView) convertView.findViewById(R.id.imagechronomètre);
+
+            Bitmap chronometre = BitmapFactory.decodeResource(context.getResources(), R.drawable.chronometre);
+            holder.image_chronomètre.setImageBitmap(chronometre);
+
+            holder.image_four=(ImageView) convertView.findViewById(R.id.imagefour);
+            Bitmap four = BitmapFactory.decodeResource(context.getResources(), R.drawable.four);
+            holder.image_four.setImageBitmap(four);
+
             holder.type_plat= (TextView) convertView.findViewById(R.id.typeplat);
 
+            holder.image_assiette =(ImageView) convertView.findViewById(R.id.imagetyperepas);
+            Bitmap typerepas = BitmapFactory.decodeResource(context.getResources(), R.drawable.assiette);
+            holder.image_assiette.setImageBitmap(typerepas);
+
             holder.auteur_recette= (TextView) convertView.findViewById(R.id.donneessupplementaire);
+
+            holder.image_icone =(ImageView) convertView.findViewById(R.id.imagedifficultee);
+            Bitmap icone = BitmapFactory.decodeResource(context.getResources(), R.drawable.icone);
+            holder.image_icone.setImageBitmap(icone);
 
             holder.image_recette= (ImageView) convertView.findViewById(R.id.image);
 
@@ -114,8 +173,7 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
 
             holder = (ViewHolder) convertView.getTag();
         }
-        //http://theopentutorials.com/post/uncategorized/android-custom-listview-with-image-and-text-using-baseadapter/
-        // on adapte le texte
+
 
         holder.nom_recette_creee.setText(data_adapter.get(position).get("nom_recette_creee"));
 
@@ -141,17 +199,12 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
         }
         holder.ingredient.setText(stringBuilder);
 
+
         holder.type_plat.setText(data_adapter.get(position).get("type_plat"));
 
         holder.auteur_recette.setText(data_adapter.get(position).get("auteur_recette"));
 
 
-
-
-
-
-        //holder.image_recette.setImageBitmap(
-                //decodeSampledBitmapFromByteArray(data_adapter.get(position).get("image").getBytes(), R.id.image, 100, 100));
 
         return convertView;
     }
