@@ -40,7 +40,7 @@ public class Aliment {
         hashMapCategories.put(pContext.getString(R.string.Farine), hashMapFarine);
         hashMapCategories.put(pContext.getString(R.string.Fruit), hashMapFruit);
         hashMapCategories.put(pContext.getString(R.string.Incontournable), hashMapIncontournable);
-        hashMapCategories.put(pContext.getString(R.string.Legume), hashMapIncontournable);
+        hashMapCategories.put(pContext.getString(R.string.Legume), hashMapLegumes);
         hashMapCategories.put(pContext.getString(R.string.Pates), hashMapPates);
         hashMapCategories.put(pContext.getString(R.string.Poisson), HashPoisson);
         hashMapCategories.put(pContext.getString(R.string.Produits_Laitier), hashMapProduitLaitier);
