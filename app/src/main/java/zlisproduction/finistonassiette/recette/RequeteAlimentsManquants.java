@@ -29,12 +29,12 @@ public class RequeteAlimentsManquants extends Requete {
         int nombre_aliments_possedes= params[0].size();
         StringBuilder url = new StringBuilder("http://finistonassiette.ddns.net/requetephp/listecourse/listecourse.php?");
         //Construction de l'url
-        for (int i= 0; i<nombre_aliments_possedes-1; i++){
+        for (int i= 0; i<nombre_aliments_possedes-2; i++){
             url.append("aliment" + Integer.toString(i) + "=" +params[0].get(i).toString()+"&");
         }
         // nom de la recette
         url.append("nomrecette="+params[0].get(nombre_aliments_possedes-2).toString().replaceAll(" ","_"));
-        url.append("&email="+params[0].get(nombre_aliments_possedes-1).toString());
+        url.append("&adressemail="+params[0].get(nombre_aliments_possedes-1).toString());
         //nombre d'aliments que l'utilisateur à sélectionné
        url.append("&total=" + Integer.toString(nombre_aliments_possedes-2));
 
