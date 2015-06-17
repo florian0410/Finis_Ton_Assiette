@@ -10,12 +10,15 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.internal.app.ToolbarActionBar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -31,6 +34,7 @@ import zlisproduction.finistonassiette.recette.ConsulterRecette;
 import zlisproduction.finistonassiette.recette.Information;
 import zlisproduction.finistonassiette.recette.JsonFormat;
 import zlisproduction.finistonassiette.recette.Requete;
+import zlisproduction.finistonassiette.selectionaliments.AlimentsChoisis;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
 import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
@@ -95,7 +99,9 @@ public class MainActivity extends FragmentActivity {
         // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+        // navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
+
         // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // Pas encore assigné
@@ -151,7 +157,7 @@ public class MainActivity extends FragmentActivity {
 		}
 	}
 
-    // Gérer la partie menu options ( en haut à droite de la navigationBar)
+    // Gérer la partie ActionBar
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -167,11 +173,10 @@ public class MainActivity extends FragmentActivity {
 		}
 		// Handle action bar actions click
 		switch (item.getItemId()) {
-		case R.id.action_settings:
-			return true;
-		default:
+            case R.id.action_settings:
+                return true;
+        }
 			return super.onOptionsItemSelected(item);
-		}
 	}
 
 	/* *
@@ -239,10 +244,10 @@ public class MainActivity extends FragmentActivity {
 
 			break;
 		case 3:
-
 			fragment = new Compte();
 			break;
 		case 4:
+            fragment = new AlimentsChoisis();
 			break;
 		case 5:
 			break;

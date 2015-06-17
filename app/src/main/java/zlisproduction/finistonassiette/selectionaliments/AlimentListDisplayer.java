@@ -33,7 +33,7 @@ public class AlimentListDisplayer extends Fragment {
     public void CheckItem(AlimentDisplayer pAlim, Adapter pAdapter){
         boolean test;
         //On met l'aliment dans la liste des aliments sélectionnés
-        test = CreateListAliment.addAlimentSelectionne(pAlim.getName());
+        test = CreateListAliment.addAlimentSelectionne(pAlim.getName(),pAlim.getImage());
         // Si déjà choisi avant on le notifie
         if(test) {
             Toast.makeText(context,context.getString(R.string.aliment_déjà_choisi), Toast.LENGTH_SHORT).show();

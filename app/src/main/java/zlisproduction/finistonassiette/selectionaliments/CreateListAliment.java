@@ -4,7 +4,9 @@ import android.content.Context;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 import zlisproduction.finistonassiette.R;
 
@@ -13,22 +15,22 @@ import zlisproduction.finistonassiette.R;
  */
 public class CreateListAliment {
 
-    private static ArrayList<String> alimentsSelectionnes = new ArrayList<String>();
+    private static HashMap<String,Integer> alimentsSelectionnes = new HashMap<>();
     private static boolean doublons=false;
 
-    public static boolean addAlimentSelectionne(String pAlimentsSelectionnes) {
-
+    public static boolean addAlimentSelectionne(String pAlimentsSelectionnes, int pImage) {
+        Set key = alimentsSelectionnes.keySet();
         /*
         éliminer les doublons
          */
-        Iterator<String> it =alimentsSelectionnes.iterator();
+        Iterator<String> it =key.iterator();
         while (it.hasNext()) {
            if(it.next()==pAlimentsSelectionnes){
                doublons=true;
            }
         }
         if (doublons==false) {
-            alimentsSelectionnes.add(pAlimentsSelectionnes);
+            alimentsSelectionnes.put(pAlimentsSelectionnes, pImage);
         }
         return doublons;
     }
@@ -43,14 +45,17 @@ public class CreateListAliment {
     public static void getAlimList(Context pContext){
         String alimName =null;
         String listAlim = pContext.getString(R.string.Liste_des_aliments);
-        for(int i = 0; i< alimentsSelectionnes.size();i++){
-            alimName = alimentsSelectionnes.get(i);
+        for(String mapkey : alimentsSelectionnes.keySet()){
+            alimName = mapkey;
             listAlim += alimName+" ";
         }
         Toast.makeText(pContext,listAlim, Toast.LENGTH_LONG).show();
         cleanAlimList(pContext);
     }
 
+    public static HashMap<String,Integer> getAlimentSelectionnes(){
+        return alimentsSelectionnes;
+    }
     /*
      * Méthode pour vider la liste des aliments stockés
      */
@@ -59,11 +64,8 @@ public class CreateListAliment {
         Toast.makeText(pContext,pContext.getString(R.string.liste_aliments_remise_à_zéro), Toast.LENGTH_SHORT).show();
     }
 
-    public static ArrayList<String> getAlimentsSelectionnes() {
+    public static HashMap<String,Integer> getAlimentsSelectionnes() {
         return alimentsSelectionnes;
     }
 
-    public static void setAlimentsSelectionnes(ArrayList<String> alimentsSelectionnes) {
-        CreateListAliment.alimentsSelectionnes = alimentsSelectionnes;
-    }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Finis Ton Assiette</string>
+    <string name="app_name">Fini Ton Assiette</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -10,7 +10,7 @@
         <item >Barcode Scanner</item>
         <item >Consulter une recette!</item>
         <item >Mon Compte</item>
-        <item >Non défini</item>
+        <item >Consulter mes aliments </item>
         <item >Non défini</item>
     </string-array>
 
@@ -40,6 +40,8 @@
     <string name="Categories">Catégories</string>
     <string name="concordances">Concordances</string>
     <string name="touchez_un_aliment_pour_l_ajouter_a_la_liste">Touchez un aliment pour l\'ajouter ou le supprimer de la liste</string>
+    <string name="listealimentselectionnés">liste des aliments séléctionnés</string>
+    <string name="aliments_selectionnes">Aliments séléctionnés</string>
 
 
 </resources>
