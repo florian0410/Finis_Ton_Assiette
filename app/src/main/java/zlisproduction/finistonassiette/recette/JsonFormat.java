@@ -1,5 +1,7 @@
 package zlisproduction.finistonassiette.recette;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 import org.json.JSONException;
@@ -30,12 +32,14 @@ public class JsonFormat implements AnalyseResultat {
 
         int nombre_recettes_trouvees =data.length;
 
-        HashMap<String,Object> map = new HashMap<>();
+        HashMap<String,Object> map = null;
 
         JSONObject jsonObject=null;
 
-        int i;
-        for(i=0; i<nombre_recettes_trouvees;i++){
+        int i=0;
+        while(i<nombre_recettes_trouvees){
+
+            map= new HashMap<>();
             //si c'est la fin de la recupération
             if(data[i] != "\n") {
 
@@ -71,21 +75,17 @@ public class JsonFormat implements AnalyseResultat {
                 map.put("auteur_recette", jsonObject.getString("auteur_recette"));
                 //récupération des data de l'image
                 //mettre une exception ici
-
-                if ((i + 1) < nombre_recettes_trouvees) {
-
-                    String tmpData= data[i+1];
-                    i++;
-                    map.put("image", tmpData);
-
-                }
                 i++;
+                if (i < nombre_recettes_trouvees) {
 
+                    String tmpData= data[i];
+                    map.put("image", tmpData);
+                }
+
+                i++;
                 arrayList.add(map);
             }
-            else{
-                i++;
-            }
+
         }
 
         return arrayList;

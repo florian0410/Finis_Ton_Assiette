@@ -58,4 +58,12 @@ public class CreateListAliment {
        alimentsSelectionnes.clear();
         Toast.makeText(pContext,pContext.getString(R.string.liste_aliments_remise_à_zéro), Toast.LENGTH_SHORT).show();
     }
+
+    public static ArrayList<String> getAlimentsSelectionnes() {
+        return alimentsSelectionnes;
+    }
+
+    public static void setAlimentsSelectionnes(ArrayList<String> alimentsSelectionnes) {
+        CreateListAliment.alimentsSelectionnes = alimentsSelectionnes;
+    }
 }

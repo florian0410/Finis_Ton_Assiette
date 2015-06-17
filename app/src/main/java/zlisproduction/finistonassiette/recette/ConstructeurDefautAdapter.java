@@ -123,10 +123,6 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
             });
             holder.edit= (EditText) convertView.findViewById(R.id.rentreradressemail);
 
-
-
-
-
             holder.niveau_difficulte =(TextView) convertView.findViewById(R.id.niveaudifficulte);
 
             holder.temps_cuisson = (TextView) convertView.findViewById(R.id.tpscuisson);
@@ -160,10 +156,7 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
 
             holder.image_recette= (ImageView) convertView.findViewById(R.id.image);
 
-            String str = data_adapter.get(position).get("image");
-            byte[] arr = Base64.decode(str,Base64.DEFAULT);
-            Bitmap bitmap=BitmapFactory.decodeByteArray(arr, 0,arr.length);
-            holder.image_recette.setImageBitmap(bitmap);
+
 
 
             convertView.setTag(holder);
@@ -204,7 +197,10 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
 
         holder.auteur_recette.setText(data_adapter.get(position).get("auteur_recette"));
 
-
+        String str = data_adapter.get(position).get("image");
+        byte[] arr = Base64.decode(str,Base64.DEFAULT);
+        Bitmap bitmap=BitmapFactory.decodeByteArray(arr, 0,arr.length);
+        holder.image_recette.setImageBitmap(bitmap);
 
         return convertView;
     }

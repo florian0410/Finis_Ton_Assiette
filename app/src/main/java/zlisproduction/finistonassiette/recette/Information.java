@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-
 import org.json.JSONException;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 import zlisproduction.finistonassiette.R;
@@ -25,21 +23,12 @@ import zlisproduction.finistonassiette.R;
 public class Information extends Fragment {
 
 
-    //attribut par défaut
+    //Comportement du fragment
     Instanciation instancie = null;
     Requete requete = null;
     AnalyseResultat analyse_resultat = null;
 
-    /**
-     * Définition des paramètres par défaut
-     */
-    public Information(){
-
-
-    }
-
     ArrayList<String> result = new ArrayList<String>();
-    ProgressBar progressBar = null;
 
 
     @Override
@@ -53,13 +42,61 @@ public class Information extends Fragment {
 
         View Layout= inflater.inflate(R.layout.information_layout, container, false);
 
-        progressBar.setVisibility(View.GONE);
+
 
 
         // Inflate the layout for this fragment
         return Layout;
     }
 
+    /**
+     * Lance la requête
+     * @param pRes
+     * @return String[] result or null if the request does not proceed
+     */
+    public String[] executeRequest(ArrayList<String> pRes){
+        try {
+            return requete.execute(pRes).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /**
+     * Retourne le resultat de la reqête analysé
+     * @return ArrayList<HashMap<String, Object>>
+     */
+    public ArrayList<HashMap<String, Object>> analyse_result(){
+        try {
+           return analyse_resultat.demande_consulter_recette();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+       return  null;
+    }
+
+    /**
+     * Changement de fragment
+     * @param tmp
+     */
+    public void changementFragment(ArrayList<HashMap<String, Object>> tmp,FragmentManager pFrag){
+        Bundle args = new Bundle();
+        args.putSerializable("ingredients", tmp);
+        instancie.setArguments(args);
+        // remplaçement du gragment
+        if (instancie != null) {
+            FragmentManager ft = pFrag;
+            FragmentTransaction transaction =ft.beginTransaction();
+            transaction.replace(R.id.frame_container, instancie);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+
+    }
 
 
     public Instanciation getInstancie() {
@@ -94,12 +131,6 @@ public class Information extends Fragment {
         this.result = result;
     }
 
-    public ProgressBar getProgressBar() {
-        return progressBar;
-    }
 
-    public void setProgressBar(ProgressBar progressBar) {
-        this.progressBar = progressBar;
-    }
 }
 

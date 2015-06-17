@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class ListeAliment {
 
 
-    private static HashMap<String,Integer> objetsAliments;
+
     private static ArrayList<AlimentDisplayer>  aliments = new ArrayList<AlimentDisplayer>();
 
     /**
@@ -21,13 +21,6 @@ public class ListeAliment {
      */
 public static ArrayList <AlimentDisplayer>  alimentsArraylist (HashMap<String, Integer> pListeAliments)
     {
-       /* int size=pListeAliments.size();
-        for (int i=0; i<size; i++){
-            Aliment alim = new Aliment(pListeAliments.,pListeAliments[i]);
-            aliments.add(alim);
-        }
-        return aliments;
-            */
         aliments.clear();
         Iterator<String> keySetIterator = pListeAliments.keySet().iterator();
 

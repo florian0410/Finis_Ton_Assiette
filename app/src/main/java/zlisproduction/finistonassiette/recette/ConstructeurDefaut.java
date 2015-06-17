@@ -20,19 +20,26 @@ import zlisproduction.finistonassiette.R;
  *
  */
 public class ConstructeurDefaut extends Instanciation  {
-
-
     private ArrayList<HashMap<String, String>> data_a_afficher;
-    Context context=null;
-    ListView lv =null;
+    private Context context=null;
+    private ListView lv =null;
 
 
 
+
+    @Override
+    public void onCreate (Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+
+
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         context = activity.getApplicationContext();
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 

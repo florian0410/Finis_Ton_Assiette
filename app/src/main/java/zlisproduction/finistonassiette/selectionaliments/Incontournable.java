@@ -2,6 +2,8 @@ package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +11,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-
-import java.util.HashMap;
-
+import java.util.ArrayList;
 import zlisproduction.finistonassiette.R;
 import zlisproduction.finistonassiette.adapter.Adapter;
+import zlisproduction.finistonassiette.recette.ConstructeurDefaut;
+import zlisproduction.finistonassiette.recette.ConsulterRecette;
+import zlisproduction.finistonassiette.recette.Information;
+import zlisproduction.finistonassiette.recette.JsonFormat;
 
 /**
  * Created by Florian on 15/05/2015.
@@ -65,17 +69,34 @@ public class Incontournable extends AlimentListDisplayer {
                 }
             }
         });
-        //Listener permettant l'envoi des aliments choisis à l'appui du bouton
+
+        /**
+         * Lance une demande de consultation de requête en fonction des aliment présents la variable statique aliment de la classe CreateListAliment
+         * @see CreateListAliment
+         */
         boutonfin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 CreateListAliment.getAlimList(context);
                 // Retour au menu principal
                 // Plus tard ce sera affichage de la liste des résultats
                 Fragment fragment = new MenuPrincipal();
                 ChangeFragment(v, fragment);
+
+                ArrayList<String> result= new ArrayList<String>();
+                result.add("Oeuf");
+                // définition des comportements pour la requête consulter recette
+                Information frag =  new Information();
+                frag.setRequete(new ConsulterRecette());
+                String[] tmp =frag.executeRequest(result);
+                frag.setAnalyse_resultat(new JsonFormat(tmp));
+                frag.setInstancie(new ConstructeurDefaut());
+                frag.changementFragment(frag.analyse_result(),getActivity().getFragmentManager());
+
             }
         });
+
 
         return lLayout;
     }
