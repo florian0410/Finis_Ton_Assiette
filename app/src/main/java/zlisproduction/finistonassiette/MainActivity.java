@@ -1,6 +1,6 @@
 package zlisproduction.finistonassiette;
 
-import android.app.Activity;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -10,22 +10,16 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.internal.app.ToolbarActionBar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import org.json.JSONException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
-
 import zlisproduction.finistonassiette.adapter.NavDrawerListAdapter;
 import zlisproduction.finistonassiette.model.NavDrawerItem;
 import zlisproduction.finistonassiette.recette.Compte;
@@ -33,10 +27,8 @@ import zlisproduction.finistonassiette.recette.ConstructeurDefaut;
 import zlisproduction.finistonassiette.recette.ConsulterRecette;
 import zlisproduction.finistonassiette.recette.Information;
 import zlisproduction.finistonassiette.recette.JsonFormat;
-import zlisproduction.finistonassiette.recette.Requete;
 import zlisproduction.finistonassiette.selectionaliments.AlimentsChoisis;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
-import zlisproduction.finistonassiette.selectionaliments.PatesFarinesCereales;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
 
 public class MainActivity extends FragmentActivity {

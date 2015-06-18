@@ -4,6 +4,15 @@
         android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/chargement"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:text="Veuillez patienter pendant le chargement des images..."
+        android:layout_margin="10sp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_height="fill_parent" />
+    <TextView
         style="@style/SubTitles"
         android:padding="4sp"
         android:gravity="center"

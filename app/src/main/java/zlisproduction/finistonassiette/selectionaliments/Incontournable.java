@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import zlisproduction.finistonassiette.R;
 import zlisproduction.finistonassiette.adapter.Adapter;
@@ -22,9 +24,12 @@ import zlisproduction.finistonassiette.recette.JsonFormat;
 /**
  * Created by Florian on 15/05/2015.
  */
-public class Incontournable extends AlimentListDisplayer {
+public class Incontournable extends AlimentListDisplayer implements View.OnClickListener{
+
     private GridView lv;
     private Button boutonfin = null;
+    private TextView chargement =  null;
+    private boolean bool =false;
 
     /*
      * Fonction permettant d'obtenir le contexte de l'activité principal, si on ne le récupére pas alors le contexte fourni
@@ -49,13 +54,12 @@ public class Incontournable extends AlimentListDisplayer {
         // the class, just initialize them here
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin = (Button) lLayout.findViewById(R.id.boutonfinselection);
-
+        chargement =(TextView) lLayout.findViewById(R.id.chargement);
         Aliment alim = new Aliment(context);
         //fabrication de l'objet aliment
         arrayListAlimentsDisplayer = ListeAliment.alimentsArraylist(alim.getHashMapAlimentFromCategorie(getString(R.string.Incontournable)));
         // On déclare ici l'adapteur pour pouvoir faire fonctionner la méthode notifyDataSetChanged
         myAdapter = new Adapter(arrayListAlimentsDisplayer, super.context);
-        lv.setAdapter(myAdapter);
 
         // Listener pour sélection des aliments
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,9 +67,9 @@ public class Incontournable extends AlimentListDisplayer {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AlimentDisplayer alim = arrayListAlimentsDisplayer.get(position);
                 if (alim.isClicked() == false) {
-                    CheckItem(alim,myAdapter);
+                    CheckItem(alim, myAdapter);
                 } else {
-                    unCheckItem(alim,myAdapter);
+                    unCheckItem(alim, myAdapter);
                 }
             }
         });
@@ -74,31 +78,24 @@ public class Incontournable extends AlimentListDisplayer {
          * Lance une demande de consultation de requête en fonction des aliment présents la variable statique aliment de la classe CreateListAliment
          * @see CreateListAliment
          */
-        boutonfin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        boutonfin.setOnClickListener(this);
 
-                CreateListAliment.getAlimList(context);
-                // Retour au menu principal
-                // Plus tard ce sera affichage de la liste des résultats
-                Fragment fragment = new MenuPrincipal();
-                ChangeFragment(v, fragment);
-
-                ArrayList<String> result= new ArrayList<String>();
-                result.add("Oeuf");
-                // définition des comportements pour la requête consulter recette
-                Information frag =  new Information();
-                frag.setRequete(new ConsulterRecette());
-                String[] tmp =frag.executeRequest(result);
-                frag.setAnalyse_resultat(new JsonFormat(tmp));
-                frag.setInstancie(new ConstructeurDefaut());
-                frag.changementFragment(frag.analyse_result(),getActivity().getFragmentManager());
-
-            }
-        });
-
-
+        lv.setAdapter(myAdapter);
         return lLayout;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        ArrayList<String> result = new ArrayList<String>();
+        result.add("oeuf");
+        // définition des comportements pour la requête consulter recette
+        Information frag = new Information();
+        frag.setRequete(new ConsulterRecette());
+        String[] tmp = frag.executeRequest(result);
+        frag.setAnalyse_resultat(new JsonFormat(tmp));
+        frag.setInstancie(new ConstructeurDefaut());
+        frag.changementFragment(frag.analyse_result(), getActivity().getFragmentManager());
     }
 }
 

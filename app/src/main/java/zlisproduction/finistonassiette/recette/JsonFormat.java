@@ -41,7 +41,7 @@ public class JsonFormat implements AnalyseResultat {
 
             map= new HashMap<>();
             //si c'est la fin de la recupération
-            if(data[i] != "\n") {
+            if(!data[i].equals("\n")) {
 
                 try {
                     jsonObject = new JSONObject(data[i]);
@@ -84,6 +84,9 @@ public class JsonFormat implements AnalyseResultat {
 
                 i++;
                 arrayList.add(map);
+            }
+            else{
+                i++;
             }
 
         }
