@@ -32,5 +32,11 @@ public static ArrayList <AlimentDisplayer>  alimentsArraylist (HashMap<String, I
         return aliments;
     }
 
+    public static ArrayList<AlimentDisplayer> getAliments() {
+        return aliments;
+    }
 
+    public static void setAliments(ArrayList<AlimentDisplayer> aliments) {
+        ListeAliment.aliments = aliments;
+    }
 }

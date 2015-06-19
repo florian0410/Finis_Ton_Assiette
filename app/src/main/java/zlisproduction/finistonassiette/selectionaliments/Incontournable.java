@@ -87,12 +87,11 @@ public class Incontournable extends AlimentListDisplayer implements View.OnClick
     @Override
     public void onClick(View v) {
 
-        ArrayList<String> result = new ArrayList<String>();
-        result.add("oeuf");
         // définition des comportements pour la requête consulter recette
         Information frag = new Information();
         frag.setRequete(new ConsulterRecette());
-        String[] tmp = frag.executeRequest(result);
+        ArrayList<String> tmpstring = CreateListAliment.HashMapToArrayList();
+        String[] tmp = frag.executeRequest(tmpstring);
         frag.setAnalyse_resultat(new JsonFormat(tmp));
         frag.setInstancie(new ConstructeurDefaut());
         frag.changementFragment(frag.analyse_result(), getActivity().getFragmentManager());

@@ -21,6 +21,7 @@ import java.util.HashMap;
 
 import zlisproduction.finistonassiette.MainActivity;
 import zlisproduction.finistonassiette.R;
+import zlisproduction.finistonassiette.selectionaliments.CreateListAliment;
 
 /**
  * Created by Thibaut on 09/06/2015.
@@ -106,11 +107,12 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
                     String email = finalHolder.edit.getText().toString();
                     //consitution de la liste des ingrédients que l'utilisateur à déja
 
-                    Object[] ingredients= MainActivity.result.toArray();
+                    Object[] ingredients= CreateListAliment.HashMapToArrayList().toArray();
                     int tmpsize= ingredients.length;
                     ArrayList<String> ingr= new ArrayList<String>();
                     for (int h=0;h<tmpsize;h++){
-                       ingr.add(ingredients[h].toString());
+                        String str=ingredients[h].toString().replaceAll("\\_","");
+                       ingr.add(str);
                     }
                     ingr.add(finalHolder.nom_recette_creee.getText().toString());
                     ingr.add(email);
@@ -190,7 +192,8 @@ public class ConstructeurDefautAdapter extends BaseAdapter {
         for (String string : tmpStr){
             stringBuilder.append("- "+string+"\n");
         }
-        holder.ingredient.setText(stringBuilder);
+        String tmp= stringBuilder.toString().replaceAll("\\_", " ");
+        holder.ingredient.setText(tmp);
 
 
         holder.type_plat.setText(data_adapter.get(position).get("type_plat"));

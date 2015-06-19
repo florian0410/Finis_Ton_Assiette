@@ -51,15 +51,15 @@ public  class ConsulterRecette extends Requete {
     protected String[] doInBackground(ArrayList<String>... params) {
 
         ArrayList <String> arr= params[0];
-        int nombre_aliments= params.length;
+        int nombre_aliments= arr.size();
         StringBuilder stringBuilder= new StringBuilder("http://finistonassiette.ddns.net/consulterRecette.php?");
         int i=0;
 
         for (i=0; i<nombre_aliments; i++){
-            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]",""));
+            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]","")+"&");
         }
 
-        stringBuilder.append("&total="+Integer.toString(nombre_aliments));
+        stringBuilder.append("total="+Integer.toString(nombre_aliments));
 
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(stringBuilder.toString());

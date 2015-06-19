@@ -17,9 +17,10 @@ public class CreateListAliment {
 
     private static HashMap<String,Integer> alimentsSelectionnes = new HashMap<>();
     private static boolean doublons=false;
+    private static  Set key= null;
 
     public static boolean addAlimentSelectionne(String pAlimentsSelectionnes, int pImage) {
-        Set key = alimentsSelectionnes.keySet();
+        key = alimentsSelectionnes.keySet();
         /*
         éliminer les doublons
          */
@@ -66,6 +67,17 @@ public class CreateListAliment {
 
     public static HashMap<String,Integer> getAlimentsSelectionnes() {
         return alimentsSelectionnes;
+    }
+
+
+    public static ArrayList<String> HashMapToArrayList(){
+
+        ArrayList<String> array= new ArrayList<String>();
+
+        for(String mapkey : alimentsSelectionnes.keySet()){
+            array.add(mapkey);
+        }
+    return array;
     }
 
 }
