@@ -25,7 +25,7 @@ public class AlimentsChoisis extends AlimentListDisplayer {
         // Changer le titre de la barre d'action
         ActionBar actionbar = getActivity().getActionBar();
         actionbar.setTitle(getResources().getString(R.string.aliments_selectionnes));
-        View lLayout = inflater.inflate(R.layout.listview, container, false);
+        View lLayout = inflater.inflate(R.layout.listview_selected, container, false);
 
         lv = (GridView) lLayout.findViewById(R.id.ListViewAliment);
         boutonfin=(Button) lLayout.findViewById(R.id.boutonfinselection);

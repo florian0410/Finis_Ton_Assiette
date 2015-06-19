@@ -3,11 +3,11 @@ package zlisproduction.finistonassiette.selectionaliments.barcodescanner;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +22,7 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import zlisproduction.finistonassiette.MainActivity;
 import zlisproduction.finistonassiette.R;
 import zlisproduction.finistonassiette.imagefromurl.ImageLoader;
 
@@ -39,7 +40,7 @@ public class ProductInformations extends Fragment {
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
     private int loader = R.drawable.ic_loader;
     private boolean isScan = false;
-
+    private boolean isBackground;
 
     @Override
     public void onAttach(Activity activity) {
@@ -71,6 +72,10 @@ public class ProductInformations extends Fragment {
         return Layout;
     }
 
+    public void SetIsBackground(boolean pValue){
+        isBackground = pValue;
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -79,16 +84,20 @@ public class ProductInformations extends Fragment {
         // Recherche sur openfoodfact aliment
         String ProductDatas = bundle.getString("Product");
         getJsonDatas(ProductDatas);
-
     }
+
 
     @Override
     public void onStop(){
         super.onStop();
         // Quand on quitte ce fragment autre que pour un scan, on retire le second pour éviter les bugs
-        if(!isScan){
+        if(!isScan &&  !isBackground){
             RemoveSecondFragment();
         }
+    }
+
+    public  void onWindowFocusChanged(boolean hasFocus){
+
     }
 
     /*

@@ -16,7 +16,7 @@
 
 
     <style name="SubTitles" parent="android:Theme.Holo.Light">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">italic</item>
         <item name="android:textColor">@color/brown_subtitles</item>
     </style>
