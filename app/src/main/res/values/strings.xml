@@ -48,6 +48,7 @@
     <string name="yellow">Jaune</string>
     <string name="orange">Orange</string>
     <string name="red">Rouge</string>
+    <string name="txt_list_view_selected">Pour supprimer un élément de la liste, appuyez dessus pour le sélectionner puis déselectionnez le. (En cours de correction)</string>
 
 
 </resources>
