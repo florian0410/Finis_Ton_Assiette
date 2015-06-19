@@ -56,7 +56,7 @@ public  class ConsulterRecette extends Requete {
         int i=0;
 
         for (i=0; i<nombre_aliments; i++){
-            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]","")+"&");
+            stringBuilder.append("aliment" + Integer.toString(i) + "=" + arr.get(i).toString().replace("[", "").replace("]","").replace(" ","%20")+"&");
         }
 
         stringBuilder.append("total="+Integer.toString(nombre_aliments));

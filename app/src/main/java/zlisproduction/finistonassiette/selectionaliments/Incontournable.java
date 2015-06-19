@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import zlisproduction.finistonassiette.R;
@@ -84,17 +85,42 @@ public class Incontournable extends AlimentListDisplayer implements View.OnClick
         return lLayout;
     }
 
+    /**
+     * Réalise la requête si la liste des aliments séléctionnée n'est pas vierge. Sinon on affiche un toast
+     * @param v
+     */
     @Override
     public void onClick(View v) {
 
+        CreateListAliment.getAlimList(context);
+        // Retour au menu principal
+        // Plus tard ce sera affichage de la liste des résultats
+
+
         // définition des comportements pour la requête consulter recette
-        Information frag = new Information();
-        frag.setRequete(new ConsulterRecette());
-        ArrayList<String> tmpstring = CreateListAliment.HashMapToArrayList();
-        String[] tmp = frag.executeRequest(tmpstring);
-        frag.setAnalyse_resultat(new JsonFormat(tmp));
-        frag.setInstancie(new ConstructeurDefaut());
-        frag.changementFragment(frag.analyse_result(), getActivity().getFragmentManager());
+        if (CreateListAliment.getAlimentSelectionnes().size()!=0)
+        {
+            Information frag = new Information();
+            frag.setRequete(new ConsulterRecette());
+            ArrayList<String> tmpstring = CreateListAliment.HashMapToArrayList();
+            String[] tmp = frag.executeRequest(tmpstring);
+            if(tmp.length !=1){
+
+
+            frag.setAnalyse_resultat(new JsonFormat(tmp));
+            frag.setInstancie(new ConstructeurDefaut());
+            frag.changementFragment(frag.analyse_result(), getActivity().getFragmentManager());
+
+            }
+            else{
+                Toast.makeText(context, "Aucune recette pour l'instant!", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+
+            Toast.makeText(context, "Vous n'avez pas sélectionnez d'aliments !", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }
 

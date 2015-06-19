@@ -51,7 +51,7 @@ public class CreateListAliment {
             listAlim += alimName+" ";
         }
         Toast.makeText(pContext,listAlim, Toast.LENGTH_LONG).show();
-        cleanAlimList(pContext);
+        //cleanAlimList(pContext);
     }
 
     public static HashMap<String,Integer> getAlimentSelectionnes(){
