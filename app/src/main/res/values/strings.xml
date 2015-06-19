@@ -42,6 +42,12 @@
     <string name="touchez_un_aliment_pour_l_ajouter_a_la_liste">Touchez un aliment pour l\'ajouter ou le supprimer de la liste</string>
     <string name="listealimentselectionnés">liste des aliments séléctionnés</string>
     <string name="aliments_selectionnes">Aliments séléctionnés</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Bleu</string>
+    <string name="green">Vert</string>
+    <string name="yellow">Jaune</string>
+    <string name="orange">Orange</string>
+    <string name="red">Rouge</string>
 
 
 </resources>

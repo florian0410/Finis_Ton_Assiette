@@ -2,20 +2,14 @@ package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import java.util.ArrayList;
+import android.widget.ImageView;
 
 import zlisproduction.finistonassiette.R;
 
@@ -26,11 +20,11 @@ import zlisproduction.finistonassiette.R;
     /*
     déclaration des boutons
      */
-    private Button incontournables;
-    private Button patesFarinesCereales;
-    private Button viandePoissons;
-    private Button produitsLaitiers;
-    private Button fruitlegumes;
+    private ImageView incontournables;
+    private ImageView patesFarinesCereales;
+    private ImageView viandePoissons;
+    private ImageView produitsLaitiers;
+    private ImageView fruitlegumes;
     private Fragment fragment;
 
     @Override
@@ -47,19 +41,19 @@ import zlisproduction.finistonassiette.R;
           /*
         Désérialisation des boutons et définition de l'écouteur
          */
-        incontournables=(Button) lLayout.findViewById(R.id.incontournable);
+        incontournables=(ImageView) lLayout.findViewById(R.id.btn_blue);
         incontournables.setOnClickListener(this);
 
-        patesFarinesCereales=(Button) lLayout.findViewById(R.id.PatesFarinesCereales);
+        patesFarinesCereales=(ImageView) lLayout.findViewById(R.id.btn_green);
         patesFarinesCereales.setOnClickListener(this);
 
-        viandePoissons=(Button) lLayout.findViewById(R.id.viandePoissons);
+        viandePoissons=(ImageView) lLayout.findViewById(R.id.btn_indigo);
         viandePoissons.setOnClickListener(this);
 
-        produitsLaitiers=(Button) lLayout.findViewById(R.id.produitsLaitiers);
+        produitsLaitiers=(ImageView) lLayout.findViewById(R.id.btn_orange);
         produitsLaitiers.setOnClickListener(this);
 
-        fruitlegumes=(Button) lLayout.findViewById(R.id.fruitlegumes);
+        fruitlegumes=(ImageView) lLayout.findViewById(R.id.btn_yellow);
         fruitlegumes.setOnClickListener(this);
 
         // Instead of :
@@ -72,23 +66,23 @@ import zlisproduction.finistonassiette.R;
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.incontournable:
+            case R.id.btn_blue:
                 fragment = new Incontournable();
                 break;
 
-            case R.id.PatesFarinesCereales:
+            case R.id.btn_green:
                 fragment = new PatesFarinesCereales();
                 break;
 
-            case R.id.viandePoissons:
+            case R.id.btn_indigo:
                 fragment = new ViandePoisson();
                 break;
 
-            case R.id.produitsLaitiers:
+            case R.id.btn_orange:
                 fragment = new ProduitLaitier();
                 break;
 
-            case R.id.fruitlegumes:
+            case R.id.btn_yellow:
                fragment = new FruitLegume();
                 break;
         }
