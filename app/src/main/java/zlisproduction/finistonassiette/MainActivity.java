@@ -244,8 +244,6 @@ public class MainActivity extends FragmentActivity {
 			frag.getInstancie().setArguments(args);
 			fragment= frag.getInstancie();
 
-
-
 			break;
 		case 3:
 			fragment = new Compte();
