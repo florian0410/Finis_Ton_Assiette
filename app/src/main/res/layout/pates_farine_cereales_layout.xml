@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:style="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
    <TextView
-       android:text="Saisissez votre catégorie!"
+       style="@style/Titles"
+       android:text="@string/choisir_categorie"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content" />
 
@@ -13,7 +15,7 @@
         style="@style/fbutton_text"
         android:id="@+id/pate"
         android:text="Pates"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="200dp"
         android:minHeight="70dp"
@@ -21,7 +23,7 @@
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         android:layout_gravity="center_horizontal"
-        fbutton:buttonColor="@color/fbutton_color_orange"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="6dp"
         fbutton:cornerRadius="8dp"/>
@@ -30,7 +32,7 @@
         style="@style/fbutton_text"
         android:id="@+id/farine"
         android:text="Farine"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="200dp"
         android:minHeight="70dp"
@@ -39,7 +41,7 @@
         android:layout_gravity="center_horizontal"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
-        fbutton:buttonColor="@color/fbutton_color_orange"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="6dp"
         fbutton:cornerRadius="8dp"/>
@@ -48,14 +50,14 @@
         style="@style/fbutton_text"
         android:id="@+id/cereales"
         android:text="@string/Céréales"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="200dp"
         android:minHeight="70dp"
         android:layout_margin="7dp"
         android:padding="3dp"
         android:layout_gravity="center_horizontal"
-        fbutton:buttonColor="@color/fbutton_color_orange"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"/>

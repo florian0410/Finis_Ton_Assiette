@@ -6,6 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        style="@style/Titles"
+        android:text="@string/choisir_categorie"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
     <info.hoang8f.widget.FButton
         style="@style/fbutton_text"
         android:id="@+id/fruit"
@@ -19,7 +25,7 @@
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
-        fbutton:buttonColor="@color/fbutton_color_orange"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
         />
 
     <info.hoang8f.widget.FButton
@@ -34,7 +40,7 @@
         android:layout_height="wrap_content"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
-        fbutton:buttonColor="@color/fbutton_color_orange"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="6dp"
         fbutton:cornerRadius="8dp"/>
