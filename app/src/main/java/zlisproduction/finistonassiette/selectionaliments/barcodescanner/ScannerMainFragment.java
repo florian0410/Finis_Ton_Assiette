@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 import org.json.JSONObject;
 
+import zlisproduction.finistonassiette.CommunicateWithFragment;
 import zlisproduction.finistonassiette.R;
 
 
@@ -30,8 +32,7 @@ public class ScannerMainFragment extends Fragment {
     private Context context = null;
     private String SourceURL = "http://fr.openfoodfacts.org/api/v0/produit/";   // source avec code barre manquant
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
-
-
+    private View Layout = null;
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -42,13 +43,14 @@ public class ScannerMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View Layout = inflater.inflate(R.layout.scanner_fragment_main, container, false);
+        Layout = inflater.inflate(R.layout.scanner_fragment_main, container, false);
 
         Button mScannerAccess = (Button) Layout.findViewById(R.id.scanner_button);
 
         mScannerAccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CommunicateWithFragment.SetNewActivity(true);
                 IntentIntegrator integrator = IntentIntegrator.forFragment(ScannerMainFragment.this);
                 integrator.setCaptureActivity(CaptureActivityOrientation.class);
                 integrator.setOrientationLocked(true);  // verrouillage de l'orientation
@@ -60,8 +62,10 @@ public class ScannerMainFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        CommunicateWithFragment.SetNewActivity(false);
         String scanContent = null;
         String scanFormat = null;
+        Layout.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(dbsCommunication.checkScanAnswer(scanningResult, context)) {
@@ -75,6 +79,7 @@ public class ScannerMainFragment extends Fragment {
             new JSONParse().execute();  // l'asynctask finis l'action pour passer au fragment suivant normalement
         }
     }
+
 
     /**
      *

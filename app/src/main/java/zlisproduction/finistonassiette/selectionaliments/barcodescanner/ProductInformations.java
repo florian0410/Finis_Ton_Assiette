@@ -22,6 +22,7 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import zlisproduction.finistonassiette.CommunicateWithFragment;
 import zlisproduction.finistonassiette.MainActivity;
 import zlisproduction.finistonassiette.R;
 import zlisproduction.finistonassiette.imagefromurl.ImageLoader;
@@ -41,6 +42,7 @@ public class ProductInformations extends Fragment {
     private int loader = R.drawable.ic_loader;
     private boolean isScan = false;
     private boolean isBackground;
+    private View Layout = null;
 
     @Override
     public void onAttach(Activity activity) {
@@ -52,7 +54,7 @@ public class ProductInformations extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         isScan = false;
-        View Layout = inflater.inflate(R.layout.product_info, container, false);
+        Layout = inflater.inflate(R.layout.product_info, container, false);
 
 
         mTitle = (TextView) Layout.findViewById(R.id.title);
@@ -62,6 +64,7 @@ public class ProductInformations extends Fragment {
         mNewScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CommunicateWithFragment.SetNewActivity(true);
                 isScan = true;
                 IntentIntegrator integrator = IntentIntegrator.forFragment(ProductInformations.this);
                 integrator.setCaptureActivity(CaptureActivityOrientation.class);
@@ -96,17 +99,15 @@ public class ProductInformations extends Fragment {
         }
     }
 
-    public  void onWindowFocusChanged(boolean hasFocus){
-
-    }
-
     /*
     * Quand on reçevra un résultat, on instanciera un nouveau fragment affichant celui-ci.
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        CommunicateWithFragment.SetNewActivity(false);
         String scanContent = null;
         String scanFormat = null;
+        Layout.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(dbsCommunication.checkScanAnswer(scanningResult, context)) {

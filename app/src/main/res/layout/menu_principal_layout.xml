@@ -13,39 +13,5 @@
     <zlisproduction.finistonassiette.views.RadialButtonLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"/>
-    <!--
-    <TextView
-        android:id="@+id/choixcategories"
-        android:text="Veuillez choisir votre catégorie!"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:text="Incontournables"
-        android:id="@+id/incontournable"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:elevation="45dp"/>
-    <Button
-        android:text="Pates, farine et céréales"
-        android:id="@+id/PatesFarinesCereales"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:text="Viande et poisson"
-        android:id="@+id/viandePoissons"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:text="Produits laitiers"
-        android:id="@+id/produitsLaitiers"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:text="Fruits et légumes"
-        android:id="@+id/fruitlegumes"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        />
-        !-->
+        android:layout_centerInParent="true" />
 </RelativeLayout>

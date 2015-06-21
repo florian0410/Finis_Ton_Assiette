@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/chargement"
@@ -28,11 +30,20 @@
         android:layout_weight="11"
         android:numColumns="2" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/boutonfinselection"
-            android:text="@string/trouver_une_recette"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal" />
+    <info.hoang8f.widget.FButton
+        style="@style/fbutton_text"
+        android:id="@+id/boutonfinselection"
+        android:text="@string/trouver_une_recette"
+        android:minWidth="200dp"
+        android:minHeight="50dp"
+        android:layout_margin="7dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fbutton:buttonColor="@color/fbutton_color_peter_river"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="6dp"
+        fbutton:cornerRadius="8dp"/>
 </LinearLayout>

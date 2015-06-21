@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="tipsArray">
+        <item>Pour conserver les blancs d\'œufs, il suffit de les placer dans un récipient hermétique, de préférence en plastique. Vous pouvez conserver les blancs d\'œufs ainsi au réfrigérateur durant quatre jours maximum.</item>
+        <item>Grace au code inscrit sur les coquilles d’œuf, vous pouvez savoir dans quelle condition la poule a été élevée. S’il commence par 1, elle s’est nourrie de bons grains en plein air (le 0 précise que l’œuf est issu de l’agriculture biologique). Le 2 révèle que les œufs ont été pondus par des poules élevées au sol, c’est-à-dire en intérieur mais sans cage. Quant au chiffre 3, il souligne l’élevage en cage à raison de 18 poules par mètre carré.</item>
+        <item>Les jaunes d\'œufs entiers se conservent très bien au réfrigérateur durant quelques jours. Glissez les jaunes d\'œufs dans un petit bol et ajoutez assez d\'eau froide pour couvrir complètement.
+    Bien égoutter avant l\'usage. </item>
+
+        <item>Pour conserver du persil frais, couper un millimètre des tiges de la botte de persil. La mettre dans un verre d\'eau et couvrir avec un sachet en plastique bien fermé autour du verre par un élastique.
+    Conserver dans la porte du frigo, étagère la plus basse. Ce persil reste frais plusieurs jours ! </item>
+
+        <item>Rien de plus simple que d’utiliser des restes de poulet rôti ! Couper-le en petits morceaux. Faites revenir un oignon, rajoutez le poulet avec un peu de sauce tomates et servez avec des pâtes fraiches et du fromage râpé.</item>
+        <item>Vous avez des herbes fraîches que vous allez perdre? Déposez-les dans des bacs à glaçons, recouvrez d’huile d’olive (ou autre), et congelez. Prenez ensuite un « glaçon » aromatisé pour faire chauffer dans une poêle au lieu d’utiliser votre huile directement de la bouteille.</item>
+        <item>La date limite de consommation (DLC) exprimée sur les produits réfrigérés par la mention "à consommer jusqu’au". -Lorsque cette date est dépassée, le produit est impropre à la consommation. </item>
+        <item>La date limite d’utilisation optimale (DLUO) exprimée par la mention "à consommer de préférence avant le" pour les produits d’épicerie, les surgelés et les boissons. Lorsque cette date est dépassée, le produit peut être consommé sans risque mais il a perdu une partie de ses qualités nutritionnelles et organoleptiques.</item>
+        <item>Vous connaissez surement la date limite d’utilisation optimale (DLUO) exprimée par la mention "à consommer de préférence avant le" pour les produits d’épicerie, les surgelés et les boissons. Lorsque cette date est dépassée, le produit peut être consommé sans risque mais il a perdu une partie de ses qualités nutritionnelles et organoleptiques.</item>
+    </string-array>
+</resources>

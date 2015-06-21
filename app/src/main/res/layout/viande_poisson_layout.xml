@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
 
-        android:text="Choisissez votre catégorie"
+    <TextView
+        style="@style/Titles"
+        android:text="@string/choisir_categorie"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
-    <Button
+    <info.hoang8f.widget.FButton
+        style="@style/fbutton_text"
         android:id="@+id/viande"
         android:text="Viandes"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="200dp"
+        android:minHeight="70dp"
+        android:layout_margin="7dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:layout_gravity="center_horizontal"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="6dp"
+        fbutton:cornerRadius="8dp"/>
+
+    <info.hoang8f.widget.FButton
+        style="@style/fbutton_text"
         android:id="@+id/poissons"
         android:text="Poissons"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="200dp"
+        android:minHeight="70dp"
+        android:layout_margin="7dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:layout_gravity="center_horizontal"
+        fbutton:buttonColor="@color/fbutton_color_carrot"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="6dp"
+        fbutton:cornerRadius="8dp"/>
 
 </LinearLayout>

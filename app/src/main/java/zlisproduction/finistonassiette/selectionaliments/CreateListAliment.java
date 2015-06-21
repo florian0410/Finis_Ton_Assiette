@@ -54,9 +54,10 @@ public class CreateListAliment {
         //cleanAlimList(pContext);
     }
 
-    public static HashMap<String,Integer> getAlimentSelectionnes(){
+   /* public static HashMap<String,Integer> getAlimentSelectionnes(){
         return alimentsSelectionnes;
-    }
+    }*/
+
     /*
      * Méthode pour vider la liste des aliments stockés
      */
@@ -69,7 +70,6 @@ public class CreateListAliment {
         return alimentsSelectionnes;
     }
 
-
     public static ArrayList<String> HashMapToArrayList(){
 
         ArrayList<String> array= new ArrayList<String>();
@@ -80,4 +80,12 @@ public class CreateListAliment {
     return array;
     }
 
+    public static boolean CheckIfSelected(String pAlim){
+        for(String mapkey : alimentsSelectionnes.keySet()){
+            if(pAlim.equals(mapkey)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

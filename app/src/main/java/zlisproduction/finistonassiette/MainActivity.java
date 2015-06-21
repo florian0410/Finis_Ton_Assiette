@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import zlisproduction.finistonassiette.recette.Information;
 import zlisproduction.finistonassiette.recette.JsonFormat;
 import zlisproduction.finistonassiette.selectionaliments.AlimentsChoisis;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
+import zlisproduction.finistonassiette.selectionaliments.TipsBase;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ProductInformations;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
 
@@ -36,7 +38,7 @@ public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-	public static boolean isBackground = false;
+	public static boolean isFirstlaunch = true;
 
 	// nav drawer title
 	private CharSequence mDrawerTitle;
@@ -99,7 +101,7 @@ public class MainActivity extends FragmentActivity {
         // Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
         // Recycle the typed array
 		navMenuIcons.recycle();
@@ -135,14 +137,20 @@ public class MainActivity extends FragmentActivity {
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
 			displayView(0);
+            TipsBase tips = new TipsBase(this);
+            tips.ShowRandomTips();
 		}
+		/*if(isFirstlaunch){
+			TipsBase tips = new TipsBase(this);
+			tips.ShowRandomTips();
+		}*/
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
 		FragmentManager fm = getFragmentManager();
-		if(fm.findFragmentById(R.id.frame_container2) != null){
+		if(fm.findFragmentById(R.id.frame_container2) != null && !CommunicateWithFragment.getNewActivity()){
 			ProductInformations fragment = (ProductInformations) getFragmentManager().findFragmentById(R.id.frame_container);
 			fragment.SetIsBackground(true);
 		}
