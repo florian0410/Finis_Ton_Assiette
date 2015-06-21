@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,7 +38,7 @@ public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-	public static boolean isBackground = false;
+	public static boolean isFirstlaunch = true;
 
 	// nav drawer title
 	private CharSequence mDrawerTitle;
@@ -135,7 +137,13 @@ public class MainActivity extends FragmentActivity {
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
 			displayView(0);
+            TipsBase tips = new TipsBase(this);
+            tips.ShowRandomTips();
 		}
+		/*if(isFirstlaunch){
+			TipsBase tips = new TipsBase(this);
+			tips.ShowRandomTips();
+		}*/
 	}
 
 	@Override
