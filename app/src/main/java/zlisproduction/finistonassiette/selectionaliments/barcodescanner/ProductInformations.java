@@ -22,6 +22,7 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import zlisproduction.finistonassiette.CommunicateWithFragment;
 import zlisproduction.finistonassiette.MainActivity;
 import zlisproduction.finistonassiette.R;
 import zlisproduction.finistonassiette.imagefromurl.ImageLoader;
@@ -63,6 +64,7 @@ public class ProductInformations extends Fragment {
         mNewScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CommunicateWithFragment.SetNewActivity(true);
                 isScan = true;
                 IntentIntegrator integrator = IntentIntegrator.forFragment(ProductInformations.this);
                 integrator.setCaptureActivity(CaptureActivityOrientation.class);
@@ -97,15 +99,12 @@ public class ProductInformations extends Fragment {
         }
     }
 
-    public  void onWindowFocusChanged(boolean hasFocus){
-
-    }
-
     /*
     * Quand on reçevra un résultat, on instanciera un nouveau fragment affichant celui-ci.
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        CommunicateWithFragment.SetNewActivity(false);
         String scanContent = null;
         String scanFormat = null;
         Layout.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);

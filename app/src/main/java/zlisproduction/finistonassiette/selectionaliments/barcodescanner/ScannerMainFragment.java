@@ -20,6 +20,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 import org.json.JSONObject;
 
+import zlisproduction.finistonassiette.CommunicateWithFragment;
 import zlisproduction.finistonassiette.R;
 
 
@@ -32,7 +33,6 @@ public class ScannerMainFragment extends Fragment {
     private String SourceURL = "http://fr.openfoodfacts.org/api/v0/produit/";   // source avec code barre manquant
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
     private View Layout = null;
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -50,6 +50,7 @@ public class ScannerMainFragment extends Fragment {
         mScannerAccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CommunicateWithFragment.SetNewActivity(true);
                 IntentIntegrator integrator = IntentIntegrator.forFragment(ScannerMainFragment.this);
                 integrator.setCaptureActivity(CaptureActivityOrientation.class);
                 integrator.setOrientationLocked(true);  // verrouillage de l'orientation
@@ -61,6 +62,7 @@ public class ScannerMainFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        CommunicateWithFragment.SetNewActivity(false);
         String scanContent = null;
         String scanFormat = null;
         Layout.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
@@ -77,6 +79,7 @@ public class ScannerMainFragment extends Fragment {
             new JSONParse().execute();  // l'asynctask finis l'action pour passer au fragment suivant normalement
         }
     }
+
 
     /**
      *

@@ -150,7 +150,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onPause() {
 		super.onPause();
 		FragmentManager fm = getFragmentManager();
-		if(fm.findFragmentById(R.id.frame_container2) != null){
+		if(fm.findFragmentById(R.id.frame_container2) != null && !CommunicateWithFragment.getNewActivity()){
 			ProductInformations fragment = (ProductInformations) getFragmentManager().findFragmentById(R.id.frame_container);
 			fragment.SetIsBackground(true);
 		}
