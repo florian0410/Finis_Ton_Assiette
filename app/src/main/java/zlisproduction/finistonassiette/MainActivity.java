@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ import zlisproduction.finistonassiette.recette.Information;
 import zlisproduction.finistonassiette.recette.JsonFormat;
 import zlisproduction.finistonassiette.selectionaliments.AlimentsChoisis;
 import zlisproduction.finistonassiette.selectionaliments.MenuPrincipal;
+import zlisproduction.finistonassiette.selectionaliments.TipsBase;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ProductInformations;
 import zlisproduction.finistonassiette.selectionaliments.barcodescanner.ScannerMainFragment;
 

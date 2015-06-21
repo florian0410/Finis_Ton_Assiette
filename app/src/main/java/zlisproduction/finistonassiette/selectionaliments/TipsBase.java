@@ -1,4 +1,4 @@
-package zlisproduction.finistonassiette;
+package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
+
+import zlisproduction.finistonassiette.R;
 
 /**
  * Created by Florian.S on 20/06/2015.
