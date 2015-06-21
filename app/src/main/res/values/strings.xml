@@ -14,17 +14,6 @@
         <item >Non défini</item>
     </string-array>
 
-    <!-- Nav Drawer List Item Icons -->
-    <!-- Keep them in order as the titles are in -->
-    <array name="nav_drawer_icons">
-        <item>@drawable/ic_home</item>
-        <item>@mipmap/ic_launcher</item>
-        <item>@mipmap/ic_launcher</item>
-        <item>@mipmap/ic_launcher</item>
-        <item>@mipmap/ic_launcher</item>
-        <item>@mipmap/ic_launcher</item>
-    </array>
-
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="aliment_déjà_choisi">Vous aviez déjà choisi cet aliment avant</string>
