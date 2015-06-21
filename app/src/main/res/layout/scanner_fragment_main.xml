@@ -36,10 +36,13 @@
         fbutton:shadowHeight="6dp"
         fbutton:cornerRadius="8dp"/>
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/loadingPanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
         android:layout_below="@+id/scanner_button"
-        android:id="@+id/ScanResult"/>
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

@@ -41,6 +41,7 @@ public class ProductInformations extends Fragment {
     private int loader = R.drawable.ic_loader;
     private boolean isScan = false;
     private boolean isBackground;
+    private View Layout = null;
 
     @Override
     public void onAttach(Activity activity) {
@@ -52,7 +53,7 @@ public class ProductInformations extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         isScan = false;
-        View Layout = inflater.inflate(R.layout.product_info, container, false);
+        Layout = inflater.inflate(R.layout.product_info, container, false);
 
 
         mTitle = (TextView) Layout.findViewById(R.id.title);
@@ -107,6 +108,7 @@ public class ProductInformations extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         String scanContent = null;
         String scanFormat = null;
+        Layout.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(dbsCommunication.checkScanAnswer(scanningResult, context)) {

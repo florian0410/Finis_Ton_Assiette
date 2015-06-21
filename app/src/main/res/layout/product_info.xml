@@ -65,6 +65,16 @@
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="6dp"
             fbutton:cornerRadius="8dp"/>
+
+        <ProgressBar
+            android:id="@+id/loadingPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/start_scan_button"
+            android:layout_toEndOf="@+id/start_scan_button"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
 </ScrollView>

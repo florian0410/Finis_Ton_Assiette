@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ public class ScannerMainFragment extends Fragment {
     private Context context = null;
     private String SourceURL = "http://fr.openfoodfacts.org/api/v0/produit/";   // source avec code barre manquant
     private String DynamicURL = null;   // String permettant d'avoir une URL changeante
-
+    private View Layout = null;
 
     @Override
     public void onAttach(Activity activity) {
@@ -42,7 +43,7 @@ public class ScannerMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View Layout = inflater.inflate(R.layout.scanner_fragment_main, container, false);
+        Layout = inflater.inflate(R.layout.scanner_fragment_main, container, false);
 
         Button mScannerAccess = (Button) Layout.findViewById(R.id.scanner_button);
 
@@ -62,6 +63,7 @@ public class ScannerMainFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         String scanContent = null;
         String scanFormat = null;
+        Layout.findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
         super.onActivityResult(requestCode, resultCode, data);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(dbsCommunication.checkScanAnswer(scanningResult, context)) {
