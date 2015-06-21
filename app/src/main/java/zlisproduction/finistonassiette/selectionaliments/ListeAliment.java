@@ -10,8 +10,6 @@ import java.util.Iterator;
  */
 public class ListeAliment {
 
-
-
     private static ArrayList<AlimentDisplayer>  aliments = new ArrayList<AlimentDisplayer>();
 
     /**
@@ -27,6 +25,10 @@ public static ArrayList <AlimentDisplayer>  alimentsArraylist (HashMap<String, I
         while(keySetIterator.hasNext()){
             String key = keySetIterator.next();
             AlimentDisplayer alim = new AlimentDisplayer(pListeAliments.get(key),key);
+            // Check si déjà sélectionné
+            if(CreateListAliment.CheckIfSelected(key)){
+                alim.setIsClicked(true);
+            }
             aliments.add(alim);
         }
         return aliments;
