@@ -68,7 +68,7 @@ public class ProduitLaitier extends AlimentListDisplayer {
                 //Fragment fragment = new MenuPrincipal();
                 //ChangeFragment(v, fragment);
                 // définition des comportements pour la requête consulter recette
-                if (CreateListAliment.getAlimentSelectionnes().size()!=0)
+                if (CreateListAliment.getAlimentsSelectionnes().size()!=0)
                 {
                     Information frag = new Information();
                     frag.setRequete(new ConsulterRecette());

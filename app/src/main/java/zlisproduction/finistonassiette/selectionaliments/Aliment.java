@@ -139,7 +139,7 @@ import zlisproduction.finistonassiette.R;
         hashMapLegumes.put(pContext.getString(R.string.Oignon), R.drawable.ic_oignontransparent);
         hashMapLegumes.put(pContext.getString(R.string.Pomme_de_terre), R.drawable.ic_pommedeterre2transparent);
         hashMapLegumes.put(pContext.getString(R.string.Tomate), R.drawable.ic_tomatetransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Artichaut), R.drawable.ic_1courgettetransparente);
+        hashMapLegumes.put(pContext.getString(R.string.Artichaut), R.drawable.ic_artichaut_transparent);
         hashMapLegumes.put(pContext.getString(R.string.Aubergine),R.drawable.ic_auberginetransparent);
         hashMapLegumes.put(pContext.getString(R.string.Avocat), R.drawable.ic_avocattransparent);
        // hashMapLegumes.put(pContext.getString(R.string.Betterave),R.drawable.ic_beurretransparent);

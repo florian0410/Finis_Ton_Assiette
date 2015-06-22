@@ -71,17 +71,30 @@ public class Fruit extends AlimentListDisplayer {
                 //Fragment fragment = new MenuPrincipal();
                 //ChangeFragment(v, fragment);
                 // définition des comportements pour la requête consulter recette
-                if (CreateListAliment.getAlimentSelectionnes().size()!=0)
+                if (CreateListAliment.getAlimentsSelectionnes().size()!=0)
                 {
+                    //Instanciation d'un objet information.
                     Information frag = new Information();
+
+                    // L'état requête est est modifié via la méthode setRequete(), il prend la valeur ConsulterRecette pour lancer la consultation d'une requête.
                     frag.setRequete(new ConsulterRecette());
+
+                    //Récupération des aliments que l'utilisateur à selectionné et dont il souhaite trouver une ou plusieurs recettes
                     ArrayList<String> tmpstring = CreateListAliment.HashMapToArrayList();
+
+                    //Exécution de la requête
                     String[] tmp = frag.executeRequest(tmpstring);
+
+                    //Si il n'y a pas de résultats correspondant aux ingrédients sélectionnés alors  "Aucune recette pour l'instant!" est affiché
                     if(tmp.length !=1){
 
-
+                        //sinon on extrait la réponse
                         frag.setAnalyse_resultat(new JsonFormat(tmp));
+
+                        // on définie l'état de Instancie comme étant l'affichage graphique correspondant à une recette
                         frag.setInstancie(new ConstructeurDefaut());
+
+                        // on affiche la ou les recettes à l'écran
                         frag.changementFragment(frag.analyse_result(), getActivity().getFragmentManager());
 
                     }
@@ -91,6 +104,7 @@ public class Fruit extends AlimentListDisplayer {
                 }
                 else{
 
+                    // Si aucun aliment n'a été sélectionné, on affiche "Vous n'avez pas sélectionnez d'aliments !"
                     Toast.makeText(context, "Vous n'avez pas sélectionnez d'aliments !", Toast.LENGTH_SHORT).show();
 
                 }

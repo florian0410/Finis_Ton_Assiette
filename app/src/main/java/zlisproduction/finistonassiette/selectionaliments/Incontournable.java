@@ -98,7 +98,7 @@ public class Incontournable extends AlimentListDisplayer implements View.OnClick
 
 
         // définition des comportements pour la requête consulter recette
-        if (CreateListAliment.getAlimentSelectionnes().size()!=0)
+        if (CreateListAliment.getAlimentsSelectionnes().size()!=0)
         {
             Information frag = new Information();
             frag.setRequete(new ConsulterRecette());
