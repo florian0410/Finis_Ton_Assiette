@@ -21,5 +21,4 @@ public interface AnalyseResultat {
     public void resultat_suggestion_courses();
     public HashMap<String,String> getCompteAttributes();
 
-
 }
