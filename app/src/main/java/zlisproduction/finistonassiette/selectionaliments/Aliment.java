@@ -7,14 +7,14 @@ import java.util.HashMap;
 import zlisproduction.finistonassiette.R;
 
 /**
- * Created by Florian.S on 05/06/2015.
- *
- * Cette classe stockera 2 HashMap, la première permettra d'accéder à la catégorie
- * La seconde contenue dans la première stockera tout les aliments et leur image associées
- *
- * Optimisation : Plus tard on stockera toutes ces données dans une BDD selon le temps restant
- */
-public class Aliment {
+ * C    reated by Florian.S on 05/06/2015.
+            *
+            * Cette classe stockera 2 HashMap, la première permettra d'accéder à la catégorie
+            * La seconde contenue dans la première stockera tout les aliments et leur image associées
+    *
+            * Optimisation : Plus tard on stockera toutes ces données dans une BDD selon le temps restant
+    */
+    public class Aliment {
 
     // HashMap pour trouver la HashMap aliment selon la catégorie
     private HashMap<String,HashMap<String,Integer>> hashMapCategories = new HashMap<>();
