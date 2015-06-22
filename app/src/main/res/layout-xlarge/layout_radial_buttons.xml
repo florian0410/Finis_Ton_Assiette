@@ -27,7 +27,7 @@
         android:minHeight="250dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:src="@drawable/ic_fruits"
+        android:src="@drawable/ic_fruit_et_legumes_menu"
         android:background="@drawable/circle_darker_green"
         android:visibility="invisible"
         android:clickable="true"
