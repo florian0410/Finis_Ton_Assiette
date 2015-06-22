@@ -1,15 +1,18 @@
 package zlisproduction.finistonassiette.selectionaliments;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import zlisproduction.finistonassiette.R;
 
@@ -26,6 +29,13 @@ import zlisproduction.finistonassiette.R;
     private ImageView produitsLaitiers;
     private ImageView fruitlegumes;
     private Fragment fragment;
+    private Context context = null;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        context = activity.getApplicationContext();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,7 +43,6 @@ import zlisproduction.finistonassiette.R;
         ActionBar actionbar = getActivity().getActionBar();
         actionbar.setTitle(getResources().getString(R.string.Menu_Principal));
        // FragmentActivity    faActivity  = (FragmentActivity)    super.getActivity();
-
         View lLayout = inflater.inflate(R.layout.menu_principal_layout, container, false);
         // Of course you will want to faActivity and llLayout in the class and not this method to access them in the rest of
         // the class, just initialize them here
@@ -58,7 +67,9 @@ import zlisproduction.finistonassiette.R;
 
         // Instead of :
         // findViewById(R.id.someGuiElement);
+
         return lLayout; // We must return the loaded Layout
+
     }
 
 
