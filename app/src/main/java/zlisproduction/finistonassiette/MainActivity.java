@@ -95,11 +95,11 @@ public class MainActivity extends FragmentActivity {
         // Pas encore assigné
 		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(3, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
 
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(4, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         // Pas encore assigné
 		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
@@ -216,15 +216,10 @@ public class MainActivity extends FragmentActivity {
 			fragment = new ScannerMainFragment();
 			break;
 		case 2:
-
-			break;
-		case 3:
 			fragment = new Compte();
 			break;
-		case 4:
-            fragment = new AlimentsChoisis();
-			break;
-		case 5:
+		case 3:
+			fragment = new AlimentsChoisis();
 			break;
 		default:
             //fragment = new MenuPrincipal();

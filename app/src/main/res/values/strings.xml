@@ -8,10 +8,8 @@
     <string-array name="nav_drawer_items">
         <item >Menu Principal</item>
         <item >Barcode Scanner</item>
-        <item >Consulter une recette!</item>
         <item >Mon Compte</item>
         <item >Consulter mes aliments </item>
-        <item >Non défini</item>
     </string-array>
 
     <!-- Content Description -->
