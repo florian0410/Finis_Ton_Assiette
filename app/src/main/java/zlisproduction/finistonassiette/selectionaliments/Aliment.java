@@ -7,14 +7,14 @@ import java.util.HashMap;
 import zlisproduction.finistonassiette.R;
 
 /**
- * Created by Florian.S on 05/06/2015.
- *
- * Cette classe stockera 2 HashMap, la première permettra d'accéder à la catégorie
- * La seconde contenue dans la première stockera tout les aliments et leur image associées
- *
- * Optimisation : Plus tard on stockera toutes ces données dans une BDD selon le temps restant
- */
-public class Aliment {
+ * C    reated by Florian.S on 05/06/2015.
+            *
+            * Cette classe stockera 2 HashMap, la première permettra d'accéder à la catégorie
+            * La seconde contenue dans la première stockera tout les aliments et leur image associées
+    *
+            * Optimisation : Plus tard on stockera toutes ces données dans une BDD selon le temps restant
+    */
+    public class Aliment {
 
     // HashMap pour trouver la HashMap aliment selon la catégorie
     private HashMap<String,HashMap<String,Integer>> hashMapCategories = new HashMap<>();
@@ -146,30 +146,30 @@ public class Aliment {
         hashMapLegumes.put(pContext.getString(R.string.Brocoli), R.drawable.ic_brocolistransparent);
         hashMapLegumes.put(pContext.getString(R.string.Carotte), R.drawable.ic_carottetransparent);
         hashMapLegumes.put(pContext.getString(R.string.chou_blanc_ou_vert), R.drawable.ic_choutransparent);
-        hashMapLegumes.put(pContext.getString(R.string.chou_fleur), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(pContext.getString(R.string.chou_fleur), R.drawable.ic_chou_fleur_transparent);
         hashMapLegumes.put(pContext.getString(R.string.Champignion), R.drawable.ic_champignonstransparent);
 
         //hashMapLegumes.put(pContext.getString(R.string.Choux_de_Bruxelles), R.drawable.ic_beurretransparent);
        //hashMapLegumes.put(pContext.getString(R.string.Coeur_de_palmier), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Concombre), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(pContext.getString(R.string.Concombre), R.drawable.ic_concombre_transparent);
         hashMapLegumes.put(pContext.getString(R.string.Courgette), R.drawable.ic_1courgettetransparent);
         hashMapLegumes.put(pContext.getString(R.string.Épinards), R.drawable.ic_epinardstransparent);
         hashMapLegumes.put(pContext.getString(R.string.Fenouil), R.drawable.ic_fenouiltransparent);
         //hashMapLegumes.put(pContext.getString(R.string.Flageolets), R.drawable.ic_beurretransparent);
         //hashMapLegumes.put(pContext.getString(R.string.Germes_de_soja), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Haricots_verts), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(pContext.getString(R.string.Haricots_verts), R.drawable.ic_haricots_verts_transparent);
         hashMapLegumes.put(pContext.getString(R.string.Lentilles), R.drawable.ic_lentillestransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Maïs), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Navet), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Olives_noires), R.drawable.ic_beurretransparent);
+        //hashMapLegumes.put(pContext.getString(R.string.Maïs), R.drawable.ic_beurretransparent);
+        //hashMapLegumes.put(pContext.getString(R.string.Navet), R.drawable.ic_beurretransparent);
+        //hashMapLegumes.put(pContext.getString(R.string.Olives_noires), R.drawable.ic_beurretransparent);
         //hashMapLegumes.put(pContext.getString(R.string.Olives_vertes), R.drawable.ic_beurretransparent);
         //hashMapLegumes.put(pContext.getString(R.string.Patate_douce), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Petits_pois), R.drawable.ic_beurretransparent);
+        hashMapLegumes.put(pContext.getString(R.string.Petits_pois), R.drawable.ic_petits_pois_transparent);
         hashMapLegumes.put(pContext.getString(R.string.Poireau), R.drawable.ic_poireauxtransparent);
         //hashMapLegumes.put(pContext.getString(R.string.Pois_cassés), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Pois_chiches), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Pois_gourmands), R.drawable.ic_beurretransparent);
-        hashMapLegumes.put(pContext.getString(R.string.Poivron), R.drawable.ic_beurretransparent);
+        //hashMapLegumes.put(pContext.getString(R.string.Pois_chiches), R.drawable.ic_beurretransparent);
+        //hashMapLegumes.put(pContext.getString(R.string.Pois_gourmands), R.drawable.ic_beurretransparent);
+        //hashMapLegumes.put(pContext.getString(R.string.Poivron), R.drawable.ic_poivron_transparent);
         //hashMapLegumes.put(pContext.getString(R.string.Potimarron), R.drawable.ic_beurretransparent);
         //hashMapLegumes.put(pContext.getString(R.string.Potiron), R.drawable.ic_beurretransparent);
         hashMapLegumes.put(pContext.getString(R.string.Radis), R.drawable.ic_radistransparent);
@@ -179,52 +179,52 @@ public class Aliment {
         hashMapLegumes.put(pContext.getString(R.string.echalotte), R.drawable.ic_echalotetransparent);
         hashMapLegumes.put(pContext.getString(R.string.menthe), R.drawable.ic_menthetransparente);
         //Pâtes
-        hashMapPates.put(pContext.getString(R.string.Coquillettes), R.drawable.ic_beurretransparent);
+        hashMapPates.put(pContext.getString(R.string.Coquillettes), R.drawable.ic_coquillettes_transparent);
         hashMapPates.put(pContext.getString(R.string.Spaghetti), R.drawable.ic_spaghettitransparent);
         hashMapPates.put(pContext.getString(R.string.Farfalle), R.drawable.ic_farfalestransparent);
         hashMapPates.put(pContext.getString(R.string.Penne_Rigate), R.drawable.ic_pennetransparent);
-        hashMapPates.put(pContext.getString(R.string.Linguine), R.drawable.ic_beurretransparent);
-        hashMapPates.put(pContext.getString(R.string.Tagliatelle), R.drawable.ic_beurretransparent);
+        //hashMapPates.put(pContext.getString(R.string.Linguine), R.drawable.ic_beurretransparent);
+        hashMapPates.put(pContext.getString(R.string.Tagliatelle), R.drawable.ic_tagliatelles_transparent);
         hashMapPates.put(pContext.getString(R.string.Macaroni), R.drawable.ic_macaronitransparent);
         //hashMapPates.put(pContext.getString(R.string.Nouilles), R.drawable.ic_beurretransparent);
-        hashMapPates.put(pContext.getString(R.string.Fusilli), R.drawable.ic_beurretransparent);
-        hashMapPates.put(pContext.getString(R.string.Capellini), R.drawable.ic_beurretransparent);
+        hashMapPates.put(pContext.getString(R.string.Fusilli), R.drawable.ic_fusilli_transparent);
+        //hashMapPates.put(pContext.getString(R.string.Capellini), R.drawable.ic_beurretransparent);
         //hashMapPates.put(pContext.getString(R.string.Torti), R.drawable.ic_beurretransparent);
-        hashMapPates.put(pContext.getString(R.string.Vermicelli), R.drawable.ic_beurretransparent);
+        //hashMapPates.put(pContext.getString(R.string.Vermicelli), R.drawable.ic_beurretransparent);
         hashMapPates.put(pContext.getString(R.string.Lasagnes), R.drawable.ic_lasagnestransparent);
-        hashMapPates.put(pContext.getString(R.string.pates_deja_cuites), R.drawable.ic_lasagnestransparent);
+        //hashMapPates.put(pContext.getString(R.string.pates_deja_cuites), R.drawable.ic_lasagnestransparent);
         // Poisson
-        HashPoisson.put(pContext.getString(R.string.Cabillaud), R.drawable.ic_beurretransparent);
+        HashPoisson.put(pContext.getString(R.string.Cabillaud), R.drawable.ic_cabillaud_transparent);
         //HashPoisson.put(pContext.getString(R.string.Calamars), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Colin), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Crevettes), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Daurade), R.drawable.ic_beurretransparent);
+        //HashPoisson.put(pContext.getString(R.string.Colin), R.drawable.ic_beurretransparent);
+        HashPoisson.put(pContext.getString(R.string.Crevettes), R.drawable.ic_crevette_transparente);
+        HashPoisson.put(pContext.getString(R.string.Daurade), R.drawable.ic_dorade_transparent);
         //HashPoisson.put(pContext.getString(R.string.Flétan), R.drawable.ic_beurretransparent);
         //HashPoisson.put(pContext.getString(R.string.Gambas), R.drawable.ic_beurretransparent);
         //HashPoisson.put(pContext.getString(R.string.Haddock), R.drawable.ic_beurretransparent);
         //HashPoisson.put(pContext.getString(R.string.Hareng), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Lieu), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Maquerau), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Merlu), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Moules), R.drawable.ic_beurretransparent);
+        HashPoisson.put(pContext.getString(R.string.Lieu), R.drawable.ic_lieu_jaune_transparent);
+        HashPoisson.put(pContext.getString(R.string.Maquerau), R.drawable.ic_maquereau_transparent);
+        //HashPoisson.put(pContext.getString(R.string.Merlu), R.drawable.ic_beurretransparent);
+        //HashPoisson.put(pContext.getString(R.string.Moules), R.drawable.ic_beurretransparent);
         //HashPoisson.put(pContext.getString(R.string.Oeufs_de_lump), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Saint_Jacques), R.drawable.ic_beurretransparent);
+       // HashPoisson.put(pContext.getString(R.string.Saint_Jacques), R.drawable.ic_beurretransparent);
         HashPoisson.put(pContext.getString(R.string.Sardines), R.drawable.ic_sardinetransparent);
-        HashPoisson.put(pContext.getString(R.string.Saumon), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Saumon_fumé), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Sole), R.drawable.ic_beurretransparent);
+        //HashPoisson.put(pContext.getString(R.string.Saumon), R.drawable.ic_saumon_fumetransparent);
+        HashPoisson.put(pContext.getString(R.string.Saumon_fumé), R.drawable.ic_saumon_fumetransparent);
+        //HashPoisson.put(pContext.getString(R.string.Sole), R.drawable.ic_beurretransparent);
         //HashPoisson.put(pContext.getString(R.string.Surimi), R.drawable.ic_beurretransparent);
         //HashPoisson.put(pContext.getString(R.string.Thon_en_boite), R.drawable.ic_beurretransparent);
-        HashPoisson.put(pContext.getString(R.string.Truite), R.drawable.ic_beurretransparent);
+        HashPoisson.put(pContext.getString(R.string.Truite), R.drawable.ic_truitetransparent);
         // Produit Laiter
         hashMapProduitLaitier.put(pContext.getString(R.string.Gruyére), R.drawable.ic_gruyeretransparent);
-        hashMapProduitLaitier.put(pContext.getString(R.string.Brie), R.drawable.ic_beurretransparent);
+        hashMapProduitLaitier.put(pContext.getString(R.string.Brie), R.drawable.ic_brie_transparent);
         hashMapProduitLaitier.put(pContext.getString(R.string.Camembert), R.drawable.ic_camembertplanchetransparent);
         hashMapProduitLaitier.put(pContext.getString(R.string.Cantal), R.drawable.ic_emmentaltransparent);
-        hashMapProduitLaitier.put(pContext.getString(R.string.Chévre_Brebis), R.drawable.ic_beurretransparent);
+        //hashMapProduitLaitier.put(pContext.getString(R.string.Chévre_Brebis), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(pContext.getString(R.string.Comté), R.drawable.ic_compttransparent);
         //hashMapProduitLaitier.put(pContext.getString(R.string.Feta), R.drawable.ic_beurretransparent);
-        hashMapProduitLaitier.put(pContext.getString(R.string.Fromage_blanc), R.drawable.ic_beurretransparent);
+        hashMapProduitLaitier.put(pContext.getString(R.string.Fromage_blanc), R.drawable.ic_fromageblanc);
         hashMapProduitLaitier.put(pContext.getString(R.string.Lait_de_coco), R.drawable.ic_lait_de_coco_transparent);
         //hashMapProduitLaitier.put(pContext.getString(R.string.Lait_de_soja), R.drawable.ic_beurretransparent);
         hashMapProduitLaitier.put(pContext.getString(R.string.Mascarpone), R.drawable.ic_mascarponetransparent);
@@ -246,7 +246,7 @@ public class Aliment {
         //hashMapViande.put(pContext.getString(R.string.Boudin_blanc), R.drawable.ic_beurretransparent);
         hashMapViande.put(pContext.getString(R.string.Boudin_noir), R.drawable.ic_boudin_noirtransparent);
         hashMapViande.put(pContext.getString(R.string.Caille), R.drawable.ic_caille_rotie_transparent);
-        hashMapViande.put(pContext.getString(R.string.Dinde), R.drawable.ic_beurretransparent);
+        hashMapViande.put(pContext.getString(R.string.Dinde), R.drawable.ic_dindetransparente);
         //hashMapViande.put(pContext.getString(R.string.Escargots), R.drawable.ic_beurretransparent);
         hashMapViande.put(pContext.getString(R.string.Foie_gras), R.drawable.ic_foie_gras_transparent);
         hashMapViande.put(pContext.getString(R.string.Jambon_blanc), R.drawable.ic_jambon_fumtransparent);
@@ -262,7 +262,7 @@ public class Aliment {
         hashMapViande.put(pContext.getString(R.string.Poulet), R.drawable.ic_dessin_poulet_transparent);
         //hashMapViande.put(pContext.getString(R.string.Quenelles), R.drawable.ic_beurretransparent);
         hashMapViande.put(pContext.getString(R.string.Saucisse), R.drawable.ic_saucissetransparente);
-        hashMapViande.put(pContext.getString(R.string.Veau), R.drawable.ic_beurretransparent);
+        //hashMapViande.put(pContext.getString(R.string.Veau), R.drawable.ic_beurretransparent);
         hashMapViande.put(pContext.getString(R.string.saucisson), R.drawable.ic_saucissontransparent);
         hashMapViande.put(pContext.getString(R.string.dinde), R.drawable.ic_dindetransparente);
     }

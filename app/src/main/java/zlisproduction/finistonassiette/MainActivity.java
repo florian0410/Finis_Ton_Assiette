@@ -93,15 +93,15 @@ public class MainActivity extends FragmentActivity {
 		// Pas encore assigné
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
 
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         // Pas encore assigné
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
         // Recycle the typed array
 		navMenuIcons.recycle();
@@ -216,50 +216,10 @@ public class MainActivity extends FragmentActivity {
 			fragment = new ScannerMainFragment();
 			break;
 		case 2:
-
-
-
-            // définition des comportements pour la requête consulter recette
-			Information frag =  new Information();
-			frag.setRequete(new ConsulterRecette());
-			//exécution de la requete à consulter
-            String[] tmpResRequete = null;
-
-			try {
-				tmpResRequete =frag.getRequete().execute(result).get();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				e.printStackTrace();
-			}
-
-            //définition du comportement pour l'analyse du resultat
-			frag.setAnalyse_resultat(new JsonFormat(tmpResRequete));
-			//exécution de l'analyse
-            ArrayList<HashMap<String, Object>> tpsResAnalyse = null;
-
-            try {
-                tpsResAnalyse = frag.getAnalyse_resultat().demande_consulter_recette();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-			frag.setInstancie(new ConstructeurDefaut());
-
-			//on passe les arguments au nouveau fragment
-			Bundle args = new Bundle();
-            args.putSerializable("ingredients", tpsResAnalyse);
-			frag.getInstancie().setArguments(args);
-			fragment= frag.getInstancie();
-
-			break;
-		case 3:
 			fragment = new Compte();
 			break;
-		case 4:
-            fragment = new AlimentsChoisis();
-			break;
-		case 5:
+		case 3:
+			fragment = new AlimentsChoisis();
 			break;
 		default:
             //fragment = new MenuPrincipal();
@@ -280,7 +240,9 @@ public class MainActivity extends FragmentActivity {
 			mDrawerList.setSelection(position);
 			setTitle(navMenuTitles[position]);
 			mDrawerLayout.closeDrawer(mDrawerList);
-		} else {
+		}
+		else
+		{
 			// error in creating fragment
 			Log.e("MainActivity", "Error in creating fragment");
 		}
@@ -320,9 +282,11 @@ public class MainActivity extends FragmentActivity {
      */
     @Override
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
+        if (getFragmentManager().getBackStackEntryCount() > 0)
+		{
             getFragmentManager().popBackStack();
-        } else {
+        } else
+		{
             super.onBackPressed();
         }
     }
